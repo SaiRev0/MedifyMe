@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
+/* body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fcfcfc;
+} */
+
+.container {
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar {
+  height: 75px;
+  background: linear-gradient(84.18deg, #2D495D 0.31%, #28333A 100%) fixed center center/cover;
+  /* position: relative; */
+  width:100%;
+} 
+
+.menu_icon {
+  display: none;
+}
+.logoSection{
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  text-decoration-color: #2D4658;
+}
+
+.signIn{
+  margin-top: -5px;
+  display: flex;
+  width:150px;
+  align-items: center;
+  margin-right: 20%;
+}
+.signIn img{
+  margin-right: 15px;
+}
+
+.nav_elements ul {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.nav_elements ul li:not(:last-child) {
+  margin-right: 120px;
+}
+
+.nav_elements ul a {
+  font-family: 'Work Sans';
+  font-size: 16px;
+  font-weight: 400;
+  color: #FCFEFE;;
+  text-decoration: none;
+}
+
+.nav_elements ul a.active {
+  color: #574c4c;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav_elements ul a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #574c4c;
+}
+
+.brand{
+  padding-left: 20px;
+  font-size: 30px;
+  font-family: 'Yeseva One', cursive;
+  color: white;
+  display: inline !important;
+  margin-top:40px;
+}
+
+.brandIn {
+  color: #CDAA64;
+  display: inline !important;
+}
+
+@media (max-width: 768px) {
+  .nav_elements ul li:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu_icon {
+    display: block;
+    cursor: pointer;
+  }
+@media(min-width:1024px){
+  .nav_elements {
+    background-color: #fef7e5;
+    height: calc(100vh - 60px);
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+  }
+}
+  
+
+  .nav_elements.active {
+    width: 270px;
+  }
+
+  .nav_elements ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav_elements ul li {
+    margin-right: unset;
+    margin-top: 22px;
+  }
+}
+.appointment{
+  background-color: #CDAA64;
+  color: #28333A !important;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 50px;
+}
+.nav_elements ul li.active a {
+  color: #CDAA64;
+  font-weight: 500;
+  position: relative;
+  text-decoration: none;
+}
+.nav_elements ul li.active a {
+  color: #CDAA64;
+  font-weight: 500;
+  position: relative;
+  text-decoration: none;
+}
+
+
+@media (max-width:1024px){
+  .nav_elements{
+    display: none;
+  }
+}

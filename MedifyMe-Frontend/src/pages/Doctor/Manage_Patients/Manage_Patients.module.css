@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    background: white;
+}
+
+
+.logout:hover{
+    background: #CDAA64;
+}
+
+.logout_link {
+  text-decoration: none;
+  padding-left: 10px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  /* identical to box height */
+  color: #000000;
+}
+
+
+.doctor_history {
+  margin-left: 80px;
+
+}
+
+.doctor_history_content {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  padding: 5px 0px;
+  margin:25px 0px 10px 0px;
+  color: #FFFFFF;
+}
+
+.doctor {
+  margin-left: 60px;
+  padding-top: 15px;
+}
+
+.doctor_name {
+  margin-left: 25px;
+  display: inline-block;
+  width:150px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 0%;
+  color: #FFFFFF;
+}
+
+.doctor_contact {
+  margin-left: 70px;
+  display: inline-block;
+  width:150px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 0%;
+  margin-top:0px;
+  color: #FFFFFF;
+}
+
+
+
+.add_doctor_info {
+  display: inline;
+  margin-top: 30px;
+}
+
+.add_text_doctor {
+  margin-left: 80px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 27px;
+  /* identical to box height */
+  color: #FFFFFF;
+}
+
+.add_doctor_name {
+  margin-left: 130px;
+  width: 300px;
+  height: 35px;
+
+  background: #EDF2F9;
+  border-radius: 8.48894px;
+}
+
+/* Hide the default checkbox */
+.submit_button {
+  width: 100px;
+  height: 32px;
+  margin-left: 10px;
+  display: inline;
+  background: #CDAA64;
+  border-radius: 50px;
+}
+
+.ignorebtn{
+    height: 25px;
+    background: #fcfbf8;
+    border-radius: 5px;font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+}
+.ignorebtn:hover{
+    border:2px rgb(206, 27, 27) solid;
+    color: rgb(206, 27, 27);
+    border-radius: 7px;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.acceptbtn{
+    height: 25px;
+    background: #a38850;
+    border-radius: 5px;
+    margin-left:5px;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.acceptbtn:hover{
+    border : 2px #CDAA64 solid;
+    background-color: #CDAA64;
+    border-radius: 5px;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    height:23px;
+    width: 61px;
+    cursor: pointer;
+}
+
+
+.viewbtn{
+    height: 30px;
+    background: #a38850;
+    border-radius: 13px;
+    margin-left:5px;
+    width:70px;
+    position: relative;
+    bottom:4px;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.viewbtn:hover{
+    border : 2px #CDAA64 solid;
+    background-color: #CDAA64;
+    border-radius: 13px;
+    height:30px;
+    width:69px;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+@media (min-width: 1450px) {
+    .right_wrapper {
+        position: absolute;
+        right:0px;
+        margin-top: 50px;
+        padding-bottom: 69px;
+        width: 58rem;
+        background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+        border-top-left-radius: 20px;
+        padding-top: 30px;
+      }
+      
+    .logout {
+        position: absolute;
+        right:30px;
+        width: 68px;
+        background: #a38850;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1450px){
+    
+    .right_wrapper {
+        display:block;
+        margin-top: 50px;
+        padding-bottom: 69px;
+        width: 45rem;
+        height: 31.1rem;
+        background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        padding-top: 30px;
+        margin-top:700px;
+        margin-left:-33%;
+      }
+      .logout {
+        margin-left:28em;
+        width: 68px;
+        background: #a38850;
+        border-radius: 30px;
+        cursor: pointer;
+      }
+}

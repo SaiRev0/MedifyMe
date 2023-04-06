@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.health_history_form {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.header {
+    margin-left: 290px;
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 74px;
+    /* identical to box height */
+
+}
+
+.docter_name {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    color: black;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.text_health {
+    margin-left: 10px;
+    color: black;
+    margin-top: 40px;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.health_input,
+.comments {
+    margin-left: 2px;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 91%;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.health_file {
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+
+.submit_button {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    margin-left: 300px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background: #CDAA64;
+    border-radius: 30px;
+    width: 271px;
+    height: 50px;
+}
+
+.submit_button:hover {
+    background-color: #3e8e41;
+}

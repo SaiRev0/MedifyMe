@@ -1,0 +1,260 @@
+.PreH {
+    width: 340px;
+    height: 180px;
+    background: #2B3E4C;
+    border-radius: 20px 20px 0px 0px;
+    margin-top: 15px;
+    margin-left: 22px;
+    padding-bottom: 5px;
+}
+
+.t1 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 42px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+
+    color: #FFFFFF;
+}
+
+.docs {
+    display: grid;
+    grid-template-rows: repeat(5, 40px);
+    row-gap: 15px;
+    height: 130px;
+    margin-left: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.doc1 {
+    background: #F5DBA7;
+    border-radius: 15px;
+    width: 310px;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.16px;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+    color: #000000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.button {
+    width: 340px;
+    height: 45px;
+    background: #2B3E4C;
+    border-radius: 0px 0px 20px 20px;
+    margin-top: 2px;
+    margin-left: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button a {
+    text-decoration: none;
+}
+
+.b {
+    padding: 2px 35px;
+    background: #CDAA64;
+    border-radius: 50px;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 28px;
+    display: flex;
+    justify-content: center;
+    color: #000000;
+    width: fit-content;
+}
+
+.currMed {
+    width: 340px;
+    height: 370px;
+    background: #2B3E4C;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 22px;
+    padding-bottom: 5px;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 33px;
+    color: #FFFFFF;
+}
+
+.con {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+
+    color: #FFFFFF;
+}
+
+.d {
+    position: absolute;
+    left: 16.5%;
+}
+
+.currMed a {
+    text-decoration: none;
+}
+
+.inst {
+    margin-left: 20px;
+}
+
+.dinfo {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: #FFFFFF;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 150px;
+}
+
+.currentPres {
+    height: 602px;
+    width: 1125px;
+    background: #F1F1F1;
+    border: 5px solid #CDAA64;
+    border-radius: 20px;
+    position: absolute;
+    left: 25%;
+    top: 13%;
+}
+
+.ct {
+    display: flex;
+    flex-direction: row;
+}
+
+.ct1 {
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 74px;
+    color: #2B3F4E;
+    margin-left: 20px;
+}
+
+.ct2 {
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 74px;
+    color: #2B3F4E;
+    margin-left: 320px;
+}
+
+.accordian {
+    width: 700px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px;
+
+    color: #000000;
+}
+
+.cont {
+    display: grid;
+    height: 350px;
+    grid-template-columns: 680px 400px;
+    column-gap: 20px;
+}
+
+.photo {
+    margin-left: 10px;
+}
+
+
+
+.photo img {
+    width: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.grid_1 {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.input_text {
+    margin-top: 15px;
+    padding-left: 30px;
+    margin-left: 10px;
+    width: 970px;
+    height: 80px;
+    border-radius: 8px;
+    border: none;
+    background: #d4ddd3;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 74px;
+
+}
+
+.bt {
+    margin-left: 25px;
+    margin-top: 30px;
+
+}
+
+.button_size {
+    width: 50px;
+    height: auto;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+    position: absolute;
+    left: 91%;
+}
+
+.img_size {
+    width: 60px;
+}
+
+.input_text:focus-visible {
+    outline: none;
+}
+
+.outgoing {
+    color: rgb(224, 102, 102);
+}
+
+.date {
+    margin-left: 10px;
+}

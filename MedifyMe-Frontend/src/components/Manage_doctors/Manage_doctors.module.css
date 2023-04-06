@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.right_wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 70%;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  width: 58%;
+  background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+  border-top-left-radius: 3rem;
+  padding-top: 3rem;
+}
+
+.logout {
+  margin-left:650px;
+}
+
+.logout_link {
+  text-decoration: none;
+  padding-left: 10px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 32px;
+  color: #000000;
+  background: #CDAA64;
+  border-radius:30px;
+  width:90px;
+  margin-left:100px;
+}
+
+.logout_link:hover{
+  background: #a38850;
+}
+
+.doctor_history {
+  margin-left: 2rem;
+
+}
+
+.doctor_history_content {
+  padding-top: 1.2rem;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.2rem;
+  color: #FFFFFF;
+}
+.firstdoc{
+  margin-top: -2rem;
+  padding-top: 0;
+}
+.doctor {
+  margin-left: 1rem;
+  padding-top: 1.5rem;
+}
+
+.doctor_name {
+  margin-left: 25px;
+  display: inline;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  color: #FFFFFF;
+}
+
+.doctor_contact {
+  margin-left: 12rem;
+  display: inline;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  /* or 40px */
+  color: #FFFFFF;
+}
+
+
+
+.add_doctor_info {
+  display: inline;
+  margin-top: 30px;
+}
+
+.add_text_doctor {
+  margin-left: 2rem;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 27px;
+  /* identical to box height */
+  color: #FFFFFF;
+}
+
+.add_doctor_name {
+  margin-left: 5rem;
+  width: 300px;
+  height: 35px;
+
+  background: #EDF2F9;
+  border-radius: 8.48894px;
+}
+
+/* Hide the default checkbox */
+.submit_button {
+  display: inline;
+  margin-left: 5rem;
+  margin-top: 10px;
+  width: 120px;
+  background: #CDAA64;
+  border-radius: 30px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}

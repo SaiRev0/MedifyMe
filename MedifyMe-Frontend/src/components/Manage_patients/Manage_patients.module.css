@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.right_wrapper {
+  margin-top: 50px;
+  padding-bottom: 69px;
+  width: auto;
+  height: 520px;
+  background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+  border-top-left-radius: 20px;
+  padding-top: 30px;
+}
+
+.logout {
+  margin-left: 650px;
+  width: 68px;
+  background: #CDAA64;
+  border-radius: 30px;
+}
+
+.logout_link {
+  text-decoration: none;
+  padding-left: 10px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  /* identical to box height */
+  color: #000000;
+
+}
+
+.doctor_history {
+  margin-left: 80px;
+
+}
+
+.doctor_history_content {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 34px;
+  color: #FFFFFF;
+}
+
+.doctor {
+  margin-left: 60px;
+  padding-top: 15px;
+}
+
+.doctor_name {
+  margin-left: 25px;
+  display: inline;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  color: #FFFFFF;
+}
+
+.doctor_contact {
+  margin-left: 40px;
+  display: inline;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  /* or 40px */
+  color: #FFFFFF;
+}
+
+
+
+.add_doctor_info {
+  display: inline;
+  margin-top: 30px;
+}
+
+.add_text_doctor {
+  margin-left: 80px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 27px;
+  /* identical to box height */
+  color: #FFFFFF;
+}
+
+.add_doctor_name {
+  margin-left: 130px;
+  width: 300px;
+  height: 35px;
+
+  background: #EDF2F9;
+  border-radius: 8.48894px;
+}
+
+/* Hide the default checkbox */
+.submit_button {
+  width: 100px;
+  height: 32px;
+  margin-left: 10px;
+  display: inline;
+  background: #CDAA64;
+  border-radius: 50px;
+}

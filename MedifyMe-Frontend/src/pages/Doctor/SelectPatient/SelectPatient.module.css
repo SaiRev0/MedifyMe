@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+
+.grid_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* defines two equal columns */
+  grid-gap: 6rem;
+  /* adds a 10px gap between the columns */
+  background: white;
+  align-items: end;
+}
+.left_wrapper {
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  height: 80%;
+  width: 75%;
+}
+.right_wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 70%;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  width: 58%;
+  background: linear-gradient(270deg, #2a3842 2.95%, #2d485b 100%);
+  border-top-left-radius: 3rem;
+  padding-top: 1rem;
+}
+
+.doctor_history_content {
+  font-family: "Yeseva One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.2rem;
+  color: #cdaa64;
+}
+
+.add_doctor_info {
+  display: inline;
+  margin-top: 30px;
+}
+
+.add_text_doctor {
+  margin-left: 2rem;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+  color: #ffffff;
+}
+
+.add_doctor_name {
+  margin-left: 5rem;
+  width: 300px;
+  height: 35px;
+  font-size:1rem;
+  background: #edf2f9;
+  border-radius: 8.48894px;
+}
+
+.add_patient_id{
+  margin-left: 7.2rem;
+  width: 295px;
+  height: 33px;
+  font-size:1rem;
+  background: #edf2f9;
+  border-radius: 8.48894px;
+}
+
+.add_patients_p{
+  color:white;
+  font-size: 18px;
+  margin-left:30px;
+  margin-top:30px;
+  margin-bottom:10px;
+}
+
+.select_btn,.submit_btn {
+  display: inline;
+  margin-left: 5rem;
+  margin-top: 10px;
+  width: 120px;
+  background: #cdaa64;
+  border-radius: 30px;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.select_btn:hover,.submit_btn:hover{
+  background: #b39457;
+  cursor: pointer;
+}
+
+
+.patient{
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  color:white;
+  margin-left:1rem;
+}
+
+.patient p{
+  margin:13px 0px;
+}
+
+.ignorebtn{
+  height: 25px;
+  background: #fcfbf8;
+  border-radius: 5px;font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+}
+.ignorebtn:hover{
+  border:2px rgb(206, 27, 27) solid;
+  color: rgb(206, 27, 27);
+  border-radius: 7px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.acceptbtn{
+  height: 25px;
+  background-color: #CDAA64;
+  border-radius: 5px;
+  margin-left:5px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.acceptbtn:hover{
+  border : 2px #a38850 solid;
+  background: #a38850;
+  border-radius: 5px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  height:23px;
+  width: 61px;
+  cursor: pointer;
+}
+
+.viewbtn{
+  height: 30px;
+  background: #CDAA64;
+  border-radius: 13px;
+  margin-left:23rem;
+  margin-top:1rem;
+  width:100px;
+  font-size:16px;
+  
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.viewbtn:hover{
+  border : 2px #a38850 solid;
+  background-color: #a38850;
+  border-radius: 13px;
+  height:27.3px;
+  width: 100px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  cursor: pointer;
+  
+}

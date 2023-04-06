@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "our-forest-380314",
+  "private_key_id": "58147ab3e16c6c20688035729a516e5895ca5df0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCd31qL47N2lQbe\n59eMgM7wj8pE39Sf1WfAfzFy9E+evMVNKD4KpAcq6XTF+HpUYj13ADA3ibbk/4bq\nFVQ/OPD5s+yqcQbfE/uey/RsrZVKz/Z5zhe27qc1PsASpz2aWqR5Pd1AhLYkpH0R\nwx5JgsNfaPK32Mtc+YTNkErLJhYLNAFEvVTGoCTAKAXgqyQL0s99mh8csBn+CmPN\nrBX9BrAsgpZ0Vmjr8aRMzq/7DLNmAvwR7RfQt4Fis+6PzYX4Ghl/Cfx6SXvID0Ip\nkxFrczuQgUgCSuu4a6vfrpUukR7M7cVUkW5ZD3qd2qcJt4B4CyeYcuybOHvOtC8v\nSR98tIK5AgMBAAECggEAAmaBkxGxRxbtC2SpTBVVZpM7IAW3iKTqW0/byPIlx6wG\n9t1X8/O3RhV8MIcbcUIrcG5YBvCNotXI5heEFMnpLeGVi9uYDAchR7jbni9PLy7L\n27sdjj46wnlrwUTaQw+Ig21RQOB1TNSUib/50b3FIHbhK0vNGMk69fpKptdAO83M\n72/vRwwAgf6YgMcUnny5rObfBBxV8HND9iEai65VhIFnhMI9vqMhTBuBZY9zjuvJ\nYbLtiIhEWp9+uMCDPjvKMmVSZbzo0FCGD9mLKgTH1v9pwbiAa+1kqVWxtcIbKM1N\nUaYVXC2a3Tn4Wau6TekmgEM/QpSvdNth3pswqKtAMQKBgQDLygAVRwQDHGQrTl/W\nfZnD0Pxx+poWwTYuwqc1B2tQzebJ0Spbi12OBfZoQdNy77zJZ6ZfRRu5KnUbSyy1\n7NJjOKOVg7OUGnX6F0wcl75gr5wWajbmlrlFE+HVToxN0lEcFU65N90HQZSMMXlh\nFJA8HtTW1VsDIfvjZFzLbKt3KQKBgQDGUc15aORQcuTv/CZfpMFA8xRf+45d031w\n1S478KW+1p9w9Q7nyoUdB7dMgRwJbvkUoVIWS0Q03h3kLf4NKA0wAcnfEgwJQyp/\nPgU17HeTC/2NvMZniCjtheaYdxM+VCjuwLIHZPBw0mWLEd9K0+7VJYhleH/JoKrg\n98UdQYTxEQKBgFgaK3EHc6+YnaGvT3WedVSXzBvGmMlPnIoYs0sUuwuDCMylded/\n1+FnqICoPK8LABYejmnPqc2ikmBLXrgD+2zT9rzT5FYaHnkRi2EtJSwNn7B9GOEV\ntmEr2E1smPGoBFLcz1z5zr+tVXhKh0w2JKkpNyDtulwfXBORtyBnCbYJAoGAVJZ1\njpBXuZyX22hwMaFDMGG90gaovYpEWckDtFs7Rr+iN/q+Rc1So4Q0AXScMcXchZkd\nOxcVW3tVwop/brsjjNNmeDfpXFYCnU0lyc83XUfi+P6InYYs9sqDBYrccVxSLSuR\ng6fhCi4jU4Lm+7KTjuQ4XhdcYfKej9/+ejEE9BECgYEAtMDDYZw/0UmytRu0RM6I\nYo8Q9xbXIr6Sa8+VhligPwYp9gfCKPUse6WxdIthBM8RCcIs3sNCHgSohle5X9Gd\ndpOh6CJWNzhUvrJB0srdXl0yJKiHOEPsCqW1rZolB0OgCAqgaA7rbYGXDhVWQ4U/\nPTUKfx4jrKGmYADbO80EMZA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "medify@our-forest-380314.iam.gserviceaccount.com",
+  "client_id": "116338713536731556741",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/medify%40our-forest-380314.iam.gserviceaccount.com"
+}
