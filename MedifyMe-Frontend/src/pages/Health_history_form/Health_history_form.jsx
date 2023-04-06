@@ -6,8 +6,9 @@ import { useHealthFormMutation } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../../components/Loading/Loading";
 
-function Home() {
+function Health_history_form() {
   const navigate = useNavigate();
   const [doctorName, setDoctorName] = useState("");
   const [date, setDate] = useState("");
@@ -19,6 +20,9 @@ function Home() {
     return state.patient;
   });
 
+  const [form, formResults] = useHealthFormMutation(patient.id);
+  const isLoading = formResults.isLoading;
+
   useEffect(() => {
     if (!patient.isLoggedIn) {
       navigate("/login");
@@ -26,7 +30,13 @@ function Home() {
     }
   }, [navigate, patient.isLoggedIn]);
 
-  const [form, formResults] = useHealthFormMutation(patient.id);
+  if (isLoading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   const handleFileChange = (event) => {
     const files = event.target.files;
@@ -179,4 +189,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Health_history_form;

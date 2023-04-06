@@ -1,4 +1,4 @@
-import Navbar from "../../../components/Navbar/Navbar";
+import NavbarD from "../../../components/Doctor/NavbarD/NavbarD";
 import styles from "./Test_Report.module.css";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -20,7 +20,7 @@ function Test() {
 
   return (
     <>
-      <Navbar />
+      <NavbarD />
       <div className={styles.PreH}>
         <div className={styles.t1}>Reports History</div>
         <div className={styles.docs}>
@@ -54,7 +54,7 @@ function Test() {
         <div className={styles.t1}>Latest test taken</div>
         <div className={styles.docs2}>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="../doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Phillips</div>
@@ -62,28 +62,28 @@ function Test() {
             <a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><div className={styles.date}>&#128197;20Jan 2023</div></a>
           </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="../doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Gylnnei</div>
             </div>
             <a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><div className={styles.date}>&#128197;17Jan 2023</div></a>          </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="../doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Brickee</div>
             </div>
             <a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><div className={styles.date}>&#128197;15Jan 2023</div></a>          </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="../doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Mangle</div>
             </div>
             <a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><div className={styles.date}>&#128197;14Jan 2023</div></a>          </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="../doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. B.Sicke</div>
@@ -119,8 +119,8 @@ function Test() {
           </div>
           <div className={styles.right_cont}>
                 <div className={styles.rightu_cont}>
-                    <div className={styles.pdf_preview}><a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><img src="PDF.png"/><p>Blood Report</p></a></div>
-                    <div className={styles.pdf_preview}><a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><img src="PDF.png"/><p>Blood Report</p></a></div>
+                    <div className={styles.pdf_preview}><a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><img src="../PDF.png"/><p>Blood Report</p></a></div>
+                    <div className={styles.pdf_preview}><a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><img src="../PDF.png"/><p>Blood Report</p></a></div>
                     
                 </div>
                 <div className={styles.rightd_cont}>

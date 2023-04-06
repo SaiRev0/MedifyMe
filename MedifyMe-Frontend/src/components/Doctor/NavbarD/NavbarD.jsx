@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import Brand from "../../assets/Brand.svg";
-import styles from "./Navbar.module.css";
-import Account from "../../assets/account.svg";
+import Brand from "../../../assets/Brand.svg";
+import styles from "./NavbarD.module.css";
+import Account from "../../../assets/account.svg";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
@@ -26,29 +26,30 @@ const Navbar = () => {
         </div>
         <div className={styles.nav_elements}>
           <ul>
-            <li
-              className={
-                location.pathname === "/health_history" ? styles.active : ""
-              }
-            >
-              <Link to="/health_history">Health History</Link>
+            <li className={location.pathname === "/doctor/select_patient" ? styles.active : ""}>
+              <Link to="/doctor/select_patient" className={styles.patients} style={{color:'black'}}>Patients</Link>
             </li>
             <li
               className={
-                location.pathname === "/prescription" ? styles.active : ""
+                location.pathname === "/doctor/patient_health_history" ? styles.active : ""
               }
             >
-              <Link to="/prescription">Prescriptions</Link>
+              <Link to="/doctor/patient_health_history">Health History</Link>
             </li>
-            <li className={location.pathname === "/test" ? styles.active : ""}>
-              <Link to="/test">Tests & Reports</Link>
+            <li
+              className={
+                location.pathname === "/doctor/current_prescription" ? styles.active : ""
+              }
+            >
+              <Link to="/doctor/current_prescription">Prescriptions</Link>
             </li>
-            <li>
-              <div className={styles.appointment}>
-                <Link style={{ color: "black" }} to="/appointment">
+            <li className={location.pathname === "/doctor/test_report" ? styles.active : ""}>
+              <Link to="/doctor/test_report">Tests & Reports</Link>
+            </li>
+            <li className={location.pathname === "/doctor/patient_appointment" ? styles.active : ""}>
+                <Link to="/doctor/patient_appointment">
                   Appointment
                 </Link>
-              </div>
             </li>
             <li>
               <div className={styles.signIn}>

@@ -13,6 +13,7 @@ import Appointment from "./pages/Appointment/Appointment";
 import Current_Prescription from "./pages/Doctor/Current_Prescription/Current_Prescription";
 import Test_Report from "./pages/Doctor/Test_Report/Test_Report";
 import Patient_Health_History from "./pages/Doctor/Patient_Health_History/Patient_Health_History";
+import Patient_Appointment from "./pages/Doctor/Patient_Appointment/Patient_Appointment";
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
@@ -104,6 +105,7 @@ const router = createBrowserRouter(
           path="patient_health_history"
           element={<Patient_Health_History />}
         />
+        <Route path="patient_appointment" element={<Patient_Appointment />} />
       </Route>
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>

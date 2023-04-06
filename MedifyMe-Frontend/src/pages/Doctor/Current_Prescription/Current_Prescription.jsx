@@ -1,4 +1,4 @@
-import Navbar from "../../../components/Navbar/Navbar";
+import NavbarD from "../../../components/Doctor/NavbarD/NavbarD";
 import styles from "./Current_Prescription.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -19,7 +19,7 @@ function Prescription() {
 
   return (
     <>
-      <Navbar />
+      <NavbarD />
       <div className={styles.PreH}>
         <div className={styles.t1}>Prescription History</div>
         <div className={styles.docs}>
@@ -108,7 +108,7 @@ function Prescription() {
           </div>
           <div className={styles.right_cont}>
             <div className={styles.photo}>
-              <img src="PrescribtionImage.jpg" />
+              <img src="../PrescribtionImage.jpg" />
             </div>
           </div>
         </div>

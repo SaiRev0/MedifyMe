@@ -126,10 +126,8 @@ module.exports.healthHistoryForm = async (req, res) => {
     if (!req.body.id) {
       return res.status(400).json("No patient id provided");
     }
-
-    const { id } = req.query;
+    const { id } = req.body;
     const foundPatient = await Patient.findById(id);
-
     const fileUrls = [];
 
     for (const file of req.files) {

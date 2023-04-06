@@ -8,7 +8,7 @@
 } */
 
 .container {
-  padding: 0 0 0 15px;
+  padding: 0 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,17 +35,23 @@
 .signIn{
   margin-top: -5px;
   display: flex;
-  width:300px;
-  margin-right:-100px;
+  width:150px;
   align-items: center;
+  margin-right: 20%;
 }
 .signIn img{
-  margin-right: 15px;
-  margin-left:120px;
+  margin-right: 10px;
+  margin-left:40px;
 }
 
+.patients{
+    background-color: #CDAA64;
+    padding:8px 20px;
+    border-radius: 50px;
+}
+
+
 .nav_elements ul {
-  margin-right: 50px;
   display: flex;
   align-items: center;
   list-style-type: none;
@@ -67,6 +73,7 @@
   color: #574c4c;
   font-weight: 500;
   position: relative;
+  
 }
 
 .nav_elements ul a.active::after {
@@ -131,23 +138,15 @@
   }
 }
 .appointment{
-  background-color: #CDAA64;
-  color: #28333A !important;
+  color:white;
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 50px;
 }
-.nav_elements ul li.active a {
-  color: #CDAA64;
+.nav_elements ul li.active a{
   font-weight: 500;
-  position: relative;
-  text-decoration: none;
-}
-.nav_elements ul li.active a {
-  color: #CDAA64;
-  font-weight: 500;
-  position: relative;
+  color:#CDAA64;
   text-decoration: none;
 }
 

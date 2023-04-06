@@ -1,4 +1,4 @@
-import Navbar from "../../../components/Navbar/Navbar";
+import NavbarD from "../../../components/Doctor/NavbarD/NavbarD";
 import styles from "./Patient_Health_History.module.css";
 import { useSelector } from "react-redux";
 import { useEffect, useState, useMemo } from "react";
@@ -67,7 +67,7 @@ function HealthHistory() {
           className={styles.doc2}
           onClick={() => setSelectedVisit(visit)}
         >
-          <img src="doc.png" />
+          <img src="../doc.png" />
           <div>
             <div className={styles.t2}>Doctor</div>
             <div className={styles.t3}>{visit.doctorName}</div>
@@ -80,7 +80,7 @@ function HealthHistory() {
 
   return (
     <>
-      <Navbar />
+      <NavbarD />
       <div className={styles.box}>
         <div className={styles.history}>
           <div className={styles.d1}>
