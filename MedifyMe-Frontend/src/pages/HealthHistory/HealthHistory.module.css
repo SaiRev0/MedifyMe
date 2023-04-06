@@ -1,4 +1,3 @@
-
 .d1 {
   display: flex;
   justify-content: space-around;
@@ -7,7 +6,7 @@
 .history {
   display: flex;
   flex-direction: column;
-  margin:auto;
+  margin: auto;
   width: 96%;
   background: linear-gradient(90deg, #2d485c 0%, #2b3f4d 47.19%, #29343c 100%);
   border: 3px solid #cdaa64;
@@ -44,18 +43,24 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 30px;
-
+  margin-left: 20px;
   color: #ffffff;
 }
-
+.lowerSection {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.selectVisit {
+  margin-left: 2%;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+}
 .docvisit {
-  width: 340px;
-  height: 310px;
+  height: 21vw;
   background: #2b3e4c;
   border-radius: 20px 20px 0px 0px;
-  margin-top: 15px;
-  margin-left: 22px;
-  padding-bottom: 5px;
 }
 
 .t1 {
@@ -72,12 +77,11 @@
 }
 
 .button {
-  width: 340px;
+  width: 100%;
   height: 60px;
   background: #2b3e4c;
   border-radius: 0px 0px 20px 20px;
   margin-top: 2px;
-  margin-left: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,11 +108,10 @@
 }
 
 .docs {
+  width: 100%;
   display: grid;
   grid-template-rows: repeat(60px);
   row-gap: 20px;
-  height: 253px;
-  margin-left: 15px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -122,7 +125,6 @@
 .doc1 {
   background: #f5dba7;
   border-radius: 15px;
-  width: 310px;
   font-family: "Comfortaa";
   font-style: normal;
   font-weight: 400;
@@ -136,9 +138,9 @@
 }
 
 .doc2 {
+  margin: 0 5% 0 5%;
   background: white;
   border-radius: 15px;
-  width: 310px;
   font-family: "Comfortaa";
   font-style: normal;
   font-weight: 400;
@@ -162,7 +164,7 @@
 }
 
 .date {
-  margin-left: 40px;
+  margin-left: 0px;
   font-family: "Comfortaa";
   font-style: normal;
   font-weight: 400;
@@ -175,22 +177,15 @@
 }
 
 .infobox {
-    border: 3px solid #cdaa64;
-    border-radius: 20px;
-    height: 370px;
-    width: 1119px;
-    position: absolute;
-    top: calc(56% - 370px / 2 + 10vh);
-    left: 25%;
-    margin-top: 10px;
-  }
-  
-  @media screen and (max-width: 767px) {
-    .infobox {
-      /* Adjust top value for smaller screens */
-      top: calc(50% - 370px / 2 + 5vh);
-    }
-  }
+  position: relative;
+  border: 3px solid #cdaa64;
+  border-radius: 20px;
+  height: 24vw;
+  margin-left: 2%;
+  width: 74%;
+  margin-top: 10px;
+}
+
 .title {
   display: flex;
   flex-direction: row;
@@ -209,40 +204,44 @@
 }
 
 .title2 {
+
+  position: absolute;
+  right:30px;
   font-family: "Yeseva One";
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
   line-height: 74px;
   color: #2b3f4e;
-  margin-left: 500px;
 }
 
 .boxes {
-  display: grid;
-  grid-template-columns: 310px 310px 400px;
-  height: 290px;
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 80px);
   margin-top: 13px;
-  margin-left: 20px;
-  column-gap: 30px;
+margin-left: 20px;
+margin-right: 20px;
+  justify-content: space-between;
 }
 
 .doccomments {
+  width: 28%;
   background: #2b3e4c;
   box-shadow: 0px 3.24152px 55.9162px rgba(0, 0, 0, 0.04);
   border-radius: 27.5529px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
 }
 
 .doccommentst {
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: fit-content;
-  margin-left: 60px;
   background: #cdaa64;
   border-radius: 50px;
   padding: 8px 20px;
-  gap: 10px;
   height: 20px;
   font-family: "Comfortaa";
   font-style: normal;
@@ -250,15 +249,21 @@
   font-size: 15px;
   line-height: 28px;
   margin-top: 10px;
+  align-items: center;
 
   color: #000000;
+}
+
+.doccomments > :first-child {
+  align-self: center;
+}
+.doccomments > :nth-child(2) {
+  overflow: auto;
 }
 
 .documentst {
   display: flex;
   align-items: center;
-  width: fit-content;
-  margin-left: 100px;
   background: white;
   border-radius: 50px;
   padding: 8px 20px;
@@ -283,13 +288,23 @@
   margin-top: 10px;
   text-align: left;
   padding: 5px 10px;
+  margin-bottom: 10px;
 }
 .uploadedImg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
   background: #2b3e4c;
   box-shadow: 0px 3.24152px 55.9162px rgba(0, 0, 0, 0.04);
   border-radius: 27.5529px;
 }
 .centerimgs {
+  width: 100%;
+  overflow: auto;
+  margin-bottom: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -306,27 +321,39 @@
   align-items: center;
   justify-content: center;
 }
-
+@media only screen and (max-width: 1400px) {
+  .imgGrid {
+    margin-top: 1.1rem;
+    margin-left: 1.3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 .imgThumb {
-    border-radius: 0.2rem;
-    width: 6rem;
-    height: 6rem;
-    object-fit: cover;
-    transform-origin: center;
-  }
-  
-  .imgThumb:active {
-    cursor: pointer;
-    transform: scale(0.4) translate(-75%, -75%);
-    position: fixed;
-    top: 45%;
-    left: 75%;
-    transform-origin: center;
-    z-index: 9999;
-    margin-top: -40vh;
-    margin-left: -40vw; 
-    width: 80vw; 
-    height: auto; 
-  }
-  
+  border-radius: 0.2rem;
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  transform-origin: center;
+}
+
+.imgThumb:active {
+  cursor: pointer;
+  transform: scale(0.4) translate(-75%, -75%);
+  position: fixed;
+  top: 45%;
+  left: 75%;
+  transform-origin: center;
+  z-index: 9999;
+  margin-top: -40vh;
+  margin-left: -40vw;
+  width: 80vw;
+  height: auto;
+}
