@@ -43,9 +43,6 @@ const Navbar = () => {
             <li className={location.pathname === "/test" ? styles.active : ""}>
               <Link to="/test">Tests & Reports</Link>
             </li>
-            <li className={location.pathname === "/video" ? styles.active : ""}>
-              <Link to="/video">Video Chat</Link>
-            </li>
             <li>
               <div className={styles.appointment}>
                 <Link style={{ color: "black" }} to="/appointment">
