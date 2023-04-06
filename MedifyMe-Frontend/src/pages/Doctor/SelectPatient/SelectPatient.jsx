@@ -1,12 +1,12 @@
 import styles from "./SelectPatient.module.css";
-import Navbar from "../../../components/Navbar/Navbar";
+import NavbarD from "../../../components/Doctor/NavbarD/NavbarD";
 function SelectPatient() {
   return (
     <>
-      <Navbar />
+      <NavbarD />
       <div className={styles.grid_container}>
         <img
-          src="../../../../public/doctor-illustration.svg"
+          src="../public/doctor-illustration.svg"
           alt="doctor image"
           className={styles.left_wrapper}
         ></img>
