@@ -8,7 +8,7 @@
 } */
 
 .container {
-  padding: 0 15px;
+  padding: 0 0 0 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,23 +35,24 @@
 .signIn{
   margin-top: -5px;
   display: flex;
-  width:150px;
+  width:300px;
+  margin-right:-100px;
   align-items: center;
-  margin-right: 20%;
 }
 .signIn img{
   margin-right: 15px;
+  margin-left:120px;
 }
 
 .nav_elements ul {
-  margin-right: 20px;
+  margin-right: 50px;
   display: flex;
   align-items: center;
   list-style-type: none;
 }
 
 .nav_elements ul li:not(:last-child) {
-  margin-right: 120px;
+  margin-right: 90px;
 }
 
 .nav_elements ul a {
