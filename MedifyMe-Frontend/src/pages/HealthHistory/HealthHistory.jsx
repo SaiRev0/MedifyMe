@@ -76,7 +76,6 @@ function HealthHistory() {
   return (
     <>
       <Navbar />
-      <div className={styles.box}>
         <div className={styles.history}>
           <div className={styles.d1}>
             <img src={data.photo} />
@@ -90,7 +89,7 @@ function HealthHistory() {
               <li>Other Conditions : &nbsp;&nbsp;{data.otherConditions}</li>
               <li>Weight : &nbsp;&nbsp;{data.weight} kg</li>
             </ul>
-            <ul>
+            <ul className={styles.lastInfo}>
               <li>Medications : &nbsp;&nbsp;{data.medications}</li>
               <li>Height : &nbsp;&nbsp;{data.height} cm</li>
             </ul>
@@ -101,7 +100,6 @@ function HealthHistory() {
             </ul>
           </div>
         </div>
-      </div>
       <div className={styles.docvisit}>
         <div className={styles.t1}>Doctors Visits</div>
         <div className={styles.docs}>{content}</div>
