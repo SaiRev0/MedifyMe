@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Burger.module.css'
+import {Link} from'react-router-dom'
+import Account from "../../assets/account.svg";
 
-const Burger = () => {
+const Burger = (patient) => {
     const [open, setOpen] = useState(false)
     
     return (
@@ -12,11 +14,20 @@ const Burger = () => {
           <div/>
         </div>
         <ul className={open ? styles.ul : styles.open}>
-        <li>Health History</li>
-        <li>Prescriptions</li>
-        <li>Test & Reports</li>
-        <li>Appointment</li>
-        <li>Sign In</li>
+        <li><Link to="/health_history">Health History</Link></li>
+        <li><Link to="/prescription">Prescriptions</Link></li>
+        <li><Link to="/test">Tests & Reports</Link></li>
+        <li><Link style={{ color: "black" }} to="/appointment">Appointment</Link></li>
+        <li>
+            <div className={styles.signIn}>
+                <img alt="account" src={Account} />
+                {!patient.isLoggedIn ? (
+                  <Link to="/login">Sign In</Link>
+                ) : (
+                  <Link to="/settings/account">Account</Link>
+                )}
+            </div>
+        </li>
       </ul>
       </>
     )

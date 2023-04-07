@@ -63,7 +63,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className={styles.hamburger}><Burger/></div>
+        <div className={styles.hamburger}><Burger patient/></div>
       </div>
     </nav>
   );
