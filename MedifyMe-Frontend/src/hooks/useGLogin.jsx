@@ -80,7 +80,6 @@ export function useGLogin(role) {
             toast.warn("Fill out these details to complete your registration");
           }
         } else if (role === "doctor") {
-          console.log("roleD", role);
           const { data } = await dLogin(detail);
           if (data && data.foundDoctor && data.status === 200) {
             dispatch(
