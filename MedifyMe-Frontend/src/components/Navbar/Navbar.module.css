@@ -118,11 +118,21 @@
   .nav_elements ul li:not(:last-child){
     margin-right: 60px;
   }
+  
+}
+
+.hamburger{
+  display: none;
 }
 
 @media (max-width:1140px){
   .nav_elements{
     display: none;
   }
+  .hamburger{
+    display: block;
+  }
 }
+
+
 
