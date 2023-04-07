@@ -104,7 +104,9 @@ function HealthHistory() {
       <div className={styles.selectVisit}>
         <div className={styles.docvisit}>
           <div className={styles.t1}>Doctors Visits</div>
+          <div className={styles.stylingDocs}>
           <div className={styles.docs}>{content}</div>
+          </div>
         </div>
         <div className={styles.button}>
           <Link to="/healthHistoryForm">
