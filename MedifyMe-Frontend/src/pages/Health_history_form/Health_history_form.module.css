@@ -8,71 +8,183 @@ body {
 }
 
 .health_history_form {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #f7f7f7;
+    width:90vw;
+    margin: 15px auto;
+    padding: 0px 10px;
+    background-color: #f4f4f4;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .header {
-    margin-left: 250px;
+    text-align: center;
     font-family: 'Yeseva One';
-    font-style: normal;
+    font-style: 'sans-serif';
     font-weight: 400;
-    font-size: 30px;
-    line-height: 74px;
+    font-size: 40px;
+    color: #2B3F4E;
     /* identical to box height */
-
 }
 
+
+.input_field{
+    display: flex;
+    align-items: center;
+    column-gap:3vw;
+    margin-bottom:50px;
+    margin-left:30px;
+}
+
+.input_field label{
+    color:rgb(0, 0, 0);
+}
+
+
+.input_field_upload{
+    display: flex;
+    margin-top:30px;
+    justify-content: center;
+}
+
+.input_field div{
+    width:50%;
+}
+
+
 .docter_name {
-    margin-left: 10px;
+    margin-left:15px;
     margin-top: 5px;
-    color: black
+    color: black;
+    font-size:1.2rem;
+    margin-right:20px;
+}
+
+
+
+.datediv{
+    margin-left:10px;
+    margin-top: 5px;
+    color: black;
+    font-size:1.2rem;
+}
+
+
+.comments{
+    margin-left: 5vw;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 55%;
+    height: 180px;
+    resize: none;
+}
+
+.comments div{
+    width:50%;
+}
+
+.health_input{
+    margin-left: 6vw;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 55%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.health_input_date{
+    margin-left:12.3vw;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 55%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.health_input_date::-webkit-calendar-picker-indicator{
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    width: 400px;
+}
+
+
+.health_file {
+    margin-bottom: 20px;
+    margin-left:5vw;
+    display: none;
 }
 
 .text_health {
     margin-left: 10px;
     color: black;
+    margin-top: 10px;
+    font-size:1.15rem;
+    position: relative;
+    bottom:23vh;
+}
+
+.text_patient_comments textarea{
+    margin-left:62px;
+}
+
+.text_health_upload{
+    margin-left: 10px;
+    color: black;
+    margin-top: 10px;
+    font-size:1rem;
+}
+
+.upload_file{
+    background-color: white;
+    border: 1px solid #8b8a8a;
+    box-shadow: 2px 2px #ccc;
+    width:fit-content;
+    padding:0px 10px 0 0;
+    border-radius: 30px;
+}
+
+.upload_file:hover{
+    background-color: rgb(248, 245, 245);
+    box-shadow: none;
 
 }
 
-.health_input,
-.comments{
-    margin-left: 2px;
-    padding: 5px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    width: 98%;
-    height: 60px;
-    margin-bottom: 10px;
+.upload img{
+    width:70px;
+    margin-left:0vw;
 }
 
-.health_file {
-    margin-bottom: 20px;
+.upload span{
+    position: relative;
+    bottom:16px;
 }
 
+.submit_btn{
+    display: flex;
+    justify-content: center;
+    margin-bottom:25px;
+}
 
 .submit_button {
+    margin-top: 38px;
     font-family: 'Comfortaa';
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-    margin-left: 300px;
-    padding-bottom: 10px;
+    font-size: 24px;
     color: #FFFFFF;
-    padding: 10px 20px;
     border: none;
     cursor: pointer;
     background: #CDAA64;
     border-radius: 30px;
-    width: 271px;
+    width: 200px;
     height: 50px;
 }
 
 .submit_button:hover {
-    background-color: #3e8e41;
+    background-color: #a38850;
 }

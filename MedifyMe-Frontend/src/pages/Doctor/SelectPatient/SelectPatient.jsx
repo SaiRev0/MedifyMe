@@ -1,18 +1,35 @@
 import styles from "./SelectPatient.module.css";
-import Navbar from "../../../components/Navbar/Navbar";
+import NavbarD from "../../../components/Doctor/NavbarD/NavbarD";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 function SelectPatient() {
+  const navigate = useNavigate();
+
+  const doctor = useSelector((state) => {
+    return state.doctor;
+  });
+
+  useEffect(() => {
+    if (!doctor.isLoggedIn) {
+      navigate("/login");
+      toast.error("Please login to continue");
+    }
+  }, [navigate, doctor.isLoggedIn]);
+
   return (
     <>
-      <Navbar />
+      <NavbarD />
       <div className={styles.grid_container}>
         <img
-          src="../../../../public/doctor-illustration.svg"
+          src="../public/doctor-illustration.svg"
           alt="doctor image"
           className={styles.left_wrapper}
         ></img>
         <div className={styles.right_wrapper}>
           <div className={styles.doctor_history}>
-            <p className={styles.doctor_history_content}>Dr. Amit Trivedi</p>
+            <p className={styles.doctor_history_content}>Dr. {doctor.name}</p>
           </div>
           <div className={styles.row}>
             <div className={styles.add_doctor_info}>

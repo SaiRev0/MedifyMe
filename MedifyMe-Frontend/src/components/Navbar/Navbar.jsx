@@ -3,6 +3,7 @@ import Brand from "../../assets/Brand.svg";
 import styles from "./Navbar.module.css";
 import Account from "../../assets/account.svg";
 import { useSelector } from "react-redux";
+import Burger from "../Burger/Burger";
 
 const Navbar = () => {
   const patient = useSelector((state) => {
@@ -43,9 +44,6 @@ const Navbar = () => {
             <li className={location.pathname === "/test" ? styles.active : ""}>
               <Link to="/test">Tests & Reports</Link>
             </li>
-            <li className={location.pathname === "/video" ? styles.active : ""}>
-              <Link to="/video">Video Chat</Link>
-            </li>
             <li>
               <div className={styles.appointment}>
                 <Link style={{ color: "black" }} to="/appointment">
@@ -65,6 +63,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        <div className={styles.hamburger}><Burger patient/></div>
       </div>
     </nav>
   );

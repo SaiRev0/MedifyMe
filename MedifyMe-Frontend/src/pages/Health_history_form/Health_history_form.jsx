@@ -6,8 +6,9 @@ import { useHealthFormMutation } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../../components/Loading/Loading";
 
-function Home() {
+function Health_history_form() {
   const navigate = useNavigate();
   const [doctorName, setDoctorName] = useState("");
   const [date, setDate] = useState("");
@@ -19,6 +20,9 @@ function Home() {
     return state.patient;
   });
 
+  const [form, formResults] = useHealthFormMutation();
+  const isLoading = formResults.isLoading;
+
   useEffect(() => {
     if (!patient.isLoggedIn) {
       navigate("/login");
@@ -26,7 +30,13 @@ function Home() {
     }
   }, [navigate, patient.isLoggedIn]);
 
-  const [form, formResults] = useHealthFormMutation(patient.id);
+  if (isLoading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   const handleFileChange = (event) => {
     const files = event.target.files;
@@ -110,73 +120,87 @@ function Home() {
           className={styles.health_history_form}
           encType="multipart/form-data"
         >
-          <h1 className={styles.header}>Health History Form</h1>
-          <label className={styles.docter_name} htmlFor="doctor-name">
-            Doctor Name:
-          </label>
-          <input
-            className={styles.health_input}
-            type="text"
-            id="doctor-name"
-            name="doctor-name"
-            value={doctorName}
-            onChange={(e) => setDoctorName(e.target.value)}
-            required
-          />
-          <label className={styles.text_health} htmlFor="date">
-            Date:
-            <input
-              className={styles.health_input}
-              type="date"
-              id="date"
-              name="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              required
-            />
-          </label>
-          <label className={styles.text_health} htmlFor="doctor-comments">
-            Doctor Comments:
-          </label>
-          <textarea
-            value={doctorComments}
-            onChange={(e) => setDoctorComments(e.target.value)}
-            id="doctor-comments"
-            name="doctor-comments"
-            className={styles.comments}
-          ></textarea>
-
-          <label className={styles.text_health} htmlFor="patient-comments">
-            Patient Comments:
-          </label>
-          <textarea
-            value={patientComments}
-            onChange={(e) => setPatientComments(e.target.value)}
-            id="patient-comments"
-            name="patient-comments"
-          ></textarea>
-
-          <label className={styles.text_health} htmlFor="file-upload">
-            Upload Files:
-          </label>
-          <input
-            className={styles.health_file}
-            type="file"
-            id="file-upload"
-            name="file-upload"
-            onChange={(e) => handleFileChange(e)}
-            accept=".jpg, .jpeg, .png, .pdf"
-            multiple
-            required
-          />
+          <h1 className={styles.header}>Health History Record</h1>
+            <div className={styles.input_field}>
+              <div>
+                <label className={styles.docter_name} htmlFor="doctor-name">
+                  Doctor Name:
+                </label>
+                <input
+                  className={styles.health_input}
+                  type="text"
+                  id="doctor-name"
+                  name="doctor-name"
+                  value={doctorName}
+                  onChange={(e) => setDoctorName(e.target.value)}
+                  required
+                />
+              </div>
+            <div>
+              <label  className={styles.datediv} htmlFor="date">
+                Date:
+              </label>
+                <input
+                  className={styles.health_input_date}
+                  type="date"
+                  id="date"
+                  name="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  required
+                />
+              </div>
+              </div>
+            <div className={styles.input_field}>
+              <div>
+                <label className={styles.text_health} htmlFor="doctor-comments">
+                  Doctor Comments:
+                </label>
+                <textarea
+                  value={doctorComments}
+                  onChange={(e) => setDoctorComments(e.target.value)}
+                  id="doctor-comments"
+                  name="doctor-comments"
+                  className={styles.comments}
+                ></textarea>
+              </div>  
+              
+              <div className={styles.text_patient_comments}>
+              <label className={styles.text_health} htmlFor="patient-comments">
+                Patient Comments:
+              </label>
+              <textarea
+                value={patientComments}
+                onChange={(e) => setPatientComments(e.target.value)}
+                id="patient-comments"
+                name="patient-comments"
+                className={styles.comments}
+              ></textarea>
+              </div>
+            </div>
+            <div className={styles.input_field_upload}>
+            <div className={styles.upload_file}>
+              <label className={styles.upload} htmlFor="file-upload"><img src="/Cloud_Upload.png"></img><span>Upload Documents</span></label>
+              </div>
+              <input
+                className={styles.health_file}
+                type="file"
+                id="file-upload"
+                name="file-upload"
+                onChange={(e) => handleFileChange(e)}
+                accept=".jpg, .jpeg, .png, .pdf"
+                multiple
+              />
+            </div>
+          <div className={styles.submit_btn}>
           <button className={styles.submit_button} type="submit">
-            Submit
+            Add Record
           </button>
+          </div>
         </form>
       </div>
-      <Footer />
     </>
   );
 }
 
-export default Home;
+export default Health_history_form;

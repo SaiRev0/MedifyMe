@@ -45,7 +45,6 @@ const Footer = () => {
           <input className={styles.input} type="text" />
         </form>
       </div>
-      <div></div>
     </div>
   );
 };

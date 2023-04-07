@@ -1,6 +1,8 @@
 const axios = require("axios");
 const Patient = require("../models/patient");
+const Doctor = require("../models/doctor");
 const Visit = require("../models/visit");
+const Request = require("../models/request");
 const { Storage } = require("@google-cloud/storage");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
@@ -51,7 +53,7 @@ module.exports.login = async (req, res) => {
 };
 
 //React Register
-module.exports.register = async (req, res, next) => {
+module.exports.register = async (req, res) => {
   try {
     const name = req.body.data.name;
     const email = req.body.data.email;
@@ -126,10 +128,8 @@ module.exports.healthHistoryForm = async (req, res) => {
     if (!req.body.id) {
       return res.status(400).json("No patient id provided");
     }
-
-    const { id } = req.query;
+    const { id } = req.body;
     const foundPatient = await Patient.findById(id);
-
     const fileUrls = [];
 
     for (const file of req.files) {
@@ -178,6 +178,44 @@ module.exports.visits = async (req, res) => {
     const visit = await Visit.findById(id);
     // console.log(visit);
     res.status(200).json(visit);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Something Went Wrong!");
+  }
+};
+
+module.exports.requestDoctor = async (req, res) => {
+  try {
+    if (!req.body.id) {
+      return res.status(400).json("No patient id provided");
+    }
+    const { id } = req.body;
+    const foundPatient = await Patient.findById(id).populate("requests");
+    const email = req.body.doctorEmail;
+    const foundDoctor = await Doctor.findOne({ email });
+    if (!foundDoctor) {
+      return res.status(400).json("Doctor Not Found");
+    }
+    const alreadyRequested = foundPatient.requests.some((request) => {
+      return request.doctor.toString() === foundDoctor._id.toString();
+    });
+    if (alreadyRequested) {
+      return res
+        .status(212)
+        .json({ message: "Already Requested", status: 212 });
+    }
+    const request = new Request({
+      patient: id,
+      doctor: foundDoctor._id,
+    });
+
+    await request.save();
+    const requestId = request._id;
+    foundPatient.requests.push(requestId);
+    await foundPatient.save();
+    foundDoctor.requests.push(requestId);
+    await foundDoctor.save();
+    res.status(200).json(request);
   } catch (err) {
     console.log(err);
     res.status(400).json("Something Went Wrong!");

@@ -43,6 +43,7 @@ export {
   useFetchHealthHistoryQuery,
   useHealthFormMutation,
   useFetchVisitsQuery,
+  useRequestDoctorMutation,
 } from "./apis/patientsApi";
 
 export { useDLoginMutation } from "./apis/doctorsApi";

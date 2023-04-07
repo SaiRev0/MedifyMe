@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
+/* body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fcfcfc;
+} */
 
 .container {
-  padding: 0 0 0 15px;
+  padding: 0 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,21 +34,27 @@
 .signIn {
   margin-top: -5px;
   display: flex;
-  width: 160px;
+  width: 150px;
   align-items: center;
+  margin-right: 20%;
 }
 
 .signIn img {
-  margin-right: 15px;
+  margin-right: 10px;
   margin-left: 40px;
 }
 
+.patients {
+  background-color: #CDAA64;
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+
+
 .nav_elements ul {
-  /* margin-right: 50px; */
   display: flex;
   align-items: center;
   list-style-type: none;
-  float: right;
 }
 
 .nav_elements ul li:not(:last-child) {
@@ -62,6 +74,7 @@
   color: #574c4c;
   font-weight: 500;
   position: relative;
+
 }
 
 .nav_elements ul a.active::after {
@@ -88,9 +101,47 @@
   display: inline !important;
 }
 
+@media (max-width: 768px) {
+  .nav_elements ul li:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu_icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  @media(min-width:1024px) {
+    .nav_elements {
+      background-color: #fef7e5;
+      height: calc(100vh - 60px);
+      transition: all 0.3s ease-in;
+      overflow: hidden;
+    }
+  }
+
+
+  .nav_elements.active {
+    width: 270px;
+  }
+
+  .nav_elements ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav_elements ul li {
+    margin-right: unset;
+    margin-top: 22px;
+  }
+}
+
 .appointment {
-  background-color: #CDAA64;
-  color: #28333A !important;
+  color: white;
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -98,46 +149,14 @@
 }
 
 .nav_elements ul li.active a {
-  color: #CDAA64;
   font-weight: 500;
-  position: relative;
+  color: #CDAA64;
   text-decoration: none;
 }
 
-@media (max-width:1240px) {
-  .signIn {
-    margin-top: -5px;
-    display: flex;
-    width: 100px;
-    margin-right: 20px;
-    align-items: center;
-  }
 
-  .signIn img {
-    margin-right: 15px;
-    margin-left: 0px;
-  }
-
-  .nav_elements ul li:not(:last-child) {
-    margin-right: 60px;
-  }
-
-}
-
-.hamburger {
-  display: none;
-}
-
-@media (max-width:1140px) {
+@media (max-width:1024px) {
   .nav_elements {
     display: none;
-  }
-
-  .hamburger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15vw;
-    height: 100%;
   }
 }
