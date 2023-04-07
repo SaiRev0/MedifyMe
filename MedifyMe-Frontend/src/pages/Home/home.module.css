@@ -69,29 +69,29 @@
   color: #000000;
 }
 
-
-  .button {
-    width: 100%;
-    position: absolute;
-    bottom: -5%;;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-  }
-  .b2 {
-    width: 25vw;
-    height: 12vh;
-    background: #2b3e4c;
-    border-radius: 6.85px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: "Work Sans";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1vw;
-    color: #fcfefe;
-  }
+.button {
+  width: 100%;
+  position: absolute;
+  bottom: -5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.b2 {
+  width: 25vw;
+  height: 12vh;
+  background: #2b3e4c;
+  border-radius: 6.85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  padding-left: 3px;
+  color: #fcfefe;
+}
 
 .b1 {
   width: 25vw;
@@ -101,7 +101,8 @@
   font-family: "Work Sans";
   font-style: normal;
   font-weight: normal;
-  font-size: 1vw;
+  font-size: 100%;
+  padding-left: 3px;
   color: #fcfefe;
   display: flex;
   align-items: center;
@@ -119,17 +120,17 @@
   font-family: "Work Sans";
   font-style: normal;
   font-weight: normal;
-  font-size: 1vw;
+  font-size: 100%;
+  padding-left: 3px;
   color: #fcfefe;
 }
 .button img {
-    width: 15%;
-  }
-  
-  .button a {
-    text-decoration: none;
-  }
-  
+  width: 15%;
+}
+
+.button a {
+  text-decoration: none;
+}
 
 .lp1 {
   margin-top: 15vh;
@@ -169,7 +170,7 @@
 
   color: #212124;
 }
-.lowerSection{
+.lowerSection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,7 +180,7 @@
 }
 
 .landImage img {
-  width: 80vw;;
+  width: 80vw;
 }
 
 .lp4 {
@@ -196,7 +197,6 @@
 }
 
 .lp5 {
-
   font-family: "Yeseva One";
   font-style: normal;
   font-weight: 400;
@@ -221,7 +221,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   vertical-align: middle;
-  gap:15vw;
+  gap: 15vw;
 }
 
 .lp7 ul li {
@@ -237,7 +237,6 @@
 }
 
 .lp7 ul {
-
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -248,9 +247,85 @@
   display: block;
   width: 1.5vw;
   height: 1.5vw;
-  color: #285f83; 
-  border-radius: 50%; 
-  background-color: #285f83; 
-  text-align: center; 
-  margin-right: 0.5em; 
+  color: #285f83;
+  border-radius: 50%;
+  background-color: #285f83;
+  text-align: center;
+  margin-right: 0.5em;
+}
+
+@media (max-width:1000px) {
+  .herosection{
+    height: calc(50vh + 5vw);
+  }
+  .herosection img{
+    height: 50%;
+  }
+  .content1{
+    font-size: 4vw;
+  }
+  .content2{
+    font-size: 6vw;
+  }
+  .content3{
+    font-size: 4vw;
+  }
+  .content{
+    top:25%;
+    left: 5%;
+  }
+  .button {
+    width: 100%;
+    position: absolute;
+    bottom: -8%;
+  }
+  .b2,.b3,.b1 {
+    width: 25vw;
+    height: 8vh;
+    background: #2b3e4c;
+    border-radius: 6.85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 70%;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #fcfefe;
+  }
+  .lp1,.lp2,.lp3,.lp4,.lp5,.lp6,.lp7{
+    margin: 0;
+  }
+  .lp1{
+    margin-top: 50px;
+    font-size: 4vw;
+  }
+  .lp2{
+    margin-top: 20px;
+    line-height: 4vw  ;
+    font-size: 4vw;
+  }
+  .lp3{
+    margin-top: 10px;
+    font-size: 2.5vw;
+    width: 75%;
+  }
+  .lp4{
+    margin-top:10px;
+    font-size: 3.5vw;
+  }
+  .lp5{
+    margin-top: 10px;
+    line-height: 0vw  ;
+    font-size: 4vw;
+  }
+  .lp6{
+    font-size: 2.5vw;
+    width: 75%;
+  }
+  .lp7 ul li{
+    font-size: 2.2vw;
+  }
 }
