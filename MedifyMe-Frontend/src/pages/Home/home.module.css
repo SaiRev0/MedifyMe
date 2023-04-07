@@ -246,8 +246,8 @@
 .lp7 ul li:before {
   content: "";
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 1.5vw;
+  height: 1.5vw;
   color: #285f83; 
   border-radius: 50%; 
   background-color: #285f83; 
