@@ -41,3 +41,19 @@ module.exports.dLogin = async (req, res) => {
     });
   // }
 };
+
+module.exports.getPatient = async (req, res) => {
+  try {
+    if (!req.body.id) {
+      return res.status(400).json("No doctor id provided");
+    }
+    const { id } = req.body;
+    const foundDoctor = await Doctor.findById(id)
+      .populate("patients")
+      .populate("requests");
+    res.status(200).json(foundDoctor);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ message: "Something Went Wrong", status: 400 });
+  }
+};

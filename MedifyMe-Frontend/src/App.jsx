@@ -167,6 +167,7 @@ function App() {
     }
 
     if (
+      doctorCookies.doctor &&
       doctorCookies.doctor.token &&
       doctorCookies.doctor.id &&
       doctorCookies.doctor.email &&
