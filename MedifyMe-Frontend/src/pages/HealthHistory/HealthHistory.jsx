@@ -76,40 +76,43 @@ function HealthHistory() {
   return (
     <>
       <Navbar />
-      <div className={styles.box}>
-        <div className={styles.history}>
-          <div className={styles.d1}>
-            <img src={data.photo} />
-            <ul>
-              <li>Name : &nbsp;&nbsp;{data.name}</li>
-              <li>Gender : &nbsp;&nbsp;{data.gender}</li>
-              <li>Age : &nbsp;&nbsp;{data.age}</li>
-            </ul>
-            <ul>
-              <li>Allergies : &nbsp;&nbsp;{data.allergies}</li>
-              <li>Other Conditions : &nbsp;&nbsp;{data.otherConditions}</li>
-              <li>Weight : &nbsp;&nbsp;{data.weight} kg</li>
-            </ul>
-            <ul>
-              <li>Medications : &nbsp;&nbsp;{data.medications}</li>
-              <li>Height : &nbsp;&nbsp;{data.height} cm</li>
-            </ul>
-          </div>
-          <div className={styles.d2}>
-            <ul>
-              <li>Overview : &nbsp;&nbsp;{data.overview}</li>
-            </ul>
-          </div>
+      <div className={styles.history}>
+        <div className={styles.d1}>
+          <img src={data.photo} />
+          <ul>
+            <li>Name : &nbsp;&nbsp;{data.name}</li>
+            <li>Gender : &nbsp;&nbsp;{data.gender}</li>
+            <li>Age : &nbsp;&nbsp;{data.age}</li>
+          </ul>
+          <ul>
+            <li>Allergies : &nbsp;&nbsp;{data.allergies}</li>
+            <li>Other Conditions : &nbsp;&nbsp;{data.otherConditions}</li>
+            <li>Weight : &nbsp;&nbsp;{data.weight} kg</li>
+          </ul>
+          <ul className={styles.lastInfo}>
+            <li>Medications : &nbsp;&nbsp;{data.medications}</li>
+            <li>Height : &nbsp;&nbsp;{data.height} cm</li>
+          </ul>
+        </div>
+        <div className={styles.d2}>
+          <ul>
+            <li class>Overview : &nbsp;&nbsp;{data.overview}</li>
+          </ul>
         </div>
       </div>
-      <div className={styles.docvisit}>
-        <div className={styles.t1}>Doctors Visits</div>
-        <div className={styles.docs}>{content}</div>
-      </div>
-      <div className={styles.button}>
-        <Link to="/healthHistoryForm">
-          <div className={styles.b}>Create New Record</div>
-        </Link>
+      <div className={styles.lowerSection}>
+      <div className={styles.selectVisit}>
+        <div className={styles.docvisit}>
+          <div className={styles.t1}>Doctors Visits</div>
+          <div className={styles.stylingDocs}>
+          <div className={styles.docs}>{content}</div>
+          </div>
+        </div>
+        <div className={styles.button}>
+          <Link to="/healthHistoryForm">
+            <div className={styles.b}>Create New Record</div>
+          </Link>
+        </div>
       </div>
       {selectedVisit && (
         <div className={styles.infobox}>
@@ -149,6 +152,7 @@ function HealthHistory() {
           </div>
         </div>
       )}
+      </div>
     </>
   );
 }
