@@ -14,9 +14,9 @@ const doctorApi = createApi({
         body: detail,
       }),
     }),
-    dFetchHealthHistory: builder.query({
+    fetchPatients: builder.query({
       query: (id) => ({
-        url: "/health_history",
+        url: "/patients",
         params: { id },
         method: "GET",
       }),
