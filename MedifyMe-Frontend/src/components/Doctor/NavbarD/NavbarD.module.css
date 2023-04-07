@@ -19,35 +19,35 @@
   height: 75px;
   background: linear-gradient(84.18deg, #2D495D 0.31%, #28333A 100%) fixed center center/cover;
   /* position: relative; */
-  width:100%;
-} 
+  width: 100%;
+}
 
 .menu_icon {
   display: none;
 }
-.logoSection{
+
+.logoSection {
   display: flex;
   align-items: center;
-  text-decoration: underline;
-  text-decoration-color: #2D4658;
 }
 
-.signIn{
+.signIn {
   margin-top: -5px;
   display: flex;
-  width:150px;
+  width: 150px;
   align-items: center;
   margin-right: 20%;
 }
-.signIn img{
+
+.signIn img {
   margin-right: 10px;
-  margin-left:40px;
+  margin-left: 40px;
 }
 
-.patients{
-    background-color: #CDAA64;
-    padding:8px 20px;
-    border-radius: 50px;
+.patients {
+  background-color: #CDAA64;
+  padding: 8px 20px;
+  border-radius: 50px;
 }
 
 
@@ -65,7 +65,8 @@
   font-family: 'Work Sans';
   font-size: 16px;
   font-weight: 400;
-  color: #FCFEFE;;
+  color: #FCFEFE;
+  ;
   text-decoration: none;
 }
 
@@ -73,7 +74,7 @@
   color: #574c4c;
   font-weight: 500;
   position: relative;
-  
+
 }
 
 .nav_elements ul a.active::after {
@@ -86,13 +87,13 @@
   background-color: #574c4c;
 }
 
-.brand{
+.brand {
   padding-left: 20px;
   font-size: 30px;
   font-family: 'Yeseva One', cursive;
   color: white;
   display: inline !important;
-  margin-top:40px;
+  margin-top: 40px;
 }
 
 .brandIn {
@@ -111,15 +112,16 @@
     display: block;
     cursor: pointer;
   }
-@media(min-width:1024px){
-  .nav_elements {
-    background-color: #fef7e5;
-    height: calc(100vh - 60px);
-    transition: all 0.3s ease-in;
-    overflow: hidden;
+
+  @media(min-width:1024px) {
+    .nav_elements {
+      background-color: #fef7e5;
+      height: calc(100vh - 60px);
+      transition: all 0.3s ease-in;
+      overflow: hidden;
+    }
   }
-}
-  
+
 
   .nav_elements.active {
     width: 270px;
@@ -137,22 +139,24 @@
     margin-top: 22px;
   }
 }
-.appointment{
-  color:white;
+
+.appointment {
+  color: white;
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 50px;
 }
-.nav_elements ul li.active a{
+
+.nav_elements ul li.active a {
   font-weight: 500;
-  color:#CDAA64;
+  color: #CDAA64;
   text-decoration: none;
 }
 
 
-@media (max-width:1024px){
-  .nav_elements{
+@media (max-width:1024px) {
+  .nav_elements {
     display: none;
   }
 }

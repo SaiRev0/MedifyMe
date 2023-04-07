@@ -2,10 +2,20 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./home.module.css";
 import Footer from "../../components/Footer/Footer";
+import { useSelector } from "react-redux";
+import NavbarD from "../../components/Doctor/NavbarD/NavbarD";
 function Home() {
+  const doctor = useSelector((state) => {
+    return state.doctor;
+  });
+
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
+
   return (
     <>
-      <Navbar />
+      {doctor.isLoggedIn && !patient.isLoggedIn ? <NavbarD /> : <Navbar />}
       <div className={styles.herosection}>
         <div className={styles.img1}>
           <img src="img1.png" />

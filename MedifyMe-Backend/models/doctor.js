@@ -30,6 +30,12 @@ const DoctorSchema = new Schema({
       ref: "Visit",
     },
   ],
+  requests: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Request",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Doctor", DoctorSchema);

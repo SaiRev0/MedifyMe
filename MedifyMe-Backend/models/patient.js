@@ -61,6 +61,12 @@ const PatientSchema = new Schema({
       default: null,
     },
   ],
+  requests: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Request",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Patient", PatientSchema);

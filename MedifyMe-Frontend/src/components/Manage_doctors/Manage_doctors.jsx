@@ -1,8 +1,52 @@
 import styles from "./Manage_doctors.module.css";
 import useLogout from "../../hooks/useLogout";
+import { useRequestDoctorMutation } from "../../store";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 function Manage_doctors() {
+  const [email, setEmail] = useState("");
   const { handleLogout } = useLogout();
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
+
+  const [form, formResults] = useRequestDoctorMutation();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email regex pattern
+    if (!emailPattern.test(email)) {
+      toast.error("Invalid email"); // Show an error toast if the email is invalid
+      return;
+    }
+
+    const loadingToastId = toast.info("Submitting request...");
+
+    const send = {
+      doctorEmail: email,
+      id: patient.id,
+    };
+    try {
+      const { data } = await form(send);
+      if (data.status === 212) {
+        toast.update(loadingToastId, {
+          type: "warning",
+          render: data.message,
+        });
+      } else if (data.status === 200) {
+        toast.update(loadingToastId, {
+          type: "success",
+          render: "Request sent successfully",
+        });
+      }
+      setEmail(""); // Reset the email input field to an empty string
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className={styles.right_wrapper}>
@@ -54,23 +98,21 @@ function Manage_doctors() {
         <p className={styles.doctor_history_content}>Add New Doctors</p>
       </div>
 
-      <div className={styles.row}>
-        <div className={styles.add_doctor_info}>
-          <label className={styles.add_text_doctor} htmlFor="email">
-            Doctor Id:
-          </label>
-          <input
-            className={styles.add_doctor_name}
-            type="name"
-            id="name"
-            name="name"
-            required
-          />
-        </div>
-        <button className={styles.submit_button} type="submit">
-          Submit
-        </button>
-      </div>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <label className={styles.add_text_doctor} htmlFor="email">
+          Doctor Email:
+        </label>
+        <input
+          className={styles.add_doctor_name}
+          type="email"
+          id="email"
+          name="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <button className={styles.submit_button}>Submit</button>
+      </form>
     </div>
   );
 }

@@ -5,8 +5,8 @@ import Account from "../../../assets/account.svg";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const patient = useSelector((state) => {
-    return state.patient;
+  const doctor = useSelector((state) => {
+    return state.doctor;
   });
 
   const location = useLocation();
@@ -26,35 +26,59 @@ const Navbar = () => {
         </div>
         <div className={styles.nav_elements}>
           <ul>
-            <li className={location.pathname === "/doctor/select_patient" ? styles.active : ""}>
-              <Link to="/doctor/select_patient" className={styles.patients} style={{color:'black'}}>Patients</Link>
+            <li
+              className={
+                location.pathname === "/doctor/select_patient"
+                  ? styles.active
+                  : ""
+              }
+            >
+              <Link
+                to="/doctor/select_patient"
+                className={styles.patients}
+                style={{ color: "black" }}
+              >
+                Patients
+              </Link>
             </li>
             <li
               className={
-                location.pathname === "/doctor/patient_health_history" ? styles.active : ""
+                location.pathname === "/doctor/patient_health_history"
+                  ? styles.active
+                  : ""
               }
             >
               <Link to="/doctor/patient_health_history">Health History</Link>
             </li>
             <li
               className={
-                location.pathname === "/doctor/current_prescription" ? styles.active : ""
+                location.pathname === "/doctor/current_prescription"
+                  ? styles.active
+                  : ""
               }
             >
               <Link to="/doctor/current_prescription">Prescriptions</Link>
             </li>
-            <li className={location.pathname === "/doctor/test_report" ? styles.active : ""}>
+            <li
+              className={
+                location.pathname === "/doctor/test_report" ? styles.active : ""
+              }
+            >
               <Link to="/doctor/test_report">Tests & Reports</Link>
             </li>
-            <li className={location.pathname === "/doctor/patient_appointment" ? styles.active : ""}>
-                <Link to="/doctor/patient_appointment">
-                  Appointment
-                </Link>
+            <li
+              className={
+                location.pathname === "/doctor/patient_appointment"
+                  ? styles.active
+                  : ""
+              }
+            >
+              <Link to="/doctor/patient_appointment">Appointment</Link>
             </li>
             <li>
               <div className={styles.signIn}>
                 <img alt="account" src={Account} />
-                {!patient.isLoggedIn ? (
+                {!doctor.isLoggedIn ? (
                   <Link to="/login">Sign In</Link>
                 ) : (
                   <Link to="/settings/account">Account</Link>

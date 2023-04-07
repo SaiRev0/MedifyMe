@@ -43,6 +43,13 @@ const patientApi = createApi({
         body: formData,
       }),
     }),
+    requestDoctor: builder.mutation({
+      query: (formData) => ({
+        url: "/request_doctor",
+        method: "POST",
+        body: formData,
+      }),
+    }),
   }),
 });
 
@@ -52,5 +59,6 @@ export const {
   useFetchHealthHistoryQuery,
   useHealthFormMutation,
   useFetchVisitsQuery,
+  useRequestDoctorMutation,
 } = patientApi;
 export { patientApi };
