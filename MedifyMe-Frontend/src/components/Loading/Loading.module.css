@@ -89,3 +89,15 @@ color: #CDAA64;
       #2d495d 0.31%,
       #28333a 100%);
 }
+@media (max-width:1000px) {
+  .imgg{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width: 50vw;
+    height: 50vw;
+  
+  }
+.brand{
+  font-size: 7vw;
+}
+}
