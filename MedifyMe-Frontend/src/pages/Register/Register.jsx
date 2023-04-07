@@ -4,10 +4,10 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useRegisterMutation } from "../../store";
 import { useCookies } from "react-cookie";
-import { loginSuccess, logoutSuccess } from "../../store";
+import { loginSuccess } from "../../store";
 import registerData from "../../assets/RegisterData.json";
 
 function Register() {
@@ -23,10 +23,6 @@ function Register() {
 
   const messageListRef = useRef(null);
   const inputRef = useRef(null);
-
-  const patient = useSelector((state) => {
-    return state.patient;
-  });
 
   useEffect(() => {
     messageListRef.current.lastChild.scrollIntoView();
@@ -104,11 +100,11 @@ function Register() {
       doRegister();
     }
 
-    if (!patient.isLoggedIn) {
+    if (!cookies.patient.token) {
       navigate("/login");
     }
     if (
-      patient.isLoggedIn &&
+      cookies.patient.token &&
       registerResults.data &&
       registerResults.data.status === 200
     ) {
@@ -117,14 +113,14 @@ function Register() {
     }
 
     if (
-      patient.isLoggedIn &&
+      cookies.patient.token &&
       registerResults.data &&
       registerResults.data.status === 400
     ) {
       navigate("/login");
-      toast.warn(registerResults.data.message);
+      toast.warn("Something Went Wrong");
     }
-  }, [navigate, registerResults.data, patient.isLoggedIn, messages]);
+  }, [navigate, registerResults.data, cookies.patient.token]);
 
   const handleButtonClick = () => {
     const inputValue = inputRef.current.value;

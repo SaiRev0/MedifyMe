@@ -174,7 +174,7 @@ function App() {
       dispatch(
         doctorLoginSuccess({
           token: doctorCookies.token,
-          id: doctorCookies._id,
+          id: doctorCookies.id,
           email: doctorCookies.email,
           photo: doctorCookies.photo,
           role: doctorCookies.role,

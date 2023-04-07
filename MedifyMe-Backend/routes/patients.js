@@ -20,4 +20,6 @@ router
 
 router.route("/visits").get(patients.visits);
 
+router.route("/request_doctor").post(patients.requestDoctor);
+
 module.exports = router;
