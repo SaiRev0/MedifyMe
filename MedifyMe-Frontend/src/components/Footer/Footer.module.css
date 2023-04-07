@@ -112,7 +112,7 @@
     height: fit-content;
     margin: auto;
   }
-  .text_3{
-    margin-bottom: 0;
+  .text_1{
+    line-height: 0;
   }
 }
