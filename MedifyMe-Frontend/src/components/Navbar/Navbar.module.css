@@ -130,7 +130,11 @@
     display: none;
   }
   .hamburger{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 100%;
   }
 }
 
