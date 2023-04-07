@@ -1,280 +1,254 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 
 .herosection {
-    background-color: #f1f1f1;
-    height: 550px;
+  position: relative;
+  background-color: #f1f1f1;
+  height: 75vh;
 }
 
 .img1 img {
-    height: 100px;
-    width: 400px;
+  height: 20vh;
+  width: 30%;
 }
 
 .group img {
-    position: absolute;
-    top: 21%;
-    left: 76.4%;
-    height: 470px;
+  display: inline;
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+  height: 50vh;
 }
 
 .content {
-    position: absolute;
-    top: 32%;
-    left: 15%;
+  position: absolute;
+  top: 32%;
+  left: 15%;
 }
 
 .content a {
-    text-decoration: none;
+  text-decoration: none;
+  width: 0;
 }
 
 .content1 {
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 25px;
-    line-height: 35px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 
-    color: #6B889D;
+  color: #6b889d;
 }
 
 .content2 {
-    font-family: 'Yeseva One';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 50px;
-    line-height: 60px;
-    width: 900px;
+  font-family: "Yeseva One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 60px;
+  width: 900px;
 
-    color: #2B3F4E;
+  color: #2b3f4e;
 }
 
 .content3 {
+  align-items: flex-start;
+  padding: 13px 35px;
+  gap: 10px;
+  margin-top: 20px;
+
+  background: #cdaa64;
+  border-radius: 50px;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 28px;
+  border: none;
+  width: fit-content;
+  color: #000000;
+}
+
+
+  .button {
+    width: 100%;
+    position: absolute;
+    bottom: -5%;;
+    display: flex;
+    justify-content: space-around;
     align-items: flex-start;
-    padding: 13px 35px;
-    gap: 10px;
-    margin-top: 20px;
-
-    background: #CDAA64;
-    border-radius: 50px;
-    font-family: 'Comfortaa';
+  }
+  .b2 {
+    width: 25vw;
+    height: 80px;
+    background: #2b3e4c;
+    border-radius: 6.85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Work Sans";
     font-style: normal;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 28px;
-    border: none;
-    width: fit-content;
-    color: #000000;
-}
-
-@media (min-width:1200px){
-    .button {
-        position: absolute;
-        top: 80%;
-        margin-left: 12vw;
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        column-gap: 13%;
-    }
-    .b2 {
-        width: 300px;
-        height: 80px;
-        background: #2B3E4C;
-        border-radius: 6.85px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        font-family: 'Work Sans';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 17px;
-        color: #FCFEFE;
-    }
-    
-}
-@media (max-width:1200px){
-    .button {
-        position: absolute;
-        top: 80%;
-        margin-left: 8vw;
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        column-gap: 1%;
-    }
-    .b2{
-        display: none;
-    }
-}
-
-@media (max-width:700px) {
-    .button {
-        display: none;
-    }
-    
-}
-
-
-.button img {
-    width: 50px;
-}
-
-.button a {
-    text-decoration: none;
-    
-}
+    font-weight: normal;
+    font-size: 17px;
+    color: #fcfefe;
+  }
 
 .b1 {
-    width: 300px;
-    height: 80px;
-    background: #2D485C;
-    border-radius: 6.85px;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 17px;
-    color: #FCFEFE;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  width: 25vw;
+  height: 80px;
+  background: #2d485c;
+  border-radius: 6.85px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  color: #fcfefe;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-
-
 
 .b3 {
-    width: 300px;
-    height: 80px;
-    background: #29343C;
-    border-radius: 6.85px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 17px;
-    color: #FCFEFE;
+  width: 25vw;
+  height: 80px;
+  background: #29343c;
+  border-radius: 6.85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  color: #fcfefe;
 }
+.button img {
+    width: 15%;
+  }
+  
+  .button a {
+    text-decoration: none;
+  }
+  
 
 .lp1 {
-    display: flex;
-    justify-content: center;
-    margin-top: 120px;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
 
-    text-align: center;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 
-    color: #6B889D;
+  color: #6b889d;
 }
 
 .lp2 {
-    display: flex;
-    justify-content: center;
-    font-family: 'Yeseva One';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 50px;
-    line-height: 90px;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  font-family: "Yeseva One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 90px;
+  text-align: center;
 
-    color: #2B3F4E;
+  color: #2b3f4e;
 }
 
 .lp3 {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Comfortaa';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 140%;
-    text-align: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 140%;
+  text-align: center;
+  margin-top: 20px;
 
-    color: #212124;
+  color: #212124;
 }
 
 .landImage {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .landImage img {
-    width: 1000px;
+  width: 1000px;
 }
 
 .lp4 {
-    display: flex;
-    justify-content: center;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 33px;
-    text-align: center;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #6B889D;
-    margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 33px;
+  text-align: center;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6b889d;
+  margin-top: 70px;
 }
 
 .lp5 {
-    display: flex;
-    justify-content: center;
-    font-family: 'Yeseva One';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 61px;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  font-family: "Yeseva One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 61px;
+  text-align: center;
 
-    color: #2B3F4E;
+  color: #2b3f4e;
 }
 
 .lp6 {
-    display: flex;
-    justify-content: center;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 45px;
-    color: #000000;
-
+  display: flex;
+  justify-content: center;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 45px;
+  color: #000000;
 }
 
 .lp7 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    vertical-align: middle;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  vertical-align: middle;
 }
 
 .lp7 ul li {
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 250%;
-    color: #000000;
-    vertical-align: middle;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 250%;
+  color: #000000;
+  vertical-align: middle;
 }
 
 .lp7 ul {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .lp7 li::marker {
-    color: #285F83;
+  color: #285f83;
 }

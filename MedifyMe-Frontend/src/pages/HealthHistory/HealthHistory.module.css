@@ -54,12 +54,12 @@
 .selectVisit {
   margin-left: 2%;
   width: 20vw;
-  height: 50vh;
+  height: 52vh;
   display: flex;
   flex-direction: column;
 }
 .docvisit {
-  height: 50vh;
+  height: 52vh;
   background: #2b3e4c;
   border-radius: 20px 20px 0px 0px;
 }
