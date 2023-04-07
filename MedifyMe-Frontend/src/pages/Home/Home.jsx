@@ -43,35 +43,37 @@ function Home() {
           </Link>
         </div>
       </div>
-      <div className={styles.lp1}>Welcome to Medifyme</div>
-      <div className={styles.lp2}>
-        An AI Powered Platform for Managing Health Records
-      </div>
-      <div className={styles.lp3}>
-        Discover a better way to manage your health records. MedifyMe helps
-        <br></br> you manage your healthcare needs easily and efficiently.
-        <br></br>
-        Simplify your healthcare management today.
-      </div>
-      <div className={styles.landImage}>
-        <img src="LandImage.png" />
-      </div>
-      <div className={styles.lp4}>Care you can believe in</div>
-      <div className={styles.lp5}>Our Services</div>
-      <div className={styles.lp6}>
-        Facilitating Seamless Transtitions for Patients and Doctors
-      </div>
-      <div className={styles.lp7}>
-        <ul>
-          <li>Personalised Virtual Assitant</li>
-          <li>Store all your records</li>
-          <li>Make appointments directly</li>
-        </ul>
-        <ul>
-          <li>Save Prescriptions and Test Reports</li>
-          <li>Info About Medicine dosage and intake</li>
-          <li>Easier communication with your Doctors</li>
-        </ul>
+      <div className={styles.lowerSection}>
+        <div className={styles.lp1}>Welcome to Medifyme</div>
+        <div className={styles.lp2}>
+          An AI Powered Platform for Managing Health Records
+        </div>
+        <div className={styles.lp3}>
+          Discover a better way to manage your health records. MedifyMe helps
+          <br></br> you manage your healthcare needs easily and efficiently.
+          <br></br>
+          Simplify your healthcare management today.
+        </div>
+        <div className={styles.landImage}>
+          <img src="LandImage.png" />
+        </div>
+        <div className={styles.lp4}>Care you can believe in</div>
+        <div className={styles.lp5}>Our Services</div>
+        <div className={styles.lp6}>
+          Facilitating Seamless Transtitions for Patients and Doctors
+        </div>
+        <div className={styles.lp7}>
+          <ul>
+            <li>Personalised Virtual Assitant</li>
+            <li>Store all your records</li>
+            <li>Make appointments directly</li>
+          </ul>
+          <ul>
+            <li>Save Prescriptions and Test Reports</li>
+            <li>Info About Medicine dosage and intake</li>
+            <li>Easier communication with your Doctors</li>
+          </ul>
+        </div>
       </div>
       <Footer />
     </>

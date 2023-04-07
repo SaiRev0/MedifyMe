@@ -34,30 +34,26 @@
 
 .content1 {
   font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 25px;
+  font-weight: 1000;
+  font-size: 1.7vw;
   line-height: 35px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-
-  color: #6b889d;
+  color: #567286;
 }
 
 .content2 {
   font-family: "Yeseva One";
   font-style: normal;
-  font-weight: 400;
-  font-size: 50px;
-  line-height: 60px;
-  width: 900px;
+  font-weight: 500;
+  font-size: 3.5vw;
 
   color: #2b3f4e;
 }
 
 .content3 {
   align-items: flex-start;
-  padding: 13px 35px;
+  padding: 0.8vw 1.2vw;
   gap: 10px;
   margin-top: 20px;
 
@@ -66,7 +62,7 @@
   font-family: "Comfortaa";
   font-style: normal;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 1.5vw;
   line-height: 28px;
   border: none;
   width: fit-content;
@@ -84,7 +80,7 @@
   }
   .b2 {
     width: 25vw;
-    height: 80px;
+    height: 12vh;
     background: #2b3e4c;
     border-radius: 6.85px;
     display: flex;
@@ -93,19 +89,19 @@
     font-family: "Work Sans";
     font-style: normal;
     font-weight: normal;
-    font-size: 17px;
+    font-size: 1vw;
     color: #fcfefe;
   }
 
 .b1 {
   width: 25vw;
-  height: 80px;
+  height: 12vh;
   background: #2d485c;
   border-radius: 6.85px;
   font-family: "Work Sans";
   font-style: normal;
   font-weight: normal;
-  font-size: 17px;
+  font-size: 1vw;
   color: #fcfefe;
   display: flex;
   align-items: center;
@@ -114,7 +110,7 @@
 
 .b3 {
   width: 25vw;
-  height: 80px;
+  height: 12vh;
   background: #29343c;
   border-radius: 6.85px;
   display: flex;
@@ -123,7 +119,7 @@
   font-family: "Work Sans";
   font-style: normal;
   font-weight: normal;
-  font-size: 17px;
+  font-size: 1vw;
   color: #fcfefe;
 }
 .button img {
@@ -136,29 +132,26 @@
   
 
 .lp1 {
-  display: flex;
-  justify-content: center;
-  margin-top: 120px;
+  margin-top: 15vh;
   font-family: "Work Sans";
   font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
+  font-weight: 1000;
+  font-size: 2vw;
   line-height: 30px;
 
   text-align: center;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 
   color: #6b889d;
 }
 
 .lp2 {
-  display: flex;
-  justify-content: center;
+  margin-top: 1vh;
   font-family: "Yeseva One";
   font-style: normal;
   font-weight: 400;
-  font-size: 50px;
+  font-size: 3.2vw;
   line-height: 90px;
   text-align: center;
 
@@ -166,51 +159,48 @@
 }
 
 .lp3 {
-  display: flex;
-  justify-content: center;
   text-align: center;
   font-family: "Comfortaa";
   font-style: normal;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 1.5vw;
   line-height: 140%;
   text-align: center;
-  margin-top: 20px;
 
   color: #212124;
 }
-
+.lowerSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .landImage {
-  justify-content: center;
   margin-top: 30px;
 }
 
 .landImage img {
-  width: 1000px;
+  width: 80vw;;
 }
 
 .lp4 {
-  display: flex;
-  justify-content: center;
   font-family: "Work Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.7vw;
   line-height: 33px;
   text-align: center;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #6b889d;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .lp5 {
-  display: flex;
-  justify-content: center;
+
   font-family: "Yeseva One";
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 3vw;
   line-height: 61px;
   text-align: center;
 
@@ -218,12 +208,10 @@
 }
 
 .lp6 {
-  display: flex;
-  justify-content: center;
   font-family: "Work Sans";
   font-style: normal;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 1.6vw;
   line-height: 45px;
   color: #000000;
 }
@@ -233,22 +221,36 @@
   flex-direction: row;
   justify-content: space-evenly;
   vertical-align: middle;
+  gap:15vw;
 }
 
 .lp7 ul li {
+  display: flex;
+  align-items: center;
   font-family: "Work Sans";
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.4vw;
   line-height: 250%;
   color: #000000;
   vertical-align: middle;
 }
 
 .lp7 ul {
-  margin-right: 20px;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.lp7 li::marker {
-  color: #285f83;
+.lp7 ul li:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: #285f83; 
+  border-radius: 50%; 
+  background-color: #285f83; 
+  text-align: center; 
+  margin-right: 0.5em; 
 }
