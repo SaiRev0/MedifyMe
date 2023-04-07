@@ -116,6 +116,9 @@ function App() {
   const patient = useSelector((state) => {
     return state.patient;
   });
+  const doctor = useSelector((state) => {
+    return state.doctor;
+  });
 
   const dispatch = useDispatch();
   const [patientCookies, setPatientCookie, removePatientCookie] = useCookies([
@@ -164,25 +167,31 @@ function App() {
     }
 
     if (
-      doctorCookies.token &&
-      doctorCookies._id &&
-      doctorCookies.email &&
-      doctorCookies.photo &&
-      doctorCookies.role &&
-      doctorCookies.name
+      doctorCookies.doctor.token &&
+      doctorCookies.doctor.id &&
+      doctorCookies.doctor.email &&
+      doctorCookies.doctor.photo &&
+      doctorCookies.doctor.role &&
+      doctorCookies.doctor.name
     ) {
       dispatch(
         doctorLoginSuccess({
-          token: doctorCookies.token,
-          id: doctorCookies.id,
-          email: doctorCookies.email,
-          photo: doctorCookies.photo,
-          role: doctorCookies.role,
-          name: doctorCookies.name,
+          token: doctorCookies.doctor.token,
+          id: doctorCookies.doctor.id,
+          email: doctorCookies.doctor.email,
+          photo: doctorCookies.doctor.photo,
+          role: doctorCookies.doctor.role,
+          name: doctorCookies.doctor.name,
         })
       );
     }
-  }, [patientCookies.patient, dispatch, patient.isLoggedIn, doctorCookies]);
+  }, [
+    patientCookies.patient,
+    dispatch,
+    patient.isLoggedIn,
+    doctorCookies,
+    doctor,
+  ]);
 
   return <RouterProvider router={router} />;
 }
