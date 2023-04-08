@@ -8,7 +8,16 @@ function Home() {
       <Navbar />
       <div className={styles.health_history}>
         <form className={styles.health_history_form}>
-          <h1 className={styles.header}>Add A Presecription</h1>
+          <h1 className={styles.header}>Add A Prescription</h1>
+          <label className={styles.text_health} htmlFor="doctor-name">
+            Medicines
+          </label>
+          <textarea id="doctor-medicines" name="doctor-medicines" className={styles.comments}></textarea>
+
+          <label className={styles.text_health} htmlFor="doctor-comments">
+            Prescription Comments:
+          </label>
+          <textarea id="doctor-comments" name="doctor-comments" className={styles.comments}></textarea>
 
           <label className={styles.text_health} htmlFor="date">
             Date:
@@ -21,38 +30,25 @@ function Home() {
             required
           />
 
-          <label className={styles.text_health} htmlFor="file-upload">
-            Upload Files
-          </label>
+          <div className={styles.upload_file}>
+          <label className={styles.upload} htmlFor="file-upload"><img src="/Cloud_Upload.png"></img><span>Upload Documents</span></label>
           <input
             className={styles.health_file}
             type="file"
             id="file-upload"
             name="file-upload"
+            onChange={(e) => handleFileChange(e)}
+            accept=".jpg, .jpeg, .png, .pdf"
+            multiple
           />
-
-          <label className={styles.docter_name} htmlFor="doctor-name">
-            Medicines
-          </label>
-          <input
-            className={styles.health_input}
-            type="text"
-            id="doctor-name"
-            name="doctor-name"
-            required
-          />
-
-          <label className={styles.text_health} htmlFor="doctor-comments">
-            Prescription Comments:
-          </label>
-          <textarea id="doctor-comments" name="doctor-comments" className={styles.comments}></textarea>
-
-          <button className={styles.submit_button} type="submit">
-            Add
-          </button>
+          </div>
+          <div className={styles.submit_btn}>
+            <button className={styles.submit_button} type="submit">
+              Add
+            </button>
+          </div>
         </form>
       </div>
-      <Footer />
     </>
   );
 }

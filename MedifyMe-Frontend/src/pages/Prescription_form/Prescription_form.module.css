@@ -3,25 +3,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-.health_history_form {
+/* .health_history_form {
     max-width: 900px;
     margin: 0 auto;
     padding: 10px;
     background-color: #f7f7f7;
     border: 1px solid #ccc;
     border-radius: 5px;
+} */
+
+.health_history_form {
+    width:70vw;
+    margin: 10px auto;
+    padding: 0px 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 20px;
 }
 
-.header {
+/* .header {
     margin-left: 290px;
     font-family: 'Yeseva One';
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
     line-height: 74px;
-    /* identical to box height */
+} */
 
+.header {
+    text-align: center;
+    font-family: 'Yeseva One';
+    font-style: 'sans-serif';
+    font-weight: 400;
+    font-size: 40px;
+    color: #2B3F4E;
+    /* identical to box height */
 }
+
+
 
 .docter_name {
     margin-left: 10px;
@@ -35,7 +54,7 @@
 .text_health {
     margin-left: 10px;
     color: black;
-    margin-top: 40px;
+    margin-top: 10px;
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
@@ -50,33 +69,72 @@
     width: 98%;
     height: 60px;
     margin-bottom: 10px;
+    resize: none;
 }
 
+.health_input::-webkit-calendar-picker-indicator{
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    width: 400px;
+}
+
+
+
 .health_file {
-    margin-bottom: 20px;
-    margin-left: 10px;
+    display: none;
+}
+
+.upload_file{
+    background-color: white;
+    border: 1px solid #8b8a8a;
+    box-shadow: 2px 2px #ccc;
+    width:fit-content;
+    padding:0px 10px 0 0;
+    border-radius: 30px;
+    margin:auto;
+}
+
+.upload_file:hover{
+    background-color: rgb(248, 245, 245);
+    box-shadow: none;
+
+}
+
+.upload img{
+    width:70px;
+    margin-left:0vw;
+}
+
+.upload span{
+    position: relative;
+    bottom:16px;
+}
+
+.submit_btn{
+    display: flex;
+    justify-content: center;
+    margin-bottom:25px;
 }
 
 
 .submit_button {
+    margin-top: 38px;
     font-family: 'Comfortaa';
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-    margin-left: 300px;
-    padding-bottom: 10px;
+    font-size: 24px;
     color: #FFFFFF;
-    color: #fff;
-    padding: 10px 20px;
     border: none;
     cursor: pointer;
     background: #CDAA64;
     border-radius: 30px;
-    width: 271px;
+    width: 200px;
     height: 50px;
 }
 
 .submit_button:hover {
-    background-color: #3e8e41;
+    background-color: #a38850;
 }
