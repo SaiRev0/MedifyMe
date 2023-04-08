@@ -44,10 +44,10 @@ module.exports.dLogin = async (req, res) => {
 
 module.exports.getPatient = async (req, res) => {
   try {
-    if (!req.body.id) {
+    if (!req.query.id) {
       return res.status(400).json("No doctor id provided");
     }
-    const { id } = req.body;
+    const { id } = req.query;
     const foundDoctor = await Doctor.findById(id)
       .populate("patients")
       .populate("requests");

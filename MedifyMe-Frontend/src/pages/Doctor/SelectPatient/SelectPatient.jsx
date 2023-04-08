@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import { useFetchPatientsQuery } from "../../../store";
+import Loading from "../../../components/Loading/Loading";
 function SelectPatient() {
   const navigate = useNavigate();
 
@@ -11,12 +13,24 @@ function SelectPatient() {
     return state.doctor;
   });
 
+  const { data, error, isFetching } = useFetchPatientsQuery(doctor.id);
+
+  console.log(data);
+
   useEffect(() => {
     if (!doctor.isLoggedIn) {
       navigate("/login");
       toast.error("Please login to continue");
     }
   }, [navigate, doctor.isLoggedIn]);
+
+  if (isFetching) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -70,36 +84,17 @@ function SelectPatient() {
               <p className={styles.add_patients_p}>Patient Requests</p>
             </div>
             <div className={styles.patient_grid}>
-              <div className={styles.patient}>
-                <p className={styles.patient_name}>
-                  &nbsp;&nbsp;&nbsp;1. Joey Tribbiani
-                </p>
-                <p className={styles.patient_id}>#IN2839TRN</p>
-                <p className={styles.friend_requests}>
-                  <button className={styles.ignorebtn}>Ignore</button>
-                  <button className={styles.acceptbtn}>Accept</button>
-                </p>
-              </div>
-              <div className={styles.patient}>
-                <p className={styles.patient_name}>
-                  &nbsp;&nbsp;&nbsp;2. Rachael Green
-                </p>
-                <p className={styles.patient_id}>#PK9741QSL</p>
-                <p className={styles.friend_requests}>
-                  <button className={styles.ignorebtn}>Ignore</button>
-                  <button className={styles.acceptbtn}>Accept</button>
-                </p>
-              </div>
-              <div className={styles.patient}>
-                <p className={styles.patient_name}>
-                  &nbsp;&nbsp;&nbsp;3. Pheobe Buffay
-                </p>
-                <p className={styles.patient_id}>#IU1029WED</p>
-                <p className={styles.friend_requests}>
-                  <button className={styles.ignorebtn}>Ignore</button>
-                  <button className={styles.acceptbtn}>Accept</button>
-                </p>
-              </div>
+              {data.requests.map((request, index) => (
+                <div key={index} className={styles.patient}>
+                  <p className={styles.patient_name}>
+                    &nbsp;&nbsp;&nbsp;{index + 1}. {request.name}
+                  </p>
+                  <p className={styles.friend_requests}>
+                    <button className={styles.ignorebtn}>Ignore</button>
+                    <button className={styles.acceptbtn}>Accept</button>
+                  </p>
+                </div>
+              ))}
               <button className={styles.viewbtn}>View All</button>
             </div>
           </div>

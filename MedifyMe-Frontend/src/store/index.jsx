@@ -46,4 +46,4 @@ export {
   useRequestDoctorMutation,
 } from "./apis/patientsApi";
 
-export { useDLoginMutation } from "./apis/doctorsApi";
+export { useDLoginMutation, useFetchPatientsQuery } from "./apis/doctorsApi";

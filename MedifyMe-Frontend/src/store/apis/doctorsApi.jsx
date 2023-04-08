@@ -33,7 +33,7 @@ const doctorApi = createApi({
 
 export const {
   useDLoginMutation,
-  useDFetchHealthHistoryQuery,
+  useFetchPatientsQuery,
   useDFetchVisitsQuery,
 } = doctorApi;
 export { doctorApi };

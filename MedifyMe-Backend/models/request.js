@@ -6,6 +6,10 @@ const RequestSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Patient",
   },
+  patientName: {
+    type: String,
+    required: true,
+  },
   doctor: {
     type: Schema.Types.ObjectId,
     ref: "Doctor",

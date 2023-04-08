@@ -207,6 +207,7 @@ module.exports.requestDoctor = async (req, res) => {
     const request = new Request({
       patient: id,
       doctor: foundDoctor._id,
+      patientName: foundPatient.name,
     });
 
     await request.save();
