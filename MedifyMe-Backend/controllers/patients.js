@@ -187,14 +187,16 @@ module.exports.visits = async (req, res) => {
 module.exports.requestDoctor = async (req, res) => {
   try {
     if (!req.body.id) {
-      return res.status(400).json("No patient id provided");
+      return res
+        .status(212)
+        .json({ message: "No patient id provided", status: 212 });
     }
     const { id } = req.body;
     const foundPatient = await Patient.findById(id).populate("requests");
     const email = req.body.doctorEmail;
     const foundDoctor = await Doctor.findOne({ email });
     if (!foundDoctor) {
-      return res.status(400).json("Doctor Not Found");
+      return res.status(212).json({ message: "Doctor Not Found", status: 212 });
     }
     const alreadyRequested = foundPatient.requests.some((request) => {
       return request.doctor.toString() === foundDoctor._id.toString();
@@ -212,11 +214,13 @@ module.exports.requestDoctor = async (req, res) => {
 
     await request.save();
     const requestId = request._id;
+
     foundPatient.requests.push(requestId);
     await foundPatient.save();
     foundDoctor.requests.push(requestId);
     await foundDoctor.save();
-    res.status(200).json(request);
+
+    res.status(200).json({ request, status: 200 });
   } catch (err) {
     console.log(err);
     res.status(400).json("Something Went Wrong!");
