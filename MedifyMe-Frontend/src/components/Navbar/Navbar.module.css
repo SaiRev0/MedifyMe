@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
 
 .container {
-  padding: 0 0 0 15px;
+  padding: 0 10px 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,7 +10,7 @@
 }
 
 .navbar {
-  height: 75px;
+  height: 10vh;
   background: linear-gradient(84.18deg, #2D495D 0.31%, #28333A 100%) fixed center center/cover;
   /* position: relative; */
   width: 100%;
@@ -26,7 +26,6 @@
 }
 
 .signIn {
-  margin-top: -5px;
   display: flex;
   width: 160px;
   align-items: center;
@@ -42,16 +41,15 @@
   display: flex;
   align-items: center;
   list-style-type: none;
-  float: right;
 }
 
 .nav_elements ul li:not(:last-child) {
-  margin-right: 90px;
+  margin-right: 5vw;
 }
 
 .nav_elements ul a {
   font-family: 'Work Sans';
-  font-size: 16px;
+  font-size: 1.1vw;
   font-weight: 400;
   color: #FCFEFE;
   ;
@@ -76,13 +74,15 @@
 
 .brand {
   padding-left: 20px;
-  font-size: 30px;
+  font-size: 2.5vw;
   font-family: 'Yeseva One', cursive;
   color: white;
   display: inline !important;
   margin-top: 40px;
 }
-
+.logoSection img{
+  width: 4vw;
+}
 .brandIn {
   color: #CDAA64;
   display: inline !important;
@@ -101,7 +101,7 @@
   color: #CDAA64;
   font-weight: 500;
   position: relative;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 @media (max-width:1240px) {
@@ -139,5 +139,17 @@
     align-items: center;
     width: 15vw;
     height: 100%;
+  }
+  .brand {
+    padding-left: 20px;
+    font-size: 40px;
+    font-family: 'Yeseva One', cursive;
+    color: white;
+    display: inline !important;
+    margin-top: 40px;
+  }
+  .logoSection img{
+    width: 25%;
+    height: 25%;
   }
 }

@@ -13,7 +13,6 @@ const Footer = () => {
 
   return (
     <div className={styles.footer}>
-      <div></div>
       <div className={styles.footer_1}>
         <p className={styles.text_1}>
           MEDIFY<span className={styles.text_2}>ME</span>
