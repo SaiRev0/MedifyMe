@@ -1,12 +1,14 @@
-import styles from "./Video.module.css";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React from "react";
+import Navbar from "../../components/Navbar/Navbar";
+import styles from "./video_room.module.css";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   MeetingProvider,
   MeetingConsumer,
   useMeeting,
   useParticipant,
 } from "@videosdk.live/react-sdk";
-import { getToken, createMeeting, validateMeeting } from "../../api";
+import { getToken, createMeeting } from "../../api";
 import ReactPlayer from "react-player";
 
 function JoinScreen({ getMeetingAndToken }) {
@@ -15,7 +17,7 @@ function JoinScreen({ getMeetingAndToken }) {
     await getMeetingAndToken(meetingId);
   };
   return (
-    <div>
+    <div className={styles.input}>
       <input
         type="text"
         placeholder="Enter Meeting Id"
@@ -176,4 +178,95 @@ function App() {
   );
 }
 
-export default App;
+function video_room() {
+  return (
+    <>
+      <Navbar />
+      <div className={styles.grid_container}>
+        <div className={styles.left_wrapper}>
+          <div className={styles.t1}>History</div>
+          <div className={styles.docs}>
+            <div className={styles.doc1}>
+              <img src="doc.png" />
+              <div>
+                <div className={styles.t2}>Dentist</div>
+                <div className={styles.t3}>Dr. Roman Reigns</div>
+              </div>
+              <div className={styles.date}>&#128197; 20Jan 2023</div>
+            </div>
+            <div className={styles.doc2}>
+              <img src="doc.png" />
+              <div>
+                <div className={styles.t2}>Dentist</div>
+                <div className={styles.t3}>Dr. Roman Reigns</div>
+              </div>
+              <div className={styles.date}>&#128197; 20Jan 2023</div>
+            </div>
+            <div className={styles.doc2}>
+              <img src="doc.png" />
+              <div>
+                <div className={styles.t2}>Dentist</div>
+                <div className={styles.t3}>Dr. Roman Reigns</div>
+              </div>
+              <div className={styles.date}>&#128197; 20Jan 2023</div>
+            </div>
+            <div className={styles.doc2}>
+              <img src="doc.png" />
+              <div>
+                <div className={styles.t2}>Dentist</div>
+                <div className={styles.t3}>Dr. Roman Reigns</div>
+              </div>
+              <div className={styles.date}>&#128197; 20Jan 2023</div>
+            </div>
+            <div className={styles.doc2}>
+              <img src="doc.png" />
+              <div>
+                <div className={styles.t2}>Dentist</div>
+                <div className={styles.t3}>Dr. Roman Reigns</div>
+              </div>
+              <div className={styles.date}>&#128197; 20Jan 2023</div>
+            </div>
+          </div>
+          <div className={styles.button}>
+            <a href="">
+              <div className={styles.b}>Create New Record</div>
+            </a>
+          </div>
+          <div className={styles.t1}>Doctors Suggestions</div>
+          <div className={styles.docsu}>
+            <div className={styles.doc1}>
+              <img src="doc.png" />
+              <div>
+                <div className={styles.t2}>Dentist</div>
+                <div className={styles.t3}>Dr. Roman Reigns</div>
+              </div>
+              <div className={styles.date}>&#128197; 20Jan 2023</div>
+            </div>
+            <div className={styles.doc2}>
+              <img src="doc.png" />
+              <div>
+                <div className={styles.t2}>Dentist</div>
+                <div className={styles.t3}>Dr. Roman Reigns</div>
+              </div>
+              <div className={styles.date}>&#128197; 20Jan 2023</div>
+            </div>
+            <div className={styles.doc2}>
+              <img src="doc.png" />
+              <div>
+                <div className={styles.t2}>Dentist</div>
+                <div className={styles.t3}>Dr. Roman Reigns</div>
+              </div>
+              <div className={styles.date}>&#128197; 20Jan 2023</div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.right_wrapper}>
+          <h1>Meeting Id : </h1>
+          <App />
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default video_room;

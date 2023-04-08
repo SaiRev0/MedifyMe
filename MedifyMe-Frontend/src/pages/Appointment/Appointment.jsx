@@ -1,8 +1,9 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Appointment.module.css";
 import AccountCard from "../../components/AccountCard/AccountCard";
+import { useNavigate } from "react-router-dom";
 
-function Home() {
+function Appointment() {
   return (
     <>
       <Navbar />
@@ -109,15 +110,7 @@ function Home() {
             <p className={styles.total_fee_text}>Total Fee</p>
             <p className={styles.total_fee}>₹ 500</p>
           </div>
-          <div className={styles.coupon}>
-            <span className={styles.enter_coupon}>
-              Enter Coupon : <span className={styles.coup}>MEDIFYME100</span>
-            </span>
-            <a href="">
-              <div className={styles.coupon_button}>Apply coupon</div>
-            </a>
-          </div>
-          <a href="">
+          <a href="/video_room">
             <div className={styles.pay}>Pay ₹550</div>
           </a>
         </div>
@@ -126,4 +119,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Appointment;
