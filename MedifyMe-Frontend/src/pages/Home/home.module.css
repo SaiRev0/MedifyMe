@@ -300,35 +300,44 @@
   }
   .lp1{
     margin-top: 50px;
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
   .lp2{
-    margin-top: 20px;
-    line-height: 4vw  ;
-    font-size: 4vw;
+    margin-top: 0px;
+    line-height: 30px ;
+    font-size: 7vw;
   }
   .lp3{
     margin-top: 10px;
-    font-size: 2.5vw;
+    font-size: 3.5vw;
     width: 75%;
   }
   .lp4{
     margin-top:10px;
-    font-size: 3.5vw;
+    font-size: 3vw;
   }
   .lp5{
     margin-top: 10px;
+    margin-bottom: 10px;
     line-height: 0vw  ;
-    font-size: 4vw;
+    font-size: 7vw;
   }
   .lp6{
-    font-size: 2.5vw;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    font-size: 4vw;
     width: 75%;
+    line-height: 20px;
+    text-align: center;
   }
   .lp7{
     margin-bottom: 20px;
   }
+  .lp7 ul:first-child{
+    display: none;
+  }
   .lp7 ul li{
-    font-size: 2.2vw;
+    font-size: 4vw;
   }
 }
