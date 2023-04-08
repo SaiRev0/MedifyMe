@@ -87,7 +87,8 @@ function SelectPatient() {
               {data.requests.map((request, index) => (
                 <div key={index} className={styles.patient}>
                   <p className={styles.patient_name}>
-                    &nbsp;&nbsp;&nbsp;{index + 1}. {request.name}
+                    &nbsp;&nbsp;&nbsp;{index + 1}. &nbsp;&nbsp;
+                    {request.patientName}
                   </p>
                   <p className={styles.friend_requests}>
                     <button className={styles.ignorebtn}>Ignore</button>
