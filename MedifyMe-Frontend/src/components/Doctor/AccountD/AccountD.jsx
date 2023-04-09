@@ -1,11 +1,11 @@
-import styles from "./Account.module.css";
-import useLogout from "../../hooks/useLogout";
+import styles from "./AccountD.module.css";
+import useLogout from "../../../hooks/useLogout";
 import { useSelector } from "react-redux";
 
-function Account() {
+function AccountD() {
   const { handleLogout } = useLogout();
-  const patient = useSelector((state) => {
-    return state.patient;
+  const doctor = useSelector((state) => {
+    return state.doctor;
   });
 
   const submitHandler = (e) => {
@@ -23,7 +23,7 @@ function Account() {
         <div className={styles.row}>
           <label className={styles.color1} htmlFor="profile-pic">
             <span>Profile Picture:</span>
-            <img src="..\Frame 21.png" className={styles.profile_img}></img>
+            <img src="../../Frame 21.png" className={styles.profile_img}></img>
             <span className={styles.span}>&nbsp;Upload Image</span>
           </label>
           <input
@@ -45,7 +45,7 @@ function Account() {
             name="name"
             placeholder="Name"
             required
-            defaultValue={patient.name}
+            defaultValue={doctor.name}
           />
         </div>
         <div className={styles.row_sex_age}>
@@ -57,7 +57,6 @@ function Account() {
             id="gender"
             name="gender"
             required
-            defaultValue={patient.gender}
           >
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -73,7 +72,6 @@ function Account() {
             id="age"
             name="age"
             placeholder="Age"
-            defaultValue={patient.age}
             required
           />
         </div>
@@ -88,7 +86,7 @@ function Account() {
             id="email"
             name="email"
             placeholder="Email"
-            defaultValue={patient.email}
+            defaultValue={doctor.email}
             required
           />
         </div>
@@ -114,4 +112,4 @@ function Account() {
   );
 }
 
-export default Account;
+export default AccountD;

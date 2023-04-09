@@ -1,33 +1,33 @@
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import styles from "./AccountCard.module.css";
+import styles from "./AccountCardD.module.css";
 
-function AccountCard() {
+function AccountCardD() {
   const location = useLocation();
-  const patient = useSelector((state) => {
-    return state.patient;
+  const doctor = useSelector((state) => {
+    return state.doctor;
   });
 
   const customId = () => {
-    const smallRandomId = patient.id.substring(0, 8);
-    const Id = `PA #${smallRandomId.toUpperCase()}`;
+    const smallRandomId = doctor.id.substring(0, 8);
+    const Id = `DR #${smallRandomId.toUpperCase()}`;
     return Id;
   };
 
   return (
     <div className={styles.left_wrapper}>
       <div className={styles.card}>
-        <img src={patient.photo} alt="profile" className={styles.img} />
+        <img src={doctor.photo} alt="profile" className={styles.img} />
         <div className={styles.list}>
           <h2 className={styles.id}>{`${customId()}`}</h2>
           <p className={styles.margin_top}>
             <Link
               className={
-                location.pathname === "/settings/account"
+                location.pathname === "/doctor/settings/account"
                   ? styles.selected
                   : styles.default
               }
-              to="/settings/account"
+              to="/doctor/settings/account"
             >
               General Settings
             </Link>
@@ -35,23 +35,23 @@ function AccountCard() {
           <p className={styles.margin_top}>
             <Link
               className={
-                location.pathname === "/settings/manage_doctors"
+                location.pathname === "/doctor/settings/manage_patients"
                   ? styles.selected
                   : styles.default
               }
-              to="/settings/manage_doctors"
+              to="/doctor/settings/manage_patients"
             >
-              Manage Doctor
+              Manage Patient
             </Link>
           </p>
           <p className={styles.margin_top}>
             <Link
               className={
-                location.pathname === "/settings/payment"
+                location.pathname === "/doctor/settings/payment"
                   ? styles.selected
                   : styles.default
               }
-              to="/settings/payment"
+              to="/doctor/settings/payment"
             >
               Payment Settings
             </Link>
@@ -62,4 +62,4 @@ function AccountCard() {
   );
 }
 
-export default AccountCard;
+export default AccountCardD;

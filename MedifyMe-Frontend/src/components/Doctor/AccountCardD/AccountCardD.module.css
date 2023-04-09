@@ -1,0 +1,54 @@
+.img {
+    width: 200px;
+    margin-left: 80px;
+    margin-top: 40px;
+    border-radius: 500px;
+}
+
+.id {
+    color: white;
+    text-align: center;
+}
+
+.margin_top {
+    margin-top: 32px;
+}
+
+.list {
+    text-align: center;
+}
+
+.default {
+    text-decoration: none;
+    color: white;
+}
+
+.selected {
+    padding: 10px;
+    background-color: #CDAA64;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+}
+
+@media(min-width:1450px) {
+    .card {
+        background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+        margin-top: 100px;
+        width: 360px;
+        height: 500px;
+        border-radius: 10px;
+        margin-left: 120px;
+    }
+}
+
+@media (max-width:1450px) {
+    .card {
+        background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+        margin-top: 100px;
+        width: 400px;
+        height: 500px;
+        border-radius: 10px;
+        margin-left: 85%;
+    }
+}

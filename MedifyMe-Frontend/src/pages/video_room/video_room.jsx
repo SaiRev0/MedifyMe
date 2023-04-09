@@ -125,13 +125,13 @@ function MeetingView(props) {
       <h3>Meeting Id: {props.meetingId}</h3>
       {joined && joined == "JOINED" ? (
         <div>
-          <Controls />
           {[...participants.keys()].map((participantId) => (
             <ParticipantView
               participantId={participantId}
               key={participantId}
             />
           ))}
+          <Controls />
         </div>
       ) : joined && joined == "JOINING" ? (
         <p>Joining the meeting...</p>

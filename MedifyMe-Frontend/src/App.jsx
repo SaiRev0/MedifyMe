@@ -1,5 +1,6 @@
 import Home from "./pages/Home/Home";
 import Account from "./components/Account/Account";
+import AccountD from "./components/Doctor/AccountD/AccountD";
 import Payments from "./components/Payments/Payments";
 import Login from "./pages/Login/Login";
 import Health_history_form from "./pages/Health_history_form/Health_history_form";
@@ -19,6 +20,7 @@ import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
 import SelectPatient from "./pages/Doctor/SelectPatient/SelectPatient";
 import VideoRoom from "./pages/video_room/video_room";
+import SettingsDoctor from "./pages/Doctor/SettingsDoctor/SettingsDoctor";
 // import RoomPage from "./pages/Rooms/Rooms";
 // import Video_chat from "./pages/Video_chat/video_chat";
 
@@ -79,22 +81,6 @@ const router = createBrowserRouter(
             </Settings>
           }
         />
-        <Route
-          path="manage_patients"
-          element={
-            <Settings>
-              <Manage_patients />
-            </Settings>
-          }
-        />
-        <Route
-          path="doc_payment_settings"
-          element={
-            <Settings>
-              <Payments />
-            </Settings>
-          }
-        />
       </Route>
       |{/* doctor routes */}
       <Route path="doctor">
@@ -106,6 +92,32 @@ const router = createBrowserRouter(
           element={<Patient_Health_History />}
         />
         <Route path="patient_appointment" element={<Patient_Appointment />} />
+        <Route path="settings">
+          <Route
+            path="account"
+            element={
+              <SettingsDoctor>
+                <AccountD />
+              </SettingsDoctor>
+            }
+          />
+          <Route
+            path="manage_patients"
+            element={
+              <SettingsDoctor>
+                <Manage_patients />
+              </SettingsDoctor>
+            }
+          />
+          <Route
+            path="payment"
+            element={
+              <SettingsDoctor>
+                <Payments />
+              </SettingsDoctor>
+            }
+          />
+        </Route>
       </Route>
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
