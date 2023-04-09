@@ -14,11 +14,14 @@ function SelectPatient() {
     return state.doctor;
   });
 
-  const { data, error, isFetching } = useFetchPatientsQuery(doctor.id);
+  const { data, error, isFetching, refetch } = useFetchPatientsQuery(doctor.id);
   const [accept, acceptResults] = useAcceptPatientsMutation();
 
   const acceptRequest = async (request) => {
     await accept({ id: request._id });
+    if (!acceptResults.error && !acceptResults.isFetching) {
+      refetch();
+    }
   };
   const ignoreRequest = (request) => {};
 
@@ -56,12 +59,9 @@ function SelectPatient() {
                 Active Patient:
               </label>
               <select className={styles.add_doctor_name} id="name" name="name">
-                <option>Rachael Green</option>
-                <option>Chandler Bing</option>
-                <option>Ross Geller</option>
-                <option>Joey Tribiiani</option>
-                <option>Pheobe Buffay</option>
-                <option>Monica Geller</option>
+                {data.patients.map((patient) => (
+                  <option>{patient.name}</option>
+                ))}
               </select>
               <button className={styles.select_btn} type="submit">
                 Select
