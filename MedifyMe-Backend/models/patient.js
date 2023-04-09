@@ -67,6 +67,12 @@ const PatientSchema = new Schema({
       ref: "Request",
     },
   ],
+  doctors: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Doctor",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Patient", PatientSchema);

@@ -21,11 +21,11 @@ const doctorApi = createApi({
         method: "GET",
       }),
     }),
-    acceptPatient: builder.query({
-      query: (id) => ({
+    acceptPatients: builder.mutation({
+      query: (detail) => ({
         url: "/accept",
-        params: { id },
-        method: "GET",
+        method: "POST",
+        body: detail,
       }),
     }),
   }),
@@ -34,6 +34,6 @@ const doctorApi = createApi({
 export const {
   useDLoginMutation,
   useFetchPatientsQuery,
-  useAcceptPatientQuery,
+  useAcceptPatientsMutation,
 } = doctorApi;
 export { doctorApi };

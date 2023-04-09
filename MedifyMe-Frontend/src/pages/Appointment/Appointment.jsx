@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Appointment.module.css";
+import { Link } from "react-router-dom";
 import AccountCard from "../../components/AccountCard/AccountCard";
 import { useNavigate } from "react-router-dom";
 
@@ -110,9 +111,9 @@ function Appointment() {
             <p className={styles.total_fee_text}>Total Fee</p>
             <p className={styles.total_fee}>₹ 500</p>
           </div>
-          <a href="/video_room">
+          <Link to="/video_room">
             <div className={styles.pay}>Pay ₹550</div>
-          </a>
+          </Link>
         </div>
       </div>
     </>

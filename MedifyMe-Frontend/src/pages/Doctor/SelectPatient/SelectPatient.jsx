@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useFetchPatientsQuery } from "../../../store";
-import { useAcceptPatientQuery } from "../../../store";
+import { useAcceptPatientsMutation } from "../../../store";
 import Loading from "../../../components/Loading/Loading";
 function SelectPatient() {
   const navigate = useNavigate();
@@ -15,15 +15,10 @@ function SelectPatient() {
   });
 
   const { data, error, isFetching } = useFetchPatientsQuery(doctor.id);
+  const [accept, acceptResults] = useAcceptPatientsMutation();
 
-  const acceptRequest = (request) => {
-    const {
-      data: acceptData,
-      error: acceptError,
-      isFetching: isFetchingAccept,
-    } = useAcceptPatientQuery(request._id);
-    console.log(acceptData);
-    // console.log(request._id);
+  const acceptRequest = async (request) => {
+    await accept({ id: request._id });
   };
   const ignoreRequest = (request) => {};
 
