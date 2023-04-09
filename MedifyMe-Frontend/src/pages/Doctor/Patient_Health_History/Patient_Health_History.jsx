@@ -14,6 +14,12 @@ function HealthHistory() {
     return state.patient;
   });
 
+  const [isEditable, setIsEditable] = useState(false);
+
+  const makeEditable = () => {
+    setIsEditable(true);
+  }
+
   const {
     data: rawData,
     error: rawError,
@@ -128,9 +134,11 @@ function HealthHistory() {
             <div className={styles.doccomments}>
               <div className={styles.doccommentst}>Doctors Comments</div>
               <div className={styles.comments}>
-                <textarea rows="5" cols="40" type="text" name="textarea">
+                
+                <textarea rows="5" cols="40" type="text" name="textarea" readOnly={!isEditable}>
                 {selectedVisit.doctorComments}
                 </textarea>
+                <button onClick={makeEditable} className={!isEditable?styles.edit_btn:styles.edit_btn_clicked} ><img src="/EDIT.png"/></button>
                 
               </div>
             </div>

@@ -96,8 +96,8 @@ function HealthHistory() {
         </div>
         <div className={styles.d2}>
           <ul>
-            <li class>Overview : &nbsp;&nbsp;{data.overview}</li>
-          </ul>
+            <li>Overview : &nbsp;&nbsp;{data.overview}</li>
+          </ul> 
         </div>
       </div>
       <div className={styles.lowerSection}>

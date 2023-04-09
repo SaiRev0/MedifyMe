@@ -4,12 +4,22 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 function Test() {
   const patient = useSelector((state) => {
     return state.patient;
   });
   const navigate = useNavigate();
+
+  const [isEditable, setIsEditable] = useState(false);
+
+  let isclick=styles.edit_btn;
+
+  const makeEditable = () => {
+    setIsEditable(true);
+    isclick = styles.edit_btn_clicked;
+  }
 
 //   useEffect(() => {
 //     if (!patient.isLoggedIn) {
@@ -100,9 +110,9 @@ function Test() {
         <div className={styles.cont}>
           <div className={styles.left_cont}>
             <div className={styles.leftd_cont}>
-                <h3>Doctor Comments</h3>
+                <h3>Doctor Comments</h3><button onClick={makeEditable} className={!isEditable?styles.edit_btn:styles.edit_btn_clicked} ><img src="/EDIT.png"/></button>
                 <div className={styles.edit_dosage}>
-                    <textarea rows="5" cols="40" type="text" name="textarea" required readonly>
+                    <textarea rows="5" cols="40" type="text" name="textarea" required readOnly={!isEditable}>
                     1.&nbsp;Lipitor (atorvastatin) - usually taken once daily with or without food, with dosages ranging from 10mg to 80mg depending on the individual's cholesterol levels and medical history.
                     2.&nbsp;Zoloft (sertraline) - usually taken once daily with or without food, with dosages ranging from 25mg to 200mg depending on the individual's condition and response to the medication.
                     3.&nbsp;Flonase (fluticasone) - usually taken once daily, with dosage depending on the individual's age and severity of symptoms.
@@ -112,7 +122,8 @@ function Test() {
                 <button id="Schedule" className={styles.schedule_btn}>Schedule Appointment</button>
             </div>
             <div className={styles.leftu_cont}>
-                <h3>Ask for tests</h3>
+                <h3>Ask for tests</h3><button onClick={makeEditable} className={!isEditable?styles.edit_btn:styles.edit_btn_clicked} ><img src="/EDIT.png"/></button>
+                <textarea rows="5" cols="40" type="text" name="textarea" required readOnly={!isEditable}></textarea>
                 <button id="Submit" className={styles.submit_btn}>Submit</button>
             </div>
 

@@ -247,6 +247,20 @@ a{
     font-family: 'Work Sans';
 }
 
+.leftu_cont textarea{
+    height: 9vh !important;
+    font-size: 15px;
+    line-height: 1.5;
+    resize: none;
+    background-color: #2b3e4e;
+    border: none;
+    color:white;
+    padding: 0px 15px !important;
+    width:28vw !important;
+    outline:none;
+    font-family: 'Work Sans';
+}
+
 .edit_dosage textarea::content{
     border: none;
 }
@@ -276,6 +290,46 @@ a{
     margin-left:20%;
     
 }
+
+.edit_btn{
+    position: absolute;
+    right:40px;
+    top:23px;
+    border-radius: 60px;
+    font-size:16px;
+    font-family: 'Comfortaa';
+    font-weight: 600;
+    cursor: pointer;
+    background-color: transparent;
+    border:none;
+}
+.edit_btn img{
+    width:30px;
+    border-radius: 50px;
+    
+}
+
+
+.edit_btn_clicked{
+    position: absolute;
+    right:40px;
+    top:23px;
+    border-radius: 60px;
+    font-size:16px;
+    font-family: 'Comfortaa';
+    font-weight: 600;
+    cursor: pointer;
+    background-color: transparent;
+    border:none;
+}
+
+.edit_btn_clicked img{
+    width:26px;
+    border:2px solid #CDAA64;
+    border-radius: 50px;
+}
+
+
 .leftd_cont{
     background-color: #2B3E4C;
     border-radius:13px;
@@ -284,6 +338,7 @@ a{
     width:30vw;
     height : 40vh;
     padding-top:10px;
+    position: relative;
 }
 
 .leftu_cont{
@@ -295,6 +350,7 @@ a{
     height : 25vh;
     margin: 20px 0px;
     padding-top:10px;   
+    position: relative;
 }
 
 .leftu_cont h3{
@@ -322,6 +378,8 @@ a{
     background-color:#CDAA64;
     font-family: "Comfortaa";
     cursor :pointer;
+    position: absolute;
+    left:0px;
 }
 
 .right_cont{

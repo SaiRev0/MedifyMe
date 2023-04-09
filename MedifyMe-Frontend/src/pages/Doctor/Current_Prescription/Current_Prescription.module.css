@@ -215,6 +215,7 @@
     border-radius:13px;
     font-family: 'Work Sans';
     color:white;
+    position: relative;
     /* display: flex;
     justify-content: center; */
 }
@@ -243,6 +244,37 @@
     border-radius:20px;
     margin-left:20%;
 }
+
+.edit_btn{
+    position: absolute;
+    right:40px;
+    top:15px;
+    background-color: transparent !important;
+    border:none;
+    cursor: pointer;
+}
+.edit_btn img{
+    width:30px;
+}
+.edit_btn_clicked{
+    position: absolute;
+    right:40px;
+    top:15px;
+    border-radius: 60px;
+    font-size:16px;
+    font-family: 'Comfortaa';
+    font-weight: 600;
+    cursor: pointer;
+    background-color: transparent;
+    border:none;
+}
+
+.edit_btn_clicked img{
+    width:26px;
+    border:2px solid #CDAA64;
+    border-radius: 50px;
+}
+
 .rightd_cont h3{
     font-family: "Comfortaa";
     background-color:#CDAA64;

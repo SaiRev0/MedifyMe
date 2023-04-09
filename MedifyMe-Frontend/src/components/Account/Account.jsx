@@ -7,7 +7,7 @@ function Account() {
   const patient = useSelector((state) => {
     return state.patient;
   });
-
+  
   const submitHandler = (e) => {
     e.preventDefault();
   };
