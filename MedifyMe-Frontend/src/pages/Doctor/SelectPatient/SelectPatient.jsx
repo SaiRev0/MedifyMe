@@ -7,8 +7,10 @@ import { useEffect } from "react";
 import { useFetchPatientsQuery } from "../../../store";
 import { useAcceptPatientsMutation } from "../../../store";
 import Loading from "../../../components/Loading/Loading";
+import { useCookies } from "react-cookie";
 function SelectPatient() {
   const navigate = useNavigate();
+  const [cookies, setCookie] = useCookies(["doctor"]);
 
   const doctor = useSelector((state) => {
     return state.doctor;
@@ -24,6 +26,21 @@ function SelectPatient() {
     }
   };
   const ignoreRequest = (request) => {};
+
+  const selectPatientHandler = (e) => {
+    e.preventDefault();
+    const patientID = e.target.patient.value;
+    if (patientID !== "") {
+      setCookie(
+        "doctor",
+        { selectedPatient: patientID },
+        { path: "/", sameSite: "strict" }
+      );
+      toast.success("Patient selected");
+    } else if (patientID === "") {
+      toast.error("Please select a patient");
+    }
+  };
 
   useEffect(() => {
     if (!doctor.isLoggedIn) {
@@ -54,19 +71,30 @@ function SelectPatient() {
             <p className={styles.doctor_history_content}>Dr. {doctor.name}</p>
           </div>
           <div className={styles.row}>
-            <div className={styles.add_doctor_info}>
-              <label className={styles.add_text_doctor} htmlFor="email">
+            <form
+              onSubmit={selectPatientHandler}
+              className={styles.add_doctor_info}
+            >
+              <label className={styles.add_text_doctor} htmlFor="patient">
                 Active Patient:
               </label>
-              <select className={styles.add_doctor_name} id="name" name="name">
-                {data.patients.map((patient) => (
-                  <option>{patient.name}</option>
+              <select
+                className={styles.add_doctor_name}
+                id="patient"
+                name="patient"
+                defaultValue={cookies.doctor?.selectedPatient}
+              >
+                <option value="">Please Select a Patient</option>
+                {data.patients.map((patient, index) => (
+                  <option key={index} value={patient._id}>
+                    {patient.name}
+                  </option>
                 ))}
               </select>
               <button className={styles.select_btn} type="submit">
                 Select
               </button>
-            </div>
+            </form>
 
             <div className={styles.add_patients}>
               <p className={styles.add_patients_p}>Add Patients</p>
@@ -89,29 +117,35 @@ function SelectPatient() {
               <p className={styles.add_patients_p}>Patient Requests</p>
             </div>
             <div className={styles.patient_grid}>
-              {data.requests.map((request, index) => (
-                <div key={index} className={styles.patient}>
-                  <p className={styles.patient_name}>
-                    &nbsp;&nbsp;&nbsp;{index + 1}. &nbsp;&nbsp;
-                    {request.patientName}
-                  </p>
-                  <p className={styles.friend_requests}>
-                    <button
-                      onClick={() => ignoreRequest(request)}
-                      className={styles.ignorebtn}
-                    >
-                      Ignore
-                    </button>
-                    <button
-                      onClick={() => acceptRequest(request)}
-                      className={styles.acceptbtn}
-                    >
-                      Accept
-                    </button>
-                  </p>
-                </div>
-              ))}
-              <button className={styles.viewbtn}>View All</button>
+              {data.requests.length > 0 ? (
+                data.requests.slice(0, 4).map((request, index) => (
+                  <div key={index} className={styles.patient}>
+                    <p className={styles.patient_name}>
+                      &nbsp;&nbsp;&nbsp;{index + 1}. &nbsp;&nbsp;
+                      {request.patientName}
+                    </p>
+                    <p className={styles.friend_requests}>
+                      <button
+                        onClick={() => ignoreRequest(request)}
+                        className={styles.ignorebtn}
+                      >
+                        Ignore
+                      </button>
+                      <button
+                        onClick={() => acceptRequest(request)}
+                        className={styles.acceptbtn}
+                      >
+                        Accept
+                      </button>
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className={styles.no_requests}>No Pending Request</p>
+              )}
+              {data.requests.length > 4 && (
+                <button className={styles.viewbtn}>View All</button>
+              )}
             </div>
           </div>
         </div>

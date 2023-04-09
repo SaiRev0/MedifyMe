@@ -15,7 +15,7 @@ function useLogout() {
   const handleLogout = () => {
     if (patient.isLoggedIn) {
       dispatch(logoutSuccess());
-      removeCookie("patient", { path: "/" });
+      removeCookie("patient", { path: "/", sameSite: "strict" });
       toast.info("See You Soon!!");
       navigate("/");
     }
