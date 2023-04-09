@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useFetchPatientsQuery } from "../../../store";
+import { useAcceptPatientQuery } from "../../../store";
 import Loading from "../../../components/Loading/Loading";
 function SelectPatient() {
   const navigate = useNavigate();
@@ -15,7 +16,16 @@ function SelectPatient() {
 
   const { data, error, isFetching } = useFetchPatientsQuery(doctor.id);
 
-  console.log(data);
+  const acceptRequest = (request) => {
+    const {
+      data: acceptData,
+      error: acceptError,
+      isFetching: isFetchingAccept,
+    } = useAcceptPatientQuery(request._id);
+    console.log(acceptData);
+    // console.log(request._id);
+  };
+  const ignoreRequest = (request) => {};
 
   useEffect(() => {
     if (!doctor.isLoggedIn) {
@@ -91,8 +101,18 @@ function SelectPatient() {
                     {request.patientName}
                   </p>
                   <p className={styles.friend_requests}>
-                    <button className={styles.ignorebtn}>Ignore</button>
-                    <button className={styles.acceptbtn}>Accept</button>
+                    <button
+                      onClick={() => ignoreRequest(request)}
+                      className={styles.ignorebtn}
+                    >
+                      Ignore
+                    </button>
+                    <button
+                      onClick={() => acceptRequest(request)}
+                      className={styles.acceptbtn}
+                    >
+                      Accept
+                    </button>
                   </p>
                 </div>
               ))}
