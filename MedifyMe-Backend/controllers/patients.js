@@ -206,6 +206,11 @@ module.exports.requestDoctor = async (req, res) => {
         .status(212)
         .json({ message: "Already Requested", status: 212 });
     }
+    if (foundDoctor.patients.includes(id)) {
+      return res
+        .status(212)
+        .json({ message: "Already a Patient", status: 212 });
+    }
     const request = new Request({
       patient: id,
       doctor: foundDoctor._id,

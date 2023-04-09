@@ -1,5 +1,7 @@
 const axios = require("axios");
 const Doctor = require("../models/doctor");
+const Request = require("../models/request");
+const Patient = require("../models/patient");
 
 module.exports.dLogin = async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
@@ -60,13 +62,31 @@ module.exports.getPatient = async (req, res) => {
 
 module.exports.acceptRequest = async (req, res) => {
   try {
-    if (!req.query.id) {
-      return res.status(400).json("No doctor id provided");
+    if (!req.body.id) {
+      return res.status(400).json("No Patient Id Found");
     }
-    const { id } = req.query;
+    const { id } = req.body;
     const foundRequest = await Request.findById(id);
-    console.log(foundRequest);
-    res.json(foundRequest);
+    if (!foundRequest) {
+      return res.status(400).json("No Request Found");
+    }
+    const foundDoctor = await Doctor.findById(foundRequest.doctor);
+    const foundPatient = await Patient.findById(foundRequest.patient);
+
+    if (!foundRequest.isAccepted) {
+      const doctorIndex = foundDoctor.requests.indexOf(foundRequest._id);
+      foundDoctor.requests.splice(doctorIndex, 1);
+      const patientIndex = foundPatient.requests.indexOf(foundRequest._id);
+      foundPatient.requests.splice(patientIndex, 1);
+      foundDoctor.patients.push(foundPatient._id);
+      foundPatient.doctors.push(foundDoctor._id);
+      await Request.findByIdAndDelete(id);
+      await foundDoctor.save();
+      await foundPatient.save();
+      return res.status(200).json("Request Accepted");
+    } else {
+      return res.status(400).json("Already Accepted");
+    }
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: "Something Went Wrong", status: 400 });

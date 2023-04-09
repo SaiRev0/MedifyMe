@@ -7,6 +7,6 @@ router.route("/login").post(catchAsync(doctors.dLogin));
 
 router.route("/patients").get(doctors.getPatient);
 
-router.route("/accept").get(doctors.acceptRequest);
+router.route("/accept").post(doctors.acceptRequest);
 
 module.exports = router;
