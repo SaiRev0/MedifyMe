@@ -186,7 +186,7 @@
       height: 370px;
       width: 1119px;
       position: absolute;
-      top: calc(56% - 370px / 2 + 10vh);
+      top: calc(60% - 370px / 2 + 10vh);
       left: 25%;
       margin-top: 10px;
     }
@@ -303,6 +303,7 @@
     font-weight: 400;
     font-size: 17px;
     line-height: 140%;
+    height: 33vh;
     color: #ffffff;
     margin-top: 10px;
     text-align: left;
@@ -355,7 +356,7 @@
     }
   
 .comments textarea{
-    height: 30vh;
+    height: 26vh;
     font-size: 1rem;
     line-height: 1.5;
     resize: none;
@@ -386,4 +387,39 @@
 
 .change_patient_btn:hover{
     background: #a38850;
+}
+
+.edit_btn{
+    background: transparent;
+    border:none;
+    border-radius: 20px;
+    font-size:16px;
+    margin-left:41%;
+    width:fit-content;
+    font-family: 'Comfortaa';
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.edit_btn img{
+  width:35px;
+  border-radius: 50px;
+}
+
+.edit_btn_clicked img{
+  width:32px;
+  border:2px solid #CDAA64;
+  border-radius: 50px;
+}
+
+.edit_btn_clicked{
+    background: transparent;
+    border:none;
+    border-radius: 20px;
+    font-size:16px;
+    margin-left:41%;
+    width:fit-content;
+    font-family: 'Comfortaa';
+    font-weight: 600;
+    cursor: pointer;
 }

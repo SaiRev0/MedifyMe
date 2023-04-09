@@ -3,6 +3,7 @@ import styles from "./Current_Prescription.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Prescription() {
   const navigate = useNavigate();
@@ -10,6 +11,13 @@ function Prescription() {
   const patient = useSelector((state) => {
     return state.patient;
   });
+
+  const [isEditable, setIsEditable] = useState(false);
+
+  const makeEditable = () => {
+    setIsEditable(true);
+
+  }
 
   const handleButtonClick = () => {
     const inputValue = inputRef.current.value;
@@ -114,9 +122,10 @@ function Prescription() {
         </div>
         <div className={styles.down_cont}>
           <div className={styles.leftd_cont}>
-            <h3>Edit Dosage and Instructions</h3>
+            <h3>Edit Dosage and Instructions</h3><button onClick={makeEditable} className={!isEditable?styles.edit_btn:styles.edit_btn_clicked} ><img src="/EDIT.png"/></button>
             <div className={styles.edit_dosage}>
-                <textarea rows="5" cols="40" type="text" name="textarea" required readonly>
+                
+                <textarea rows="5" cols="40" type="text" name="textarea" required readOnly={!isEditable}>
                 1.&nbsp;Lipitor (atorvastatin) - usually taken once daily with or without food, with dosages ranging from 10mg to 80mg depending on the individual's cholesterol levels and medical history.
                 2.&nbsp;Zoloft (sertraline) - usually taken once daily with or without food, with dosages ranging from 25mg to 200mg depending on the individual's condition and response to the medication.
                 3.&nbsp;Flonase (fluticasone) - usually taken once daily, with dosage depending on the individual's age and severity of symptoms.
