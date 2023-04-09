@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { logoutSuccess } from "../store";
+import { logoutSuccess, doctorLogoutSuccess } from "../store";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
@@ -7,20 +7,32 @@ import { toast } from "react-toastify";
 function useLogout() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [cookies, setCookie, removeCookie] = useCookies(["patient"]);
+  const [patientCookies, setPatientCookie, removePatientCookie] = useCookies([
+    "patient",
+  ]);
+  const [doctorCookies, setDoctorCookie, removeDoctorCookie] = useCookies([
+    "doctor",
+  ]);
 
   const patient = useSelector((state) => {
     return state.patient;
   });
+  const doctor = useSelector((state) => {
+    return state.doctor;
+  });
+
   const handleLogout = () => {
     if (patient.isLoggedIn) {
       dispatch(logoutSuccess());
-      removeCookie("patient", { path: "/", sameSite: "strict" });
+      removePatientCookie("patient", { path: "/", sameSite: "strict" });
       toast.info("See You Soon!!");
       navigate("/");
     }
-    if (!patient.isLoggedIn) {
-      navigate("/login");
+    if (doctor.isLoggedIn) {
+      dispatch(doctorLogoutSuccess());
+      removeDoctorCookie("doctor", { path: "/", sameSite: "strict" });
+      toast.info("See You Soon!!");
+      navigate("/");
     }
   };
   return { handleLogout };

@@ -81,7 +81,7 @@ const Navbar = () => {
                 {!doctor.isLoggedIn ? (
                   <Link to="/login">Sign In</Link>
                 ) : (
-                  <Link to="/settings/account">Account</Link>
+                  <Link to="/doctor/settings/account">Account</Link>
                 )}
               </div>
             </li>
