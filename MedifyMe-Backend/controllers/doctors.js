@@ -57,3 +57,18 @@ module.exports.getPatient = async (req, res) => {
     res.status(400).json({ message: "Something Went Wrong", status: 400 });
   }
 };
+
+module.exports.acceptRequest = async (req, res) => {
+  try {
+    if (!req.query.id) {
+      return res.status(400).json("No doctor id provided");
+    }
+    const { id } = req.query;
+    const foundRequest = await Request.findById(id);
+    console.log(foundRequest);
+    res.json(foundRequest);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ message: "Something Went Wrong", status: 400 });
+  }
+};

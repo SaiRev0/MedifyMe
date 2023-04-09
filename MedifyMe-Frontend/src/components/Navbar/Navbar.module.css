@@ -80,9 +80,11 @@
   display: inline !important;
   margin-top: 40px;
 }
-.logoSection img{
+
+.logoSection img {
   width: 4vw;
 }
+
 .brandIn {
   color: #CDAA64;
   display: inline !important;
@@ -101,7 +103,6 @@
   color: #CDAA64;
   font-weight: 500;
   position: relative;
-  text-decoration: underline;
 }
 
 @media (max-width:1240px) {
@@ -140,6 +141,7 @@
     width: 15vw;
     height: 100%;
   }
+
   .brand {
     padding-left: 20px;
     font-size: 40px;
@@ -148,7 +150,8 @@
     display: inline !important;
     margin-top: 40px;
   }
-  .logoSection img{
+
+  .logoSection img {
     width: 25%;
     height: 25%;
   }
