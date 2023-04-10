@@ -37,11 +37,31 @@
   font-weight: 1000;
   font-size: 1.7vw;
   line-height: 35px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0;
+  width: max-content;
+  margin-right: 0;
   text-transform: uppercase;
   color: #567286;
 }
+.content1 {
+  overflow: hidden; 
+  border-right: .15em solid rgb(164, 164, 164);
+  white-space: nowrap;
+  animation: 
+    typing 2.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
 
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  100% { border-color: transparent }
+}
 .content2 {
   font-family: "Yeseva One";
   font-style: normal;
@@ -340,4 +360,77 @@
   .lp7 ul li{
     font-size: 4vw;
   }
+}
+
+.cardGroups,
+.cardGroup,
+.card {
+  aspect-ratio: 12 / 7;
+}
+
+.cardGroups,
+.cardGroup,
+.bigCard {  
+  width: 30vw;
+}
+
+.cardGroup {
+  display: block;
+  margin: auto;
+  transition: transform 500ms ease;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.05);
+  position: absolute;
+  transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
+  box-shadow: 1vw 1vw  1vw 1vw rgba(0, 0, 0, 0.1);
+
+  background-position: center;
+  background-size: cover;
+}
+
+.bigCard {
+  border-radius: 1vw;
+}
+
+.bigCard:first-child {
+  background-image: url("https://images.unsplash.com/photo-1568572933382-74d440642117?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60n");
+  transform: translateX(-10%) rotate(-1deg);
+}
+
+.bigCard:nth-child(2) {
+  background-image: url("https://images.unsplash.com/photo-1534351450181-ea9f78427fe8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+  transform: rotate(2deg);
+}
+
+.bigCard:nth-child(3) {
+  background-image: url("https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGRvZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+  transform: translateX(-6%) rotate(-3deg);
+}
+
+.bigCard:nth-child(4) {
+  background-image: url("https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRvZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+  transform: translate(10%, 3%) rotate(5deg);
+}
+.cardGroup:hover > .card {  
+  box-shadow: -1vw 1vw 1.5vw rgba(0, 0, 0, 0.4);
+}
+
+.cardGroup:hover > .bigCard:nth-child(1) {
+  transform: translate(-95%, 25%) rotate(-24deg);
+}
+
+.cardGroup:hover > .bigCard:nth-child(2) {
+  transform: translate(-50%, 12%) rotate(-8deg);
+}
+
+.cardGroup:hover > .bigCard:nth-child(3) {
+  transform: translate(50%, 12%) rotate(8deg);
+}
+
+.cardGroup:hover > .bigCard:nth-child(4) {
+  transform: translate(95%, 25%) rotate(24deg);
 }
