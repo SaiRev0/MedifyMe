@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Document, Page } from 'react-pdf';
-
+import { Document, Page, pdfjs } from "react-pdf";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 import styles from './DocumentPreview.module.css';
 
 function DocumentPreview({ fileUrl }) {
@@ -9,6 +9,7 @@ function DocumentPreview({ fileUrl }) {
   const [pageNumber, setPageNumber] = useState(1);
   const isPdf = fileUrl.toLowerCase().endsWith('.pdf');
 
+  
   const handleOpenModal = () => {
     setModalOpen(true);
   };
@@ -33,7 +34,7 @@ function DocumentPreview({ fileUrl }) {
         ) : (
           <img src={fileUrl} alt={fileUrl} className={styles.imgPreview} />
         )}
-      </div>
+      </div>  
       {modalOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
