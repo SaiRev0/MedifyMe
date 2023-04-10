@@ -65,7 +65,19 @@ function Home() {
           Simplify your healthcare management today.
         </div>
         <div className={styles.landImage}>
-          <img src="LandImage.png" />
+         
+            <div className={styles.cardGroups}>
+              <div className={styles.cardGroup}>
+                <div className={`${styles.bigCard} ${styles.card}`}></div>
+
+                <div className={`${styles.bigCard} ${styles.card}`}></div>
+
+                <div className={`${styles.bigCard} ${styles.card}`}></div>
+
+                <div className={`${styles.bigCard} ${styles.card}`}></div>
+              </div>
+            </div>
+        
         </div>
         <div className={styles.lp4}>Care you can believe in</div>
         <div className={styles.lp5}>Our Services</div>
