@@ -58,8 +58,8 @@ function Login() {
             >
               <span className={styles.google_p}>
                 {loginResults.isLoading
-                  ? "Logging in..."
-                  : "Sign in with google"}
+                  ? <div className={styles.loggedin}>Logging in...</div>
+                  : <div><img src="/Google_Icon.jpg"/>Sign in with google</div>}
               </span>
             </button>
 
