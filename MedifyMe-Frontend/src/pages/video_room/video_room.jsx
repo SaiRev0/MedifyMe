@@ -94,12 +94,47 @@ function ParticipantView(props) {
 }
 
 function Controls() {
+  const [clicked, setClicked] = useState(false);
+  const [webcam, setWebcam] = useState(false);
   const { leave, toggleMic, toggleWebcam } = useMeeting();
+
+  const handleClick = () => {
+    toggleMic();
+    setClicked(!clicked);
+  };
+
+  const handleWebcam = () => {
+    toggleWebcam();
+    setWebcam(!webcam);
+  };
+
   return (
-    <div>
-      <button onClick={() => leave()}>Leave</button>
-      <button onClick={() => toggleMic()}>toggleMic</button>
-      <button onClick={() => toggleWebcam()}>toggleWebcam</button>
+    <div className={styles.buttons}>
+      <button onClick={() => leave()} className={styles.leavebutton}>
+        <img src="/hangup.png" className={styles.leaveimg} />
+      </button>
+      <button
+        className={`${styles.myButton} ${
+          clicked ? styles.clicked : styles.default
+        }`}
+        onClick={handleClick}
+      >
+        <img
+          src={`${clicked ? "/micoff.png" : "/micon.png"}`}
+          className={styles.webimg}
+        />
+      </button>
+      <button
+        onClick={handleWebcam}
+        className={`${styles.webbutton} ${
+          clicked ? styles.clickedweb : styles.defaultweb
+        }`}
+      >
+        <img
+          src={`${webcam ? "/webcamoff.png" : "/webcam.png"}`}
+          className={styles.webimg}
+        />
+      </button>
     </div>
   );
 }

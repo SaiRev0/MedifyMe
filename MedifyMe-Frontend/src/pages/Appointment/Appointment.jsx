@@ -1,10 +1,36 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Appointment.module.css";
 import { Link } from "react-router-dom";
-import AccountCard from "../../components/AccountCard/AccountCard";
-import { useNavigate } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
+import { useState } from "react";
+import { toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function Appointment() {
+
+  const [product] = useState({
+    name: "MedifyMe",
+    price: 500,
+    description: "MedifyMe Appointment",
+  });
+
+  async function handletoken(token, addresses) {
+    const response = await axios.post("http://localhost:6969/checkout", {
+      token,
+      product,
+    });
+
+    console.log(response.status);
+
+    if (response.status === 200) {
+      toast("Success! Check email for details", { type: "success" });
+    } else {
+      toast("Something went wrong", { type: "error" });
+    }
+  }
+
   return (
     <>
       <Navbar />
@@ -111,9 +137,18 @@ function Appointment() {
             <p className={styles.total_fee_text}>Total Fee</p>
             <p className={styles.total_fee}>₹ 500</p>
           </div>
-          <Link to="/video_room">
-            <div className={styles.pay}>Pay ₹550</div>
-          </Link>
+          {/* <StripeCheckout
+            stripeKey="pk_test_51MvIxBSBOxWp4pAyGoeweYV6l1WI83qkno8SGJSeNd63fgm58e1bCYByxQRS8w2TUnYgFxHm8Zei09dsYMqXdNQV00XMjZBEgg"
+            token={handletoken}
+            amount={500 * 100}
+            name="MedifyMe"
+            billingAddress
+            shippingAddress
+          > */}
+            <Link to="/video_room">
+              <div className={styles.pay}>Pay ₹550</div>
+            </Link>
+          {/* </StripeCheckout> */}
         </div>
       </div>
     </>
