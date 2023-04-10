@@ -4,6 +4,7 @@ import styles from "./home.module.css";
 import Footer from "../../components/Footer/Footer";
 import { useSelector } from "react-redux";
 import NavbarD from "../../components/Doctor/NavbarD/NavbarD";
+import { useRef, useEffect, useState } from "react";
 function Home() {
   const doctor = useSelector((state) => {
     return state.doctor;
@@ -12,6 +13,33 @@ function Home() {
   const patient = useSelector((state) => {
     return state.patient;
   });
+
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.9 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [inView]);
 
   return (
     <>
@@ -65,19 +93,33 @@ function Home() {
           Simplify your healthcare management today.
         </div>
         <div className={styles.landImage}>
-         
-            <div className={styles.cardGroups}>
-              <div className={styles.cardGroup}>
-                <div className={`${styles.bigCard} ${styles.card}`}></div>
+          <div ref={sectionRef} className={styles.cardGroups}>
+            <div className={styles.cardGroup}>
+              <div
+                className={`${styles.bigCard} ${styles.card} ${
+                  inView ? styles.animateCard1 : ""
+                }`}
+              ></div>
 
-                <div className={`${styles.bigCard} ${styles.card}`}></div>
+              <div
+                className={`${styles.bigCard} ${styles.card} ${
+                  inView ? styles.animateCard2 : ""
+                }`}
+              ></div>
 
-                <div className={`${styles.bigCard} ${styles.card}`}></div>
+              <div
+                className={`${styles.bigCard} ${styles.card} ${
+                  inView ? styles.animateCard3 : ""
+                }`}
+              ></div>
 
-                <div className={`${styles.bigCard} ${styles.card}`}></div>
-              </div>
+              <div
+                className={`${styles.bigCard} ${styles.card} ${
+                  inView ? styles.animateCard4 : ""
+                }`}
+              ></div>
             </div>
-        
+          </div>
         </div>
         <div className={styles.lp4}>Care you can believe in</div>
         <div className={styles.lp5}>Our Services</div>
