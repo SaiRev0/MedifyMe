@@ -5,6 +5,7 @@ import Footer from "../../components/Footer/Footer";
 import { useSelector } from "react-redux";
 import NavbarD from "../../components/Doctor/NavbarD/NavbarD";
 import { useRef, useEffect, useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 function Home() {
   const doctor = useSelector((state) => {
     return state.doctor;
@@ -49,7 +50,22 @@ function Home() {
           <img src="img1.png" />
         </div>
         <div className={styles.content}>
-          <div className={styles.content1}>CARING FOR LIFE</div>
+          <TypeAnimation
+            sequence=
+            {[
+              
+              "CARING FOR LIFE",
+              1000,
+              "CARING FOR YOU",
+              1000,
+              "CARING FOR HEALTH",
+              1000,
+              "CARING FOR FUTURE",
+              1000,
+            ]}
+            speed={0}
+            repeat={Infinity}
+          />
           <div className={styles.content2}>
             Paving the Way <br></br> for Medical Excellence
           </div>
