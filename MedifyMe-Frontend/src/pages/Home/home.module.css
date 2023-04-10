@@ -37,11 +37,31 @@
   font-weight: 1000;
   font-size: 1.7vw;
   line-height: 35px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0;
+  width: max-content;
+  margin-right: 0;
   text-transform: uppercase;
   color: #567286;
 }
+.content1 {
+  overflow: hidden; 
+  border-right: .15em solid rgb(164, 164, 164);
+  white-space: nowrap;
+  animation: 
+    typing 2.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
 
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  100% { border-color: transparent }
+}
 .content2 {
   font-family: "Yeseva One";
   font-style: normal;
