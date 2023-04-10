@@ -4,6 +4,7 @@ import styles from "./home.module.css";
 import Footer from "../../components/Footer/Footer";
 import { useSelector } from "react-redux";
 import NavbarD from "../../components/Doctor/NavbarD/NavbarD";
+import { TypeAnimation } from "react-type-animation";
 function Home() {
   const doctor = useSelector((state) => {
     return state.doctor;
@@ -21,7 +22,22 @@ function Home() {
           <img src="img1.png" />
         </div>
         <div className={styles.content}>
-          <div className={styles.content1}>CARING FOR LIFE</div>
+          <TypeAnimation
+            sequence=
+            {[
+              
+              "CARING FOR LIFE",
+              1000,
+              "CARING FOR YOU",
+              1000,
+              "CARING FOR HEALTH",
+              1000,
+              "CARING FOR FUTURE",
+              1000,
+            ]}
+            speed={0}
+            repeat={Infinity}
+          />
           <div className={styles.content2}>
             Paving the Way <br></br> for Medical Excellence
           </div>
@@ -65,19 +81,17 @@ function Home() {
           Simplify your healthcare management today.
         </div>
         <div className={styles.landImage}>
-         
-            <div className={styles.cardGroups}>
-              <div className={styles.cardGroup}>
-                <div className={`${styles.bigCard} ${styles.card}`}></div>
+          <div className={styles.cardGroups}>
+            <div className={styles.cardGroup}>
+              <div className={`${styles.bigCard} ${styles.card}`}></div>
 
-                <div className={`${styles.bigCard} ${styles.card}`}></div>
+              <div className={`${styles.bigCard} ${styles.card}`}></div>
 
-                <div className={`${styles.bigCard} ${styles.card}`}></div>
+              <div className={`${styles.bigCard} ${styles.card}`}></div>
 
-                <div className={`${styles.bigCard} ${styles.card}`}></div>
-              </div>
+              <div className={`${styles.bigCard} ${styles.card}`}></div>
             </div>
-        
+          </div>
         </div>
         <div className={styles.lp4}>Care you can believe in</div>
         <div className={styles.lp5}>Our Services</div>

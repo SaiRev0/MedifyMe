@@ -21,6 +21,7 @@
   height: 50vh;
 }
 
+
 .content {
   position: absolute;
   top: 32%;
@@ -32,36 +33,18 @@
   width: 0;
 }
 
-.content1 {
+.content span{
   font-family: "Work Sans";
   font-weight: 1000;
   font-size: 1.7vw;
   line-height: 35px;
   letter-spacing: 0;
-  width: max-content;
-  margin-right: 0;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: #567286;
-}
-.content1 {
-  overflow: hidden; 
-  border-right: .15em solid rgb(164, 164, 164);
-  white-space: nowrap;
-  animation: 
-    typing 2.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+  color: #6b889d;;
 }
 
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  100% { border-color: transparent }
-}
 .content2 {
   font-family: "Yeseva One";
   font-style: normal;
@@ -69,6 +52,15 @@
   font-size: 3.5vw;
 
   color: #2b3f4e;
+  opacity: 0;
+  transform: translateX(50px);
+  animation: fadeInRight 0.75s ease-in forwards;
+}
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .content3 {
@@ -96,6 +88,17 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.75s ease-in forwards;
+  animation-delay: 0.75s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .b2 {
   width: 25vw;
