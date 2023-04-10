@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useFetchHealthHistoryQuery } from "../../store";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import DocumentPreview from '../../components/DocumentPreview/DocumentPreview';
 
 function HealthHistory() {
   const patient = useSelector((state) => {
@@ -137,13 +138,9 @@ function HealthHistory() {
               <div className={styles.documentst}>Uploaded Documents</div>
               <div className={styles.centerimgs}>
                 <div className={styles.imgGrid}>
-                  {selectedVisit.fileUrl.map((image, index) => (
+                  {selectedVisit.fileUrl.map((url, index) => (
                     <div key={index}>
-                      <img
-                        src={image}
-                        alt={image}
-                        className={styles.imgThumb}
-                      />
+                      <DocumentPreview fileUrl={url} />
                     </div>
                   ))}
                 </div>
