@@ -353,24 +353,5 @@ margin-right: 20px;
 
 }
 
-.imgThumb {
-  border-radius: 0.2rem;
-  width: 7rem;
-  height: 7rem;
-  object-fit: cover;
-  transform-origin: center;
-}
 
-.imgThumb:active {
-  cursor: pointer;
-  transform: scale(0.4) translate(-75%, -75%);
-  position: fixed;
-  top: 45%;
-  left: 75%;
-  transform-origin: center;
-  z-index: 9999;
-  margin-top: -40vh;
-  margin-left: -40vw;
-  width: 80vw;
-  height: auto;
-}
+
