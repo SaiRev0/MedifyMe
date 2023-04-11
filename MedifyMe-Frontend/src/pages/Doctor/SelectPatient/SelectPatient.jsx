@@ -36,6 +36,7 @@ function SelectPatient() {
         { selectedPatient: patientID },
         { path: "/", sameSite: "strict" }
       );
+      navigate("/doctor/patient_health_history");
       toast.success("Patient selected");
     } else if (patientID === "") {
       toast.error("Please select a patient");

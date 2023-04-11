@@ -1,55 +1,45 @@
 import NavbarD from "../../../components/Doctor/NavbarD/NavbarD";
 import styles from "./Patient_Health_History.module.css";
-import { useSelector } from "react-redux";
 import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchHealthHistoryQuery } from "../../../store";
 import { Link } from "react-router-dom";
 import Loading from "../../../components/Loading/Loading";
-
+import { useCookies } from "react-cookie";
 
 function HealthHistory() {
-  const patient = useSelector((state) => {
-    return state.patient;
-  });
+  const navigate = useNavigate();
+  const [cookies, setCookie] = useCookies(["doctor"]);
+  useEffect(() => {
+    if (
+      !cookies.doctor ||
+      !cookies.doctor.selectedPatient ||
+      cookies.doctor.selectedPatient === ""
+    ) {
+      navigate("/doctor/select_patient");
+      toast.error("Please select a patient");
+    }
+  }, [cookies]);
+  const patient = cookies.doctor.selectedPatient;
 
   const [isEditable, setIsEditable] = useState(false);
 
   const makeEditable = () => {
     setIsEditable(true);
-  }
+  };
 
   const {
     data: rawData,
     error: rawError,
     isFetching,
     refetch,
-  } = useFetchHealthHistoryQuery(patient.id);
+  } = useFetchHealthHistoryQuery(patient);
 
   const data = useMemo(() => rawData, [rawData]);
   const error = useMemo(() => rawError, [rawError]);
 
   const [selectedVisit, setSelectedVisit] = useState(data?.visits?.[0] ?? null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // if (!patient.isLoggedIn) {
-    //   navigate("/login");
-    //   toast.error("Please login to continue");
-    // }
-    if (data && selectedVisit === null) {
-      setSelectedVisit(data.visits[0]);
-    }
-  }, [navigate, patient.isLoggedIn, data, selectedVisit]);
-
-  useEffect(() => {
-    // if (!patient.isLoggedIn) {
-    //   navigate("/login");
-    //   toast.error("Please login to continue");
-    // }
-    refetch();
-  }, [navigate, patient.isLoggedIn]);
 
   if (isFetching) {
     return (
@@ -105,9 +95,10 @@ function HealthHistory() {
               <li>Medications : &nbsp;&nbsp;{data.medications}</li>
               <li>Height : &nbsp;&nbsp;{data.height} cm</li>
             </ul>
-            
           </div>
-          <button id="change_patient" className={styles.change_patient_btn}>Change Patient</button>
+          <button id="change_patient" className={styles.change_patient_btn}>
+            Change Patient
+          </button>
           <div className={styles.d2}>
             <ul>
               <li>Overview : &nbsp;&nbsp;{data.overview}</li>
@@ -134,12 +125,23 @@ function HealthHistory() {
             <div className={styles.doccomments}>
               <div className={styles.doccommentst}>Doctors Comments</div>
               <div className={styles.comments}>
-                
-                <textarea rows="5" cols="40" type="text" name="textarea" readOnly={!isEditable}>
-                {selectedVisit.doctorComments}
+                <textarea
+                  rows="5"
+                  cols="40"
+                  type="text"
+                  name="textarea"
+                  readOnly={!isEditable}
+                >
+                  {selectedVisit.doctorComments}
                 </textarea>
-                <button onClick={makeEditable} className={!isEditable?styles.edit_btn:styles.edit_btn_clicked} ><img src="/EDIT.png"/></button>
-                
+                <button
+                  onClick={makeEditable}
+                  className={
+                    !isEditable ? styles.edit_btn : styles.edit_btn_clicked
+                  }
+                >
+                  <img src="/EDIT.png" />
+                </button>
               </div>
             </div>
             <div className={styles.doccomments}>
