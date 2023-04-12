@@ -1,0 +1,109 @@
+.burger {
+    display: none;
+  }
+  
+  @media (max-width: 1140px) {
+    .burger {
+      margin-right: 10px;
+      height: 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+  
+  .burger div {
+    width: 5vw;
+    height: 0.23rem;
+    background-color: white;
+    border-radius: 10px;
+    transform-origin: 0px;
+    transition:  0.1s ease-in-out;
+  }
+  .show {
+    height: 10%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .show div {
+    height: 50%;
+    background-color: white;
+    border-radius: 10px;
+    transform-origin: 0px;
+    transition: all 0.3s ease-in;
+  }
+  
+  .burger div:nth-child(1) {
+    transform: rotate(0);
+  }
+  
+  .burger div:nth-child(2) {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .burger div:nth-child(3) {
+    transform: rotate(0);
+  }
+  
+  .show div:nth-child(1) {
+    transform: rotate(-45deg) translateX(-3px);
+    transform-origin: center; /* set transform origin to center */
+  }
+  
+  .show div:nth-child(2) {
+    transform: translateX(0);
+    opacity: 0;
+    transform-origin: center;
+  
+  }
+  
+  .show div:nth-child(3) {
+    transform: rotate(45deg) translateX(-3px);
+    transform-origin: center;
+  
+  }
+  
+  .ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  
+  .ul li {
+    padding: 18px 10px;
+  }
+  
+  @media (max-width: 1140px) {
+    .ul {
+      display: flex;
+      flex-flow: column nowrap;
+      background: linear-gradient(84.18deg, #2d495d 0.31%, #28333a 100%) fixed
+        center center/cover;
+      position: absolute;
+      transform: translateX(0);
+      top: 59px;
+      right: 0;
+      height: 100vh;
+      width: 50vw;
+      z-index: 300;
+      padding-top: 3.5rem;
+      transition: transform 1s ease-in-out;
+    }
+    ul a{
+      color: #fff;
+      font-weight: 500;
+    }
+  
+    .open {
+      display: none;
+      transform: translateX(100%);
+    }
+  
+    .ul li {
+      color: #fff;
+    }
+  }
+  
