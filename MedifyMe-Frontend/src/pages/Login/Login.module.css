@@ -218,7 +218,7 @@
         font-family: 'Work Sans';
         font-style: normal;
         font-weight: 400;
-        font-size: 3vw;
+        font-size: 5vw;
         line-height: 40px;
         color: #FFFFFF;
         display: inline;
@@ -237,7 +237,7 @@
     .login_lower_content{
         margin-left:13vw;
         width:70vw;
-        font-size:2.7vw;
+        font-size:4vw;
     }
 
     .login_lowerpart img{
@@ -250,12 +250,12 @@
         background-color: #1E90FF;
         color: white;
         font-family: 'Inter', sans-serif;
-        height: 7.4vw;
+        height: 15vw;
         cursor: pointer;
         border: none;
         border-radius: 20px;
         overflow: none;
-        width: 38vw;
+        width: 50vw;
         box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
         display: flex;
         flex-direction: row;
@@ -265,18 +265,18 @@
     }
 
     .google_p img{
-        width:7vw;
-        height:7.3vw;
+        width:10vw;
+        height:15vw;
         position: absolute;
-        left:-10.5vw;
-        top:-2.2vw;
+        left:-14vw;
+        top:-5.4vw;
         border-bottom-left-radius: 20px;
         border-top-left-radius: 20px;
     }
 
     .google_p {
         margin-left:7.5vw;
-        font-size: 2.9vw;
+        font-size: 4vw;
         font-family: 'Inter', sans-serif;
         /* margin-top: 4vw; */
         top:-18.3px;
