@@ -159,3 +159,36 @@
     display: none;
   }
 }
+
+.hamburger {
+  display: none;
+}
+
+
+@media (max-width:1140px) {
+  .nav_elements {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 100%;
+  }
+
+  .brand {
+    padding-left: 20px;
+    font-size: 40px;
+    font-family: 'Yeseva One', cursive;
+    color: white;
+    display: inline !important;
+    margin-top: 40px;
+  }
+
+  .logoSection img {
+    width: 25%;
+    height: 25%;
+  }
+}

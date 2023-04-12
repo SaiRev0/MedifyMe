@@ -3,30 +3,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 .right_wrapper {
-  margin-top: 50px;
+  margin-top: 45px;
   padding-bottom: 69px;
-  width: auto;
-  height: 520px;
+  width: 61.2vw;
+  height: 502px;
   background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
-  border-top-left-radius: 20px;
+  border-top-left-radius: 3rem;
   padding-top: 30px;
+  position: relative;
 }
 
 .logout {
-  margin-left: 650px;
-  width: 68px;
+  position: absolute;
+  right:53px;
+  top:50px;
+  width: 5.2vw;
+  text-align: center;
+  padding:3px;
   background: #CDAA64;
   border-radius: 30px;
 }
 
+.logout:hover{
+  background: #9d824d;
+}
+
 .logout_link {
   text-decoration: none;
-  padding-left: 10px;
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.9vw;
   line-height: 28px;
+  margin-left:4px;
   /* identical to box height */
   color: #000000;
 
@@ -42,33 +51,34 @@
   font-style: normal;
   font-weight: 600;
   font-size: 25px;
-  line-height: 34px;
+  line-height: 28px;
   color: #FFFFFF;
 }
 
 .doctor {
   margin-left: 60px;
-  padding-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+
 }
 
 .doctor_name {
-  margin-left: 25px;
+  margin-left:1.5vw;
   display: inline;
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 1.1vw;
   line-height: 140%;
   color: #FFFFFF;
 }
 
 .doctor_contact {
-  margin-left: 40px;
   display: inline;
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 1.1vw;
   line-height: 140%;
   /* or 40px */
   color: #FFFFFF;
@@ -86,27 +96,150 @@
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 1.1vw;
   line-height: 27px;
   /* identical to box height */
   color: #FFFFFF;
 }
 
 .add_doctor_name {
-  margin-left: 130px;
-  width: 300px;
-  height: 35px;
-
+  margin-left: 9.5vw;
+  width: 20vw;
+  height: 2.2vw;
   background: #EDF2F9;
   border-radius: 8.48894px;
 }
 
 /* Hide the default checkbox */
 .submit_button {
-  width: 100px;
-  height: 32px;
-  margin-left: 10px;
+  width: 7vw;
+  height: 2vw;
+  margin-left: 20px;
   display: inline;
   background: #CDAA64;
   border-radius: 50px;
+  font-size: 1.08vw;
+  cursor: pointer;
 }
+
+.submit_button:hover{
+  background: #a1854f;
+}
+
+.remove_btn{
+  width:28%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:1vw;
+  margin-top:0.8rem;
+  background: #CDAA64;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.remove_btn:hover{
+  background: #a1854f;
+}
+
+
+.down_row{
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.down_left_row{
+  margin-left:80px;
+  display: grid;
+  grid-template-rows: repeat(4,1fr);
+  margin-top:20px;
+}
+
+.down_left_row p{
+  color:white;
+}
+
+.down_right_row{
+  margin-right:6vw;
+  position: relative;
+}
+
+.down_right_row img{
+  position: absolute;
+  top:1.5vw;
+  height: 15vw;
+}
+
+
+
+
+.container {
+  display: block;
+  padding-top:5px;
+  position: relative;
+  cursor: pointer;
+  font-size: 1vw;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 20vw;
+  height: 1.5vw;
+  width: 1.5vw;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #CDAA64;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+

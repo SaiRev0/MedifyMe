@@ -41,7 +41,7 @@ function AccountCardD() {
               }
               to="/doctor/settings/manage_patients"
             >
-              Manage Patient
+              Manage Patients
             </Link>
           </p>
           <p className={styles.margin_top}>
