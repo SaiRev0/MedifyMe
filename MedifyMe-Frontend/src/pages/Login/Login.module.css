@@ -185,23 +185,32 @@
     }
     .right_wrapper {
         width: 90%;
-        margin:1rem 1rem;
+        margin:auto;
         border-radius: 13px !important;
+        padding: 0;
         height: fit-content;
         border-radius: 0;
         background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
-        position: fixed;
-        top:10vh;
+        position: relative;
+        height: 80vh;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    justify-content: center;
     }
     
     .login_content {
-        padding-left: 9vw;
+        display: flex;
         font-family: 'Comfortaa';
         font-style: normal;
         font-weight: 400;
-        font-size: 4vw;
-        line-height: 10px;
+        font-size: 5vw;
+        line-height: 60px;
         color: #FFFFFF;
+        justify-content: center;
+    
+        
     }
 
     .patients_input {

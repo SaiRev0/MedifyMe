@@ -27,8 +27,8 @@ function DocumentPreview({ fileUrl }) {
       <div className={styles.previewContainer} onClick={handleOpenModal}>
         {isPdf ? (
           <div className={styles.pdfPreview}>
-            <Document file={fileUrl} onLoadSuccess={onDocumentLoadSuccess}>
-              <Page pageNumber={1} width={100} height={100} />
+            <Document className={styles.previewDoc} file={fileUrl} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page className={styles.previewPage} pageNumber={1} width={100} height={100} />
             </Document>
           </div>
         ) : (
