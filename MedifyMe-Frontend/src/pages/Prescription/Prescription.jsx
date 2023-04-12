@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import PrescriptionData from "../../assets/PrescriptionData.json";
+import DocumentPreview from "../../components/DocumentPreview/DocumentPreview";
 
 function Prescription() {
   const navigate = useNavigate();
@@ -141,7 +142,18 @@ function Prescription() {
             ))}
           </div>
           <div className={styles.photo}>
-            <img src="PrescribtionImage.jpg" />
+          <div className={styles.uploadedImg}>
+              <div className={styles.documentst}>Uploaded Documents</div>
+              <div className={styles.centerimgs}>
+                <div className={styles.imgGrid}>
+                  {/* {selectedVisit.fileUrl.map((url, index) => (
+                    <div key={index}>
+                      <DocumentPreview fileUrl={url} />
+                    </div>
+                  ))} */}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="row">
