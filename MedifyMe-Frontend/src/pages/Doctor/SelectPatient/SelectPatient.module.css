@@ -178,3 +178,11 @@
   cursor: pointer;
   
 }
+.no_requests{
+  display: flex;
+  color: white;
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vh;
+}
