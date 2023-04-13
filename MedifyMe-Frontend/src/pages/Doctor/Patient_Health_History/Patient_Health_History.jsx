@@ -7,6 +7,7 @@ import { useFetchHealthHistoryQuery } from "../../../store";
 import { Link } from "react-router-dom";
 import Loading from "../../../components/Loading/Loading";
 import { useCookies } from "react-cookie";
+import DocumentPreview from "../../../components/DocumentPreview/DocumentPreview";
 
 function HealthHistory() {
   const navigate = useNavigate();
@@ -24,10 +25,6 @@ function HealthHistory() {
   const patient = cookies.doctor.selectedPatient;
 
   const [isEditable, setIsEditable] = useState(false);
-
-  const makeEditable = () => {
-    setIsEditable(true);
-  };
 
   const {
     data: rawData,
@@ -63,7 +60,7 @@ function HealthHistory() {
           className={styles.doc2}
           onClick={() => setSelectedVisit(visit)}
         >
-          <img src="../doc.png" />
+          <img src="doc.png" />
           <div>
             <div className={styles.t2}>Doctor</div>
             <div className={styles.t3}>{visit.doctorName}</div>
@@ -77,7 +74,7 @@ function HealthHistory() {
   return (
     <>
       <NavbarD />
-      <div className={styles.box}>
+      
         <div className={styles.history}>
           <div className={styles.d1}>
             <img src={data.photo} />
@@ -95,25 +92,30 @@ function HealthHistory() {
               <li>Medications : &nbsp;&nbsp;{data.medications}</li>
               <li>Height : &nbsp;&nbsp;{data.height} cm</li>
             </ul>
-          </div>
-          <button id="change_patient" className={styles.change_patient_btn}>
+            <button id="change_patient" className={styles.change_patient_btn}>
             Change Patient
           </button>
+          </div>
+         
           <div className={styles.d2}>
             <ul>
               <li>Overview : &nbsp;&nbsp;{data.overview}</li>
             </ul>
           </div>
         </div>
-      </div>
+        <div className={styles.lowerSection}>
+        <div className={styles.selectVisit}>
       <div className={styles.docvisit}>
         <div className={styles.t1}>Doctors Visits</div>
+        <div className={styles.stylingDocs}>
         <div className={styles.docs}>{content}</div>
+        </div>
       </div>
       <div className={styles.button}>
         <Link to="/healthHistoryForm">
           <div className={styles.b}>Create New Record</div>
         </Link>
+      </div>
       </div>
       {selectedVisit && (
         <div className={styles.infobox}>
@@ -135,12 +137,12 @@ function HealthHistory() {
                   {selectedVisit.doctorComments}
                 </textarea>
                 <button
-                  onClick={makeEditable}
+                  onClick={()=> setIsEditable(!isEditable)}
                   className={
                     !isEditable ? styles.edit_btn : styles.edit_btn_clicked
                   }
                 >
-                  <img src="/EDIT.png" />
+                  <img src='..\EDIT.png' alt='image kaha hai' />
                 </button>
               </div>
             </div>
@@ -151,16 +153,12 @@ function HealthHistory() {
               </div>
             </div>
             <div className={styles.uploadedImg}>
-              <div className={styles.uploaded_doc}>Uploaded Documents</div>
+              <div className={styles.doccommentst}>Uploaded Documents</div>
               <div className={styles.centerimgs}>
                 <div className={styles.imgGrid}>
                   {selectedVisit.fileUrl.map((image, index) => (
                     <div key={index}>
-                      <img
-                        src={image}
-                        alt={image}
-                        className={styles.imgThumb}
-                      />
+                        <DocumentPreview fileUrl={image} />
                     </div>
                   ))}
                 </div>
@@ -168,7 +166,9 @@ function HealthHistory() {
             </div>
           </div>
         </div>
+       
       )}
+       </div>
     </>
   );
 }

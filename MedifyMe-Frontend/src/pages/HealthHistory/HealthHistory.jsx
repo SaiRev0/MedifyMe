@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { useFetchHealthHistoryQuery } from "../../store";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-import DocumentPreview from '../../components/DocumentPreview/DocumentPreview';
+import DocumentPreview from "../../components/DocumentPreview/DocumentPreview";
 
 function HealthHistory() {
   const patient = useSelector((state) => {
@@ -98,57 +98,57 @@ function HealthHistory() {
         <div className={styles.d2}>
           <ul>
             <li>Overview : &nbsp;&nbsp;{data.overview}</li>
-          </ul> 
+          </ul>
         </div>
       </div>
       <div className={styles.lowerSection}>
-      <div className={styles.selectVisit}>
-        <div className={styles.docvisit}>
-          <div className={styles.t1}>Doctors Visits</div>
-          <div className={styles.stylingDocs}>
-          <div className={styles.docs}>{content}</div>
+        <div className={styles.selectVisit}>
+          <div className={styles.docvisit}>
+            <div className={styles.t1}>Doctors Visits</div>
+            <div className={styles.stylingDocs}>
+              <div className={styles.docs}>{content}</div>
+            </div>
+          </div>
+          <div className={styles.button}>
+            <Link to="/healthHistoryForm">
+              <div className={styles.b}>Create New Record</div>
+            </Link>
           </div>
         </div>
-        <div className={styles.button}>
-          <Link to="/healthHistoryForm">
-            <div className={styles.b}>Create New Record</div>
-          </Link>
-        </div>
-      </div>
-      {selectedVisit && (
-        <div className={styles.infobox}>
-          <div className={styles.title}>
-            <div className={styles.title1}>{selectedVisit.doctorName}</div>
-            <div className={styles.title2}>{selectedVisit.date}</div>
-          </div>
-          <div className={styles.boxes}>
-            <div className={styles.doccomments}>
-              <div className={styles.doccommentst}>Doctors Comments</div>
-              <div className={styles.comments}>
-                {selectedVisit.doctorComments}
-              </div>
+        {selectedVisit && (
+          <div className={styles.infobox}>
+            <div className={styles.title}>
+              <div className={styles.title1}>{selectedVisit.doctorName}</div>
+              <div className={styles.title2}>{selectedVisit.date}</div>
             </div>
-            <div className={styles.doccomments}>
-              <div className={styles.doccommentst}>Patient Comments</div>
-              <div className={styles.comments}>
-                {selectedVisit.patientComments}
+            <div className={styles.boxes}>
+              <div className={styles.doccomments}>
+                <div className={styles.doccommentst}>Doctors Comments</div>
+                <div className={styles.comments}>
+                  {selectedVisit.doctorComments}
+                </div>
               </div>
-            </div>
-            <div className={styles.uploadedImg}>
-              <div className={styles.documentst}>Uploaded Documents</div>
-              <div className={styles.centerimgs}>
-                <div className={styles.imgGrid}>
-                  {selectedVisit.fileUrl.map((url, index) => (
-                    <div key={index}>
-                      <DocumentPreview fileUrl={url} />
-                    </div>
-                  ))}
+              <div className={styles.doccomments}>
+                <div className={styles.doccommentst}>Patient Comments</div>
+                <div className={styles.comments}>
+                  {selectedVisit.patientComments}
+                </div>
+              </div>
+              <div className={styles.uploadedImg}>
+                <div className={styles.documentst}>Uploaded Documents</div>
+                <div className={styles.centerimgs}>
+                  <div className={styles.imgGrid}>
+                    {selectedVisit.fileUrl.map((url, index) => (
+                      <div key={index}>
+                        <DocumentPreview fileUrl={url} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
       </div>
     </>
   );
