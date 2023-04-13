@@ -16,6 +16,9 @@ const jwt = require("jsonwebtoken");
 const patientRoutes = require("./routes/patients");
 const doctorRoutes = require("./routes/doctors");
 const gptRoutes = require("./routes/gpt");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2022-08-01",
+});
 // const { generateToken04 } = require("./token");
 
 mongoose
@@ -118,6 +121,30 @@ app.post("/validate-meeting/:meetingId", (req, res) => {
     .then((response) => response.json())
     .then((result) => res.json(result)) // result will contain meetingId
     .catch((error) => console.error("error", error));
+});
+
+app.get("/config", (req, res) => {
+  res.send({
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  });
+});
+
+app.post("/create_payment_intent", async (req, res) => {
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: 1 * 100,
+      currency: "inr",
+      automatic_payment_methods: {
+        enabled: true,
+      },
+    });
+
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
 });
 
 app.all("*", (req, res, next) => {
