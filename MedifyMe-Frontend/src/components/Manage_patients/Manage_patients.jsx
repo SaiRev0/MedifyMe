@@ -8,51 +8,31 @@ function Home() {
           Logout
         </a>
       </div>
+
       <div className={styles.doctor_history}>
-        <p className={styles.doctor_history_content}>Doctor History</p>
+        <p className={styles.doctor_history_content}>Current Patients </p>
       </div>
 
       <div className={styles.doctor}>
-        <p className={styles.doctor_name}>1. Dr Karen Davis</p>
-        <p className={styles.doctor_contact}>03/07/2023 to 24/07/2023</p>
+        <p className={styles.doctor_name}>1. Karen Davis</p>
+        <p className={styles.doctor_contact}>03/07/2023 to Present</p>
+        <button className={styles.remove_btn}>Remove</button>
       </div>
 
       <div className={styles.doctor}>
-        <p className={styles.doctor_name}>2. Dr John Smith</p>
-        <p className={styles.doctor_contact}>03/07/2023 to 24/07/2023</p>
-      </div>
-
-      <div className={styles.doctor}>
-        <p className={styles.doctor_name}>3.Dr. Maria Gonzalez</p>
-        <p className={styles.doctor_contact}>03/07/2023 to 24/07/2023</p>
-      </div>
-      <div className={styles.doctor}>
-        <p className={styles.doctor_name}>3.Dr. Maria Gonzalez</p>
-        <p className={styles.doctor_contact}>03/07/2023 to 24/07/2023</p>
+        <p className={styles.doctor_name}>2. John Smith</p>
+        <p className={styles.doctor_contact}>03/07/2023 to Present</p>
+        <button className={styles.remove_btn}>Remove</button>
       </div>
 
       <div className={styles.doctor_history}>
-        <p className={styles.doctor_history_content}>Current Doctor</p>
-      </div>
-
-      <div className={styles.doctor}>
-        <p className={styles.doctor_name}>3.Dr. Maria Gonzalez</p>
-        <p className={styles.doctor_contact}>03/07/2023 to 24/07/2023</p>
-      </div>
-
-      <div className={styles.doctor}>
-        <p className={styles.doctor_name}>3.Dr. Maria Gonzalez</p>
-        <p className={styles.doctor_contact}>03/07/2023 to 24/07/2023</p>
-      </div>
-
-      <div className={styles.doctor_history}>
-        <p className={styles.doctor_history_content}>Add New Doctors</p>
+        <p className={styles.doctor_history_content}>Add Patients</p>
       </div>
 
       <div className={styles.row}>
         <div className={styles.add_doctor_info}>
           <label className={styles.add_text_doctor} htmlFor="email">
-            Doctor Id:
+            Patient Email:
           </label>
           <input
             className={styles.add_doctor_name}
@@ -66,6 +46,39 @@ function Home() {
           Submit
         </button>
       </div>
+
+      <div className={styles.down_row}>
+        <div className={styles.down_left_row}>
+          <p>
+            <label className={styles.container}>Allow Patient Messages
+            <input type="checkbox" />
+            <span className={styles.checkmark}></span>
+            </label>
+          </p>
+          <p>
+          <label className={styles.container}>Automatically Update Logs
+            <input type="checkbox" />
+            <span className={styles.checkmark}></span>
+            </label>
+          </p>
+          <p>
+          <label className={styles.container}>Notifications
+            <input type="checkbox" />
+            <span className={styles.checkmark}></span>
+            </label>
+          </p>
+          <p>
+          <label className={styles.container}>Allow Patient Requests
+            <input type="checkbox" />
+            <span className={styles.checkmark}></span>
+            </label>
+          </p>
+        </div>
+        <div className={styles.down_right_row}>
+            <img src="/Group 9420.png"/>
+        </div>
+      </div>
+      
     </div>
   );
 }
