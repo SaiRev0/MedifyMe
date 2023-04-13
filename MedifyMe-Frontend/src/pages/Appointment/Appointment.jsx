@@ -1,8 +1,9 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Appointment.module.css";
 import { Link } from "react-router-dom";
-import AccountCard from "../../components/AccountCard/AccountCard";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function Appointment() {
   return (
@@ -111,9 +112,18 @@ function Appointment() {
             <p className={styles.total_fee_text}>Total Fee</p>
             <p className={styles.total_fee}>₹ 500</p>
           </div>
-          <Link to="/video_room">
+          {/* <StripeCheckout
+            stripeKey="pk_test_51MvIxBSBOxWp4pAyGoeweYV6l1WI83qkno8SGJSeNd63fgm58e1bCYByxQRS8w2TUnYgFxHm8Zei09dsYMqXdNQV00XMjZBEgg"
+            token={handletoken}
+            amount={500 * 100}
+            name="MedifyMe"
+            billingAddress
+            shippingAddress
+          > */}
+          <Link to="/checkout">
             <div className={styles.pay}>Pay ₹550</div>
           </Link>
+          {/* </StripeCheckout> */}
         </div>
       </div>
     </>

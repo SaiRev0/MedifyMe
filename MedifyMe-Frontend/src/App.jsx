@@ -21,6 +21,7 @@ import Settings from "./pages/Settings/Settings";
 import SelectPatient from "./pages/Doctor/SelectPatient/SelectPatient";
 import VideoRoom from "./pages/video_room/video_room";
 import SettingsDoctor from "./pages/Doctor/SettingsDoctor/SettingsDoctor";
+import Checkout from "./pages/Checkout/checkout";
 // import RoomPage from "./pages/Rooms/Rooms";
 // import Video_chat from "./pages/Video_chat/video_chat";
 
@@ -55,6 +56,7 @@ const router = createBrowserRouter(
       <Route path="test" element={<Test />} />
       <Route path="Loading" element={<Loading />} />
       <Route path="/video_room" element={<VideoRoom />} />
+      <Route path="/checkout" element={<Checkout />} />
       {/* settings */}
       <Route path="settings">
         <Route
