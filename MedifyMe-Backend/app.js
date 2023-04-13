@@ -16,10 +16,9 @@ const jwt = require("jsonwebtoken");
 const patientRoutes = require("./routes/patients");
 const doctorRoutes = require("./routes/doctors");
 const gptRoutes = require("./routes/gpt");
-const stripe = require("stripe")(
-  "sk_test_51MvIxBSBOxWp4pAyOetbn6JvPPxYRUaUQ8rJcp7MyBAe0CmdettguGkA2MUnAObR55OEmzekxVxFYa30mleZJo7W00MA36sFAJ"
-);
-const uuid = require("uuid").v4;
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2022-08-01",
+});
 // const { generateToken04 } = require("./token");
 
 mongoose
@@ -124,50 +123,28 @@ app.post("/validate-meeting/:meetingId", (req, res) => {
     .catch((error) => console.error("error", error));
 });
 
-app.post("/checkout", async (req, res) => {
-  console.log("Request:", req.body);
+app.get("/config", (req, res) => {
+  res.send({
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  });
+});
 
-  let error, status;
-
+app.post("/create_payment_intent", async (req, res) => {
   try {
-    const { product, token } = req.body;
-    const customer = await stripe.customers.create({
-      email: token.email,
-      source: token.id,
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: 1 * 100,
+      currency: "inr",
+      automatic_payment_methods: {
+        enabled: true,
+      },
     });
 
-    const key = uuid();
-
-    const charge = await stripe.charges.create(
-      {
-        amount: product.price * 100,
-        currency: "inr",
-        customer: customer.id,
-        receipt_email: token.email,
-        description: `Purchased the ${product.name}`,
-        shipping: {
-          name: token.card.name,
-          address: {
-            country: token.card.address_country,
-            line1: token.card.address_line1,
-            line2: token.card.address_line2,
-            city: token.card.address_city,
-            postal_code: token.card.address_zip,
-          },
-        },
-      },
-      {
-        key,
-      }
-    );
-
-    console.log("Charge:", { charge });
-    status = "Success";
-  } catch (error) {
-    console.log("Error:", error);
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
   }
-
-  res.json({ error, status });
 });
 
 app.all("*", (req, res, next) => {
