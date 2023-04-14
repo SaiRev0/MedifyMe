@@ -21,12 +21,12 @@ const Footer = () => {
       </div>
       <div className={styles.footer_2}>
         <p className={styles.text_4}>Important Links</p>
-        <ul className={styles.text_5}>
-          <li>Appointment</li>
-          <li>Health History</li>
-          <li>Prescription</li>
-          <li>Test & Reports</li>
-        </ul>
+        <div className={styles.links}>
+          <Link to="">Health History</Link>
+          <Link to="">Prescription</Link>
+          <Link to="">Test & Reports</Link>
+          <Link to="">Appointment</Link>
+        </div>
       </div>
       <div className={styles.footer_3}>
         <p className={styles.text_6}>Contact Us</p>
@@ -35,14 +35,8 @@ const Footer = () => {
         </a>
         <p className={styles.address}>
           <span className={styles.addressSpan}>Address:</span> Near Hyderbad
-          gate Varanasi
+          gate, Varanasi
         </p>
-      </div>
-      <div className={styles.footer_4}>
-        <p className={styles.text_7}>Contact For Sales</p>
-        <form action="">
-          <input className={styles.input} type="text" />
-        </form>
       </div>
     </div>
   );
