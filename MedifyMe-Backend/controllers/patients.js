@@ -3,17 +3,75 @@ const Patient = require("../models/patient");
 const Doctor = require("../models/doctor");
 const Visit = require("../models/visit");
 const Request = require("../models/request");
+const Prescription = require("../models/prescription");
 const { Storage } = require("@google-cloud/storage");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
-let projectId = "our-forest-380314"; // Get this from Google Cloud
-let keyFilename = "medifyme.json"; // Get this from Google Cloud -> Credentials -> Service Accounts
 const storage = new Storage({
-  projectId,
-  keyFilename,
+  projectId: "medifyme-fullstack",
+  keyFilename: "medifyme.json",
 });
-const bucket = storage.bucket("medifyme-storage"); // Get this from Google Cloud -> Storage
+const bucket = storage.bucket("medifyme-upload");
+
+const uploadFile = (file, OCR) => {
+  return new Promise((resolve, reject) => {
+    const extension = path.extname(file.originalname);
+    const newName = `${path.basename(
+      file.originalname,
+      extension
+    )}-${uuidv4()}${extension}`;
+    file.originalname = newName;
+
+    const blob = bucket.file(newName);
+    const blobStream = blob.createWriteStream();
+
+    blobStream.on("finish", async () => {
+      const fileUrl = `https://storage.googleapis.com/${bucket.name}/${newName}`;
+      console.log(fileUrl);
+
+      if (OCR) {
+        // Send image to OCR Space API for OCR
+        const ocrApiKey = "14f97b642788957";
+        const formData = new FormData();
+        formData.append("url", fileUrl);
+        formData.append("OCREngine", 5);
+        formData.append("filetype", "PNG");
+
+        const config = {
+          headers: {
+            apikey: ocrApiKey,
+            "Content-Type": "image/png",
+          },
+        };
+        try {
+          const response = await axios.post(
+            "https://api.ocr.space/parse/image",
+            formData,
+            config
+          );
+          const ocrText = response.data.ParsedResults[0].ParsedText;
+          const ocrResult = {
+            url: fileUrl,
+            ocr: ocrText,
+          };
+          resolve(ocrResult);
+        } catch (err) {
+          console.error(err);
+          reject(err);
+        }
+      } else {
+        resolve(fileUrl);
+        console.log(fileUrl);
+      }
+    });
+    blobStream.on("error", (err) => {
+      console.log(`File ${newName} upload failed: ${err}`);
+      reject(err);
+    });
+    blobStream.end(file.buffer);
+  });
+};
 
 // React Login
 module.exports.login = async (req, res) => {
@@ -131,24 +189,9 @@ module.exports.healthHistoryForm = async (req, res) => {
     const { id } = req.body;
     const foundPatient = await Patient.findById(id);
     const fileUrls = [];
-
     for (const file of req.files) {
-      const extension = path.extname(file.originalname);
-      const newName = `${path.basename(
-        file.originalname,
-        extension
-      )}-${uuidv4()}${extension}`;
-      file.originalname = newName;
-
-      const blob = bucket.file(newName);
-      const blobStream = blob.createWriteStream();
-
-      blobStream.on("finish", () => {
-        console.log(`File ${newName} uploaded successfully`);
-      });
-      blobStream.end(file.buffer);
-
-      fileUrls.push(`https://storage.googleapis.com/${bucket.name}/${newName}`);
+      const fileUrl = await uploadFile(file, false);
+      fileUrls.push(fileUrl);
     }
 
     const visit = new Visit({
@@ -172,11 +215,63 @@ module.exports.healthHistoryForm = async (req, res) => {
   }
 };
 
+module.exports.prescription = async (req, res) => {
+  try {
+    if (!req.query.id) {
+      return res.status(400).json("No patient id provided");
+    }
+    const { id } = req.query;
+    const foundPatient = await Patient.findById(id).populate("prescriptions");
+    res.status(200).json(foundPatient);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Something Went Wrong!");
+  }
+};
+
+module.exports.prescriptionForm = async (req, res) => {
+  try {
+    if (!req.body.id) {
+      return res.status(400).json("No patient id provided");
+    }
+    const { id } = req.body;
+    const foundPatient = await Patient.findById(id);
+    const fileResults = [];
+
+    for (const file of req.files) {
+      const ocrResult = await uploadFile(file, true);
+      fileResults.push(ocrResult);
+    }
+
+    const prescription = new Prescription({
+      date: req.body.date,
+      medications: req.body.medications,
+      prescriptionComments: req.body.prescriptionComments,
+      patient: id,
+      files: fileResults,
+    });
+
+    await prescription.save();
+    const prescriptionId = prescription._id.toString();
+    foundPatient.prescriptions.push(prescriptionId);
+    await foundPatient.save();
+
+    res.status(200).json(prescription);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Something Went Wrong!");
+  }
+  const fileUrls = [];
+
+  for (const file of req.files) {
+    await uploadFile(file, fileUrls);
+  }
+};
+
 module.exports.visits = async (req, res) => {
   try {
     const { id } = req.query;
     const visit = await Visit.findById(id);
-    // console.log(visit);
     res.status(200).json(visit);
   } catch (err) {
     console.log(err);

@@ -22,4 +22,9 @@ router.route("/visits").get(patients.visits);
 
 router.route("/request_doctor").post(patients.requestDoctor);
 
+router
+  .route("/prescription")
+  .get(patients.prescription)
+  .post(multer.array("files"), patients.prescriptionForm);
+
 module.exports = router;

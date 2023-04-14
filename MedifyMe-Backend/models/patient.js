@@ -49,10 +49,10 @@ const PatientSchema = new Schema({
       ref: "Visit",
     },
   ],
-  prescription: [
+  prescriptions: [
     {
-      type: String,
-      default: null,
+      type: Schema.Types.ObjectId,
+      ref: "Prescription",
     },
   ],
   test: [

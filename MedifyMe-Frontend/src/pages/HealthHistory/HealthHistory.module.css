@@ -3,6 +3,7 @@
   justify-content: space-around;
   align-items: center;
 }
+
 .history {
   display: flex;
   flex-direction: column;
@@ -45,11 +46,13 @@
   margin-left: 20px;
   color: #ffffff;
 }
+
 .lowerSection {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
 }
+
 .selectVisit {
   margin-left: 2%;
   width: 20vw;
@@ -57,6 +60,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .docvisit {
   height: 52vh;
   background: #2b3e4c;
@@ -111,16 +115,16 @@
 }
 
 .docs {
-  height: 100%;
-  width: 100%;
   display: grid;
   row-gap: 20px;
   overflow-y: auto;
 }
-.stylingDocs{
+
+.stylingDocs {
   height: 35vh;
   overflow: auto;
 }
+
 .docs img {
   width: 45px;
   height: 45px;
@@ -156,7 +160,25 @@
   color: #000000;
   display: flex;
   flex-direction: row;
-  padding:10px;
+  padding: 10px;
+  align-items: center;
+}
+
+.selected {
+  position: relative;
+  margin: 0 5% 0 5%;
+  background: #f5dba7;
+  border-radius: 15px;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16.16px;
+  line-height: 18px;
+  letter-spacing: 0.04em;
+  color: #000000;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
   align-items: center;
 }
 
@@ -172,7 +194,7 @@
 
 .date {
   position: absolute;
-right: 10px;
+  right: 10px;
   font-family: "Comfortaa";
   font-style: normal;
   font-weight: 400;
@@ -214,7 +236,7 @@ right: 10px;
 .title2 {
 
   position: absolute;
-  right:30px;
+  right: 30px;
   font-family: "Yeseva One";
   font-style: normal;
   font-weight: 400;
@@ -228,8 +250,8 @@ right: 10px;
   flex-direction: row;
   height: calc(100% - 80px);
   margin-top: 13px;
-margin-left: 20px;
-margin-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
   justify-content: space-between;
 }
 
@@ -262,10 +284,11 @@ margin-right: 20px;
   color: #000000;
 }
 
-.doccomments > :first-child {
+.doccomments> :first-child {
   align-self: center;
 }
-.doccomments > :nth-child(2) {
+
+.doccomments> :nth-child(2) {
   overflow: auto;
 }
 
@@ -308,6 +331,7 @@ margin-right: 20px;
   box-shadow: 0px 3.24152px 55.9162px rgba(0, 0, 0, 0.04);
   border-radius: 27.5529px;
 }
+
 .centerimgs {
   width: 100%;
   overflow: auto;
@@ -317,6 +341,7 @@ margin-right: 20px;
   justify-content: center;
   align-items: center;
 }
+
 .imgGrid {
   margin-top: 1.1rem;
   margin-left: 1.3rem;
@@ -329,6 +354,7 @@ margin-right: 20px;
   align-items: center;
   justify-content: center;
 }
+
 @media only screen and (max-width: 1400px) {
   .imgGrid {
     margin-top: 1.1rem;
@@ -342,16 +368,15 @@ margin-right: 20px;
     align-items: center;
     justify-content: center;
   }
-  .d1 li{
+
+  .d1 li {
     line-height: 30px;
     font-size: 18px;
   }
-  .d2 li{
+
+  .d2 li {
     line-height: 30px;
     font-size: 18px;
   }
 
 }
-
-
-
