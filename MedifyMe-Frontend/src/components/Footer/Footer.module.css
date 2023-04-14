@@ -84,7 +84,6 @@
 }
 
 .input {
-  margin-left: 60px;
   height: 40px;
   width: 200px;
 }
@@ -92,21 +91,26 @@
 .addressSpan {
   position: inherit;
 }
+
 @media (max-width:1240px) {
-  .footer_4{
-   display: none;
+  .footer_4 {
+    display: none;
   }
 }
+
 @media (max-width:700px) {
+
   .footer_3,
-  .footer_2{
-   display: none;
+  .footer_2 {
+    display: none;
   }
-  .footer_1{
+
+  .footer_1 {
     display: flex;
     justify-content: center;
   }
-  .footer{
+
+  .footer {
     height: 20vw;
     position: relative;
     display: flex;
@@ -114,16 +118,18 @@
     margin: auto;
     justify-content: center;
   }
-  .text_3{
+
+  .text_3 {
     display: block;
     position: absolute;
-    margin:auto;
+    margin: auto;
     bottom: 10px;
     font-size: 10px;
     font-weight: 500;
   }
-  .text_1{
-    margin:0px;
+
+  .text_1 {
+    margin: 0px;
     font-size: 20px;
   }
 }
