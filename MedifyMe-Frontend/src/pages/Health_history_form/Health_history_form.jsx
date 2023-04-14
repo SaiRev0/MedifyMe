@@ -145,7 +145,7 @@ function Health_history_form() {
               onChange={handleFileChange}
               accept=".jpg, .jpeg, .png, .pdf"
               multiple
-            />
+            /><div className={styles.numfiles}>{files.length} files selected</div>
           </div>
           <div className={styles.submit_btn}>
             <button className={styles.submit_button} type="submit">

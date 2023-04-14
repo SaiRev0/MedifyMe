@@ -44,6 +44,7 @@ body {
     display: flex;
     margin-top:30px;
     justify-content: center;
+    position: relative;
 }
 
 .input_field div{
@@ -187,4 +188,12 @@ body {
 
 .submit_button:hover {
     background-color: #a38850;
+}
+
+.numfiles{
+    position: absolute;
+    top:20px;
+    left:58.8%;
+    padding:0px 0px 0 10px ;
+    height: fit-content;
 }
