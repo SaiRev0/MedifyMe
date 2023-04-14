@@ -10,6 +10,8 @@ import Loading from "../../components/Loading/Loading";
 import DocumentPreview from "../../components/DocumentPreview/DocumentPreview";
 
 function HealthHistory() {
+  const navigate = useNavigate();
+
   const patient = useSelector((state) => {
     return state.patient;
   });
@@ -25,13 +27,12 @@ function HealthHistory() {
   const error = useMemo(() => rawError, [rawError]);
 
   const [selectedVisit, setSelectedVisit] = useState(data?.visits?.[0] ?? null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (data && selectedVisit === null) {
       setSelectedVisit(data.visits[0]);
     }
-  }, [navigate, patient.isLoggedIn, data, selectedVisit]);
+  }, [data, selectedVisit]);
 
   useEffect(() => {
     if (!patient.isLoggedIn) {
@@ -60,7 +61,7 @@ function HealthHistory() {
       return (
         <div
           key={index}
-          className={styles.doc2}
+          className={selectedVisit !== visit ? styles.doc2 : styles.selected}
           onClick={() => setSelectedVisit(visit)}
         >
           <img src="doc.png" />

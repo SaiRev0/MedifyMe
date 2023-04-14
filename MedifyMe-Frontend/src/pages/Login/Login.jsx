@@ -57,9 +57,14 @@ function Login() {
               onClick={() => loginHandler()}
             >
               <span className={styles.google_p}>
-                {loginResults.isLoading
-                  ? <div className={styles.loggedin}>Logging in...</div>
-                  : <div><img src="/Google_Icon.jpg"/>Sign in with google</div>}
+                {loginResults.isLoading ? (
+                  <div className={styles.loggedin}>Logging in...</div>
+                ) : (
+                  <div>
+                    <img src="/Google_Icon.jpg" />
+                    Sign in with google
+                  </div>
+                )}
               </span>
             </button>
 
