@@ -12,7 +12,6 @@ import {
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { patientApi } from "./apis/patientsApi";
 import { doctorApi } from "./apis/doctorsApi";
-import { meetApi } from "./apis/meetApi";
 
 const store = configureStore({
   reducer: {
@@ -20,13 +19,11 @@ const store = configureStore({
     [patientApi.reducerPath]: patientApi.reducer,
     doctor: doctorReducer,
     [doctorApi.reducerPath]: doctorApi.reducer,
-    [meetApi.reducerPath]: meetApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
       .concat(patientApi.middleware)
-      .concat(doctorApi.middleware)
-      .concat(meetApi.middleware);
+      .concat(doctorApi.middleware);
   },
 });
 
@@ -56,5 +53,3 @@ export {
   useFetchPatientsQuery,
   useAcceptPatientsMutation,
 } from "./apis/doctorsApi";
-
-export { useFetchTokenQuery, useCreateMeetingMutation } from "./apis/meetApi";

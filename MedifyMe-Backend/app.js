@@ -53,7 +53,7 @@ app.all("*", (req, res, next) => {
   res.status(404).send("Page Not Found Yo");
 });
 
-const port = process.env.PORT || 6969;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
   console.log("Server Started");
