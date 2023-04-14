@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-
+import Navbar from "../../components/Navbar/Navbar";
 import CheckoutForm from "../../components/Checkoutform/Checkoutform";
 
 export default function App() {
-  const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
+  const stripe = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+
+  let url;
+  if (import.meta.env.MODE === "development") {
+    url = "http://localhost:6969/payments/create_payment_intent";
+  } else {
+    url = "https://medifyme-pvpz.onrender.com/payments/create_payment_intent";
+  }
 
   useEffect(() => {
-    fetch("https://medifyme.netlify.app/config").then(async (r) => {
-      const { publishableKey } = await r.json();
-      setStripePromise(loadStripe(publishableKey));
-    });
-  }, []);
-
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("https://medifyme.netlify.app/create_payment_intent", {
+    fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
@@ -27,7 +26,7 @@ export default function App() {
   }, []);
 
   const appearance = {
-    theme: 'stripe',
+    theme: "stripe",
   };
   const options = {
     clientSecret,
@@ -36,8 +35,9 @@ export default function App() {
 
   return (
     <div>
+      <Navbar />
       {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
+        <Elements options={options} stripe={stripe}>
           <CheckoutForm />
         </Elements>
       )}

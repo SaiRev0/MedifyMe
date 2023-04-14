@@ -9,17 +9,11 @@ const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const morgan = require("morgan");
 const dbUrl = process.env.DB_URL;
-const { default: fetch } = require("node-fetch");
-const jwt = require("jsonwebtoken");
-// const APP_ID = process.env.APP_ID;
-// const SERVER_SECRET = process.env.SERVER_SECRET;
 const patientRoutes = require("./routes/patients");
 const doctorRoutes = require("./routes/doctors");
 const gptRoutes = require("./routes/gpt");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2022-08-01",
-});
-// const { generateToken04 } = require("./token");
+const paymentRoutes = require("./routes/payment");
+const meetRoutes = require("./routes/meet");
 
 mongoose
   .connect(dbUrl)
@@ -52,100 +46,8 @@ app.get("/", async (req, res) => {
 app.use("/gpt", gptRoutes);
 app.use("/patients", patientRoutes);
 app.use("/doctors", doctorRoutes);
-
-// app.get("/room", (req, res) => {
-//   try {
-//     const userId = req.query.userId;
-//     const effectiveTimeInSeconds = 7200;
-//     const appID = 575089151;
-//     const serverSecret = SERVER_SECRET; // type: 32 byte length string
-//     const payload = "";
-//     const token = generateToken04(
-//       appID,
-//       userId,
-//       serverSecret,
-//       effectiveTimeInSeconds,
-//       payload
-//     );
-//     res.json(token);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).json({ message: "Something Went Wrong!!!!" });
-//   }
-// });
-
-app.get("/get-token", (req, res) => {
-  const API_KEY = process.env.VIDEOSDK_API_KEY;
-  const SECRET_KEY = process.env.VIDEOSDK_SECRET_KEY;
-
-  const options = { expiresIn: "10m", algorithm: "HS256" };
-
-  const payload = {
-    apikey: API_KEY,
-    permissions: ["allow_join", "allow_mod"],
-  };
-
-  const token = jwt.sign(payload, SECRET_KEY, options);
-  res.json({ token });
-});
-
-//
-app.post("/create-meeting/", (req, res) => {
-  const { token, region } = req.body;
-  const url = `${process.env.VIDEOSDK_API_ENDPOINT}/api/meetings`;
-  const options = {
-    method: "POST",
-    headers: { Authorization: token, "Content-Type": "application/json" },
-    body: JSON.stringify({ region }),
-  };
-
-  fetch(url, options)
-    .then((response) => response.json())
-    .then((result) => res.json(result))
-    .catch((error) => console.error("error", error));
-});
-
-//
-app.post("/validate-meeting/:meetingId", (req, res) => {
-  const token = req.body.token;
-  const meetingId = req.params.meetingId;
-
-  const url = `${process.env.VIDEOSDK_API_ENDPOINT}/api/meetings/${meetingId}`;
-
-  const options = {
-    method: "POST",
-    headers: { Authorization: token },
-  };
-
-  fetch(url, options)
-    .then((response) => response.json())
-    .then((result) => res.json(result)) // result will contain meetingId
-    .catch((error) => console.error("error", error));
-});
-
-app.get("/config", (req, res) => {
-  res.send({
-    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
-  });
-});
-
-app.post("/create_payment_intent", async (req, res) => {
-  try {
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: 1 * 100,
-      currency: "inr",
-      automatic_payment_methods: {
-        enabled: true,
-      },
-    });
-
-    res.send({
-      clientSecret: paymentIntent.client_secret,
-    });
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-});
+app.use("/payments", paymentRoutes);
+app.use("/meet", meetRoutes);
 
 app.all("*", (req, res, next) => {
   res.status(404).send("Page Not Found Yo");
