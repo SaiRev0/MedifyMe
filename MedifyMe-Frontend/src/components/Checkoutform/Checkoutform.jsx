@@ -6,7 +6,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import styles from "./Checkoutform.module.css";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -49,6 +49,13 @@ export default function CheckoutForm() {
     });
   }, [stripe]);
 
+  let return_url;
+  if (import.meta.env.MODE === "development") {
+    return_url = "http://localhost:5173/video_room";
+  } else {
+    return_url = "https://medifyme.netlify.app/video_room";
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -64,7 +71,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "https://medifyme.netlify.app/video_room",
+        return_url,
       },
     });
 
@@ -85,6 +92,7 @@ export default function CheckoutForm() {
     <form className={styles.payment_form} onSubmit={handleSubmit}>
       <LinkAuthenticationElement
         id="link-authentication-element"
+        value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <PaymentElement id="payment-element" options={paymentElementOptions} />
@@ -100,7 +108,6 @@ export default function CheckoutForm() {
           )}
         </span>
       </button>
-      {/* Show any error or success messages */}
       {message && <div className={styles.payment_message}>{message}</div>}
     </form>
   );
