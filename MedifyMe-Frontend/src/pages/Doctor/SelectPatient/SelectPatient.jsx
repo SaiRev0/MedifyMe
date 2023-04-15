@@ -104,7 +104,7 @@ function SelectPatient() {
             <div className={styles.add_patients}>
               <p className={styles.add_patients_p}>Add Patients</p>
               <label className={styles.add_text_doctor} htmlFor="email">
-                Patient Id:
+                Patient Email:
               </label>
               <input
                 className={styles.add_patient_id}
