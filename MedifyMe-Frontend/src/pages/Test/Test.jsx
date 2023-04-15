@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Test.module.css";
 import { useSelector } from "react-redux";
-import { useState,useEffect,useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchPrescriptionQuery } from "../../store";
@@ -32,8 +32,6 @@ function Test() {
       setSelectedPrescription(data.prescriptions[0]);
     }
   }, [data, selectedPrescription]);
-
-
 
   useEffect(() => {
     if (!patient.isLoggedIn) {

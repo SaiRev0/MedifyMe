@@ -13,7 +13,7 @@
 } */
 
 .health_history_form {
-    width:70vw;
+    width: 70vw;
     margin: 10px auto;
     padding: 0px 10px;
     background-color: #f4f4f4;
@@ -72,7 +72,7 @@
     resize: none;
 }
 
-.health_input::-webkit-calendar-picker-indicator{
+.health_input::-webkit-calendar-picker-indicator {
     background: transparent;
     color: transparent;
     cursor: pointer;
@@ -87,36 +87,36 @@
     display: none;
 }
 
-.upload_file{
+.upload_file {
     background-color: white;
     border: 1px solid #8b8a8a;
     box-shadow: 2px 2px #ccc;
-    width:fit-content;
-    padding:0px 10px 0 0;
+    width: fit-content;
+    padding: 0px 10px 0 0;
     border-radius: 30px;
-    margin:auto;
+    margin: auto;
 }
 
-.upload_file:hover{
+.upload_file:hover {
     background-color: rgb(248, 245, 245);
     box-shadow: none;
 
 }
 
-.upload img{
-    width:70px;
-    margin-left:0vw;
+.upload img {
+    width: 70px;
+    margin-left: 0vw;
 }
 
-.upload span{
+.upload span {
     position: relative;
-    bottom:16px;
+    bottom: 16px;
 }
 
-.submit_btn{
+.submit_btn {
     display: flex;
     justify-content: center;
-    margin-bottom:25px;
+    margin-bottom: 25px;
 }
 
 
@@ -137,4 +137,12 @@
 
 .submit_button:hover {
     background-color: #a38850;
+}
+
+.numfiles {
+    position: absolute;
+    top: 20px;
+    left: 58.8%;
+    padding: 0px 0px 0 10px;
+    height: fit-content;
 }

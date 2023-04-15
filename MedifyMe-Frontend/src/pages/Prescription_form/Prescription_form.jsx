@@ -18,7 +18,7 @@ function Home() {
     return state.patient;
   });
 
-  const [files, handleFileChange] = useFileUploader(3);
+  const [files, handleFileChange] = useFileUploader(4);
 
   const [form, formResults] = usePrescriptionFormMutation();
   const isLoading = formResults.isLoading;
@@ -123,6 +123,7 @@ function Home() {
               accept=".jpg, .jpeg, .png, .pdf"
               multiple
             />
+            <div className={styles.numfiles}>{files.length} files selected</div>
           </div>
           <div className={styles.submit_btn}>
             <button className={styles.submit_button} type="submit">
