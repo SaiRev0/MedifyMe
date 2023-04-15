@@ -278,39 +278,43 @@
 .documentst {
     display: flex;
     align-items: center;
-    background: white;
+    background: #2B3F4E;
+    color:#e6e6e6;
     border-radius: 50px;
-    padding: 8px 20px;
-    gap: 10px;
+    padding: 8px;
+    justify-content: center;
     height: 20px;
     font-family: "Comfortaa";
     font-style: normal;
     font-weight: 600;
     font-size: 1.3vw;
     line-height: 28px;
-    margin-top: 10px;
-    color: #000000;
 }
 
 .centerimgs {
     width: 100%;
-    overflow: auto;
+    height: 300px;
+    overflow:auto;
     margin-bottom: 20px;
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .imgGrid {
     margin-top: 1.1rem;
     margin-left: 1.3rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
-    width: 100%;
-    height: 100%;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 2rem;
     justify-items: center;
     align-items: center;
     justify-content: center;
+}
+
+.leftcont{
+    border-radius: 20px;
+    margin-left:1.5vw;
+    line-height: 28px;
+    /* background-color: white; */
 }
