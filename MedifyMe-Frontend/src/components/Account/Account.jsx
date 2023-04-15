@@ -23,7 +23,7 @@ function Account() {
         <div className={styles.row}>
           <label className={styles.color1} htmlFor="profile-pic">
             <span>Profile Picture:</span>
-            <img src="..\Frame 21.png" className={styles.profile_img}></img>
+            <img src="..\Frame 21.webp" className={styles.profile_img}></img>
             <span className={styles.span}>&nbsp;Upload Image</span>
           </label>
           <input

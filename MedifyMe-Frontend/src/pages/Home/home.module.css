@@ -323,17 +323,17 @@
 }
 
 .bigCard:nth-child(2) {
-  background-image: url("/D5.jpg");
+  background-image: url("/D5.webp");
   transform: rotate(2deg);
 }
 
 .bigCard:nth-child(3) {
-  background-image: url("/D7.jpg");
+  background-image: url("/D7.webp");
   transform: translateX(-6%) rotate(-3deg);
 }
 
 .bigCard:nth-child(4) {
-  background-image: url("/D1.jpg");
+  background-image: url("/D1.webp");
   transform: translate(10%, 3%) rotate(5deg);
 }
 

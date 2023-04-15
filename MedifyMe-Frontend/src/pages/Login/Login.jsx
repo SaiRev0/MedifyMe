@@ -24,7 +24,7 @@ function Login() {
                 Manage your Health,not just your Records
               </h2>
             </div>
-            <img src="Group 9424.png" alt="" className={styles.img2} />
+            <img src="Group 9424.webp" alt="" className={styles.img2} />
           </div>
         </div>
         <div className={styles.right_wrapper}>
@@ -61,7 +61,7 @@ function Login() {
                   <div className={styles.loggedin}>Logging in...</div>
                 ) : (
                   <div>
-                    <img src="/Google_Icon.jpg" />
+                    <img src="/Google_Icon.webp" />
                     Sign in with google
                   </div>
                 )}
@@ -69,7 +69,7 @@ function Login() {
             </button>
 
             <div className={styles.login_lowerpart}>
-              <img src="login.svg" alt="" className={styles.img3} />
+              <img src="login.webp" alt="" className={styles.img3} />
               <p className={styles.login_lower_content}>
                 First time users will be asked a few questions by our AI Powered
                 Chatbot to begin their journey!

@@ -109,7 +109,7 @@ function Controls() {
   return (
     <div className={styles.buttons}>
       <button onClick={() => leave()} className={styles.leavebutton}>
-        <img src="/hangup.png" className={styles.leaveimg} />
+        <img src="/hangup.webp" className={styles.leaveimg} />
       </button>
       <button
         className={`${styles.myButton} ${
@@ -118,7 +118,7 @@ function Controls() {
         onClick={handleClick}
       >
         <img
-          src={`${clicked ? "/micoff.png" : "/micon.png"}`}
+          src={`${clicked ? "/micoff.webp" : "/micon.webp"}`}
           className={styles.webimg}
         />
       </button>
@@ -129,7 +129,7 @@ function Controls() {
         }`}
       >
         <img
-          src={`${webcam ? "/webcamoff.png" : "/webcam.png"}`}
+          src={`${webcam ? "/webcamoff.webp" : "/webcam.webp"}`}
           className={styles.webimg}
         />
       </button>
@@ -220,7 +220,7 @@ function video_room() {
           <div className={styles.t1}>History</div>
           <div className={styles.docs}>
             <div className={styles.doc1}>
-              <img src="doc.png" />
+              <img src="doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -228,7 +228,7 @@ function video_room() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="doc.png" />
+              <img src="doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -236,7 +236,7 @@ function video_room() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="doc.png" />
+              <img src="doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -244,7 +244,7 @@ function video_room() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="doc.png" />
+              <img src="doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -252,7 +252,7 @@ function video_room() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="doc.png" />
+              <img src="doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -268,7 +268,7 @@ function video_room() {
           <div className={styles.t1}>Doctors Suggestions</div>
           <div className={styles.docsu}>
             <div className={styles.doc1}>
-              <img src="doc.png" />
+              <img src="doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -276,7 +276,7 @@ function video_room() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="doc.png" />
+              <img src="doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -284,7 +284,7 @@ function video_room() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="doc.png" />
+              <img src="doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>

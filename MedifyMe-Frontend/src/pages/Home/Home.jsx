@@ -48,7 +48,7 @@ function Home() {
       {doctor.isLoggedIn && !patient.isLoggedIn ? <NavbarD /> : <Navbar />}
       <div className={styles.herosection}>
         <div className={styles.img1}>
-          <LazyLoadImage src="img1.png" />
+          <LazyLoadImage src="img1.webp" />
         </div>
         <div className={styles.content}>
           <TypeAnimation
@@ -73,25 +73,25 @@ function Home() {
           </Link>
         </div>
         <div className={styles.group}>
-          <LazyLoadImage src="Group.png" />
+          <LazyLoadImage src="Group.webp" />
         </div>
         <div className={styles.button}>
           <Link to="/health_history">
             <div className={styles.b1}>
               Check your Health History
-              <LazyLoadImage src="history.svg" />
+              <LazyLoadImage src="history.webp" />
             </div>
           </Link>
           <Link to="/">
             <div className={styles.b2}>
               Have queries? Ask Here
-              <LazyLoadImage src="query.svg" />
+              <LazyLoadImage src="query.webp" />
             </div>
           </Link>
           <Link to="/appointment">
             <div className={styles.b3}>
               Book an Appointment
-              <LazyLoadImage src="appointment.svg" />
+              <LazyLoadImage src="appointment.webp" />
             </div>
           </Link>
         </div>
@@ -158,19 +158,19 @@ function Home() {
         <h2>Featured Services</h2>
         <div className={styles.servicesList}>
           <div className={styles.service}>
-            <LazyLoadImage src="service1.jpg" alt="Service 1" />
+            <LazyLoadImage src="service1.webp" alt="Service 1" />
             <h4>Virtual Consultations</h4>
             <p>Get medical advice from the comfort of your home.</p>
           </div>
           <div className={styles.service}>
-            <LazyLoadImage src="service2.png" alt="Service 2" />
+            <LazyLoadImage src="service2.webp" alt="Service 2" />
             <h4>Health Monitoring</h4>
             <p>
               Track your health progress and get personalized recommendations.
             </p>
           </div>
           <div className={styles.service}>
-            <LazyLoadImage src="service3.png" alt="Service 3" />
+            <LazyLoadImage src="service3.webp" alt="Service 3" />
             <h4>Health Records</h4>
             <p>
               Store all your health records in one place and access them
