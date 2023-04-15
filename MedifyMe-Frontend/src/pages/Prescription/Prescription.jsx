@@ -94,16 +94,16 @@ function Prescription() {
           <div className={styles.con}>
             <ol>
               <li>
-                Amoxicillin: <span className={styles.d}>x1/day</span>
+                <p >Amoxicillin: </p><p className={styles.d}>x1/day</p>
               </li>
               <li>
-                Benzocaine: <span className={styles.d}>x1/day</span>
+                <p>Benzocaine:</p> <p className={styles.d}>x1/day</p>
               </li>
               <li>
-                Ibuprofen: <span className={styles.d}>x1/day</span>
+                <p>Ibuprofen:</p> <p className={styles.d}>x1/day</p>
               </li>
               <li>
-                hlorhexidine mouthwash: <span className={styles.d}>x1/day</span>
+                <p>Chlorhexidine mouthwash:</p> <p className={styles.d}>x1/day</p>
               </li>
             </ol>
           </div>

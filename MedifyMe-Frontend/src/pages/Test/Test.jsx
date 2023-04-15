@@ -1,15 +1,39 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Test.module.css";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useState,useEffect,useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useFetchPrescriptionQuery } from "../../store";
+import DocumentPreview from "../../components/DocumentPreview/DocumentPreview";
 
 function Test() {
   const patient = useSelector((state) => {
     return state.patient;
   });
   const navigate = useNavigate();
+
+  const {
+    data: rawData,
+    error: rawError,
+    isFetching,
+    refetch,
+  } = useFetchPrescriptionQuery(patient.id);
+
+  const data = useMemo(() => rawData, [rawData]);
+  const error = useMemo(() => rawError, [rawError]);
+
+  const [selectedPrescription, setSelectedPrescription] = useState(
+    data?.prescriptions?.[0] ?? null
+  );
+
+  useEffect(() => {
+    if (data && selectedPrescription === null) {
+      setSelectedPrescription(data.prescriptions[0]);
+    }
+  }, [data, selectedPrescription]);
+
+
 
   useEffect(() => {
     if (!patient.isLoggedIn) {
@@ -125,7 +149,19 @@ function Test() {
             </ul>
           </div>
           <div className={styles.photo}>
-            <img src="PrescribtionImage.jpg" />
+            <div className={styles.uploadedImg}>
+              <div className={styles.documentst}>Uploaded Documents</div>
+              <div className={styles.centerimgs}>
+                <div className={styles.imgGrid}>
+                  {selectedPrescription &&
+                    selectedPrescription.files.map((eachFile, index) => (
+                      <div key={index}>
+                        <DocumentPreview fileUrl={eachFile.url} />
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
