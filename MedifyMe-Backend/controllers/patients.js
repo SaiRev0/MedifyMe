@@ -36,11 +36,9 @@ const uploadFile = (file, OCR) => {
 
     blobStream.on("finish", async () => {
       const fileUrl = `https://storage.googleapis.com/${bucket.name}/${newName}`;
-      console.log(fileUrl);
 
       if (OCR) {
-        // Send image to OCR Space API for OCR
-        const ocrApiKey = "14f97b642788957";
+        const ocrApiKey = process.env.OCR_API_KEY;
         const formData = new FormData();
         formData.append("url", fileUrl);
         formData.append("OCREngine", 5);
@@ -67,19 +65,18 @@ const uploadFile = (file, OCR) => {
             temperature: 0,
             prompt: prompt,
           });
-          console.log("Amit" + completion.data.choices[0].text);
-          const ocrResult = {
+          const gptResults = completion.data.choices[0].text;
+          const result = {
             url: fileUrl,
-            ocr: ocrText,
+            ocr: gptResults,
           };
-          resolve(ocrResult);
+          resolve(result);
         } catch (err) {
           console.error(err);
           reject(err);
         }
       } else {
         resolve(fileUrl);
-        console.log(fileUrl);
       }
     });
     blobStream.on("error", (err) => {
@@ -269,10 +266,10 @@ module.exports.prescriptionForm = async (req, res) => {
       files: fileResults,
     });
 
-    // await prescription.save();
-    // const prescriptionId = prescription._id.toString();
-    // foundPatient.prescriptions.push(prescriptionId);
-    // await foundPatient.save();
+    await prescription.save();
+    const prescriptionId = prescription._id.toString();
+    foundPatient.prescriptions.push(prescriptionId);
+    await foundPatient.save();
 
     res.status(200).json(prescription);
   } catch (err) {
