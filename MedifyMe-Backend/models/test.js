@@ -6,7 +6,7 @@ const TestSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Patient",
   },
-  name: {
+  testName: {
     type: String,
   },
   testComments: {

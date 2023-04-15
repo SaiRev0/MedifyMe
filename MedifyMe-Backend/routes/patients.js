@@ -13,20 +13,23 @@ const multer = Multer({
 
 router.route("/login").post(catchAsync(patients.login));
 router.route("/register").post(catchAsync(patients.register));
+
 router
   .route("/health_history")
   .get(patients.healthHistory)
   .post(multer.array("files"), patients.healthHistoryForm);
-
-router.route("/visits").get(patients.visits);
-
-router.route("/request_doctor").post(patients.requestDoctor);
 
 router
   .route("/prescription")
   .get(patients.prescription)
   .post(multer.array("files"), patients.prescriptionForm);
 
-router.route("/tests").get(patients.test).post(patients.testForm);
+router
+  .route("/tests")
+  .get(patients.test)
+  .post(multer.array("files"), patients.testForm);
+
+router.route("/visits").get(patients.visits);
+router.route("/request_doctor").post(patients.requestDoctor);
 
 module.exports = router;

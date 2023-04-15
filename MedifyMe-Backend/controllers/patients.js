@@ -299,19 +299,18 @@ module.exports.testForm = async (req, res) => {
 
     const test = new Test({
       date: req.body.date,
+      testName: req.body.testName,
       testComments: req.body.testComments,
       patient: id,
       files: fileResults,
     });
 
-    console.log(test);
+    await test.save();
+    const testId = test._id.toString();
+    foundPatient.tests.push(testId);
+    await foundPatient.save();
 
-    // await test.save();
-    // const testId = test._id.toString();
-    // foundPatient.tests.push(testId);
-    // await foundPatient.save();
-
-    res.status(200).json(prescription);
+    res.status(200).json(test);
   } catch (err) {
     console.log(err);
     res.status(400).json("Something Went Wrong!");

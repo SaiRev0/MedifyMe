@@ -6,7 +6,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchTestsQuery } from "../../store";
 import DocumentPreview from "../../components/DocumentPreview/DocumentPreview";
-import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 
 function Test() {
@@ -25,9 +24,7 @@ function Test() {
   const data = useMemo(() => rawData, [rawData]);
   const error = useMemo(() => rawError, [rawError]);
 
-  const [selectedTest, setSelectedTest] = useState(
-    data?.prescriptions?.[0] ?? null
-  );
+  const [selectedTest, setSelectedTest] = useState(data?.tests?.[0] ?? null);
 
   useEffect(() => {
     if (data && selectedTest === null) {
@@ -40,6 +37,7 @@ function Test() {
       navigate("/login");
       toast.error("Please login to continue");
     }
+    refetch();
   }, [navigate, patient.isLoggedIn]);
 
   if (isFetching) {
@@ -50,9 +48,9 @@ function Test() {
     );
   }
 
-  // if (error) {
-  //   return <div>Error: {error.message}</div>;
-  // }
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <>
@@ -60,21 +58,19 @@ function Test() {
       <div className={styles.PreH}>
         <div className={styles.t1}>Reports History</div>
         <div className={styles.docs}>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>20 Jan 2023</div>
-          </div>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>23july 2023</div>
-          </div>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>18feb 2023</div>
-          </div>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>19Nov 2023</div>
-          </div>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>20Dec 2023</div>
-          </div>
+          {data &&
+            data.tests &&
+            data.tests.map((test, index) => (
+              <div
+                className={
+                  selectedTest !== test ? styles.doc1 : styles.selected
+                }
+                key={index}
+                onClick={() => setSelectedTest(test)}
+              >
+                <div className={styles.date}>{test.date}</div>
+              </div>
+            ))}
         </div>
       </div>
       <div className={styles.button}>
