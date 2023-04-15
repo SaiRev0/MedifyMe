@@ -42,8 +42,10 @@ export {
   useRegisterMutation,
   useFetchHealthHistoryQuery,
   useFetchPrescriptionQuery,
+  useFetchTestsQuery,
   useHealthFormMutation,
   usePrescriptionFormMutation,
+  useTestFormMutation,
   useFetchVisitsQuery,
   useRequestDoctorMutation,
 } from "./apis/patientsApi";

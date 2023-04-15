@@ -55,10 +55,10 @@ const PatientSchema = new Schema({
       ref: "Prescription",
     },
   ],
-  test: [
+  tests: [
     {
-      type: String,
-      default: null,
+      type: Schema.Types.ObjectId,
+      ref: "Test",
     },
   ],
   requests: [

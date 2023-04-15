@@ -27,4 +27,6 @@ router
   .get(patients.prescription)
   .post(multer.array("files"), patients.prescriptionForm);
 
+router.route("/tests").get(patients.test).post(patients.testForm);
+
 module.exports = router;

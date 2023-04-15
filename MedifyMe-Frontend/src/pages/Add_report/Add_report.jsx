@@ -45,13 +45,16 @@ function Home() {
           <label className={styles.text_health} htmlFor="doctor-comments">
             Test Comments
           </label>
-          <textarea id="doctor-comments" name="doctor-comments" className={styles.comments}></textarea>
+          <textarea
+            id="doctor-comments"
+            name="doctor-comments"
+            className={styles.comments}
+          ></textarea>
           <button className={styles.submit_button} type="submit">
             Add
           </button>
         </form>
       </div>
-      <Footer />
     </>
   );
 }
