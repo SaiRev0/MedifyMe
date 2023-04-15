@@ -2,10 +2,11 @@ import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Test.module.css";
 import { useSelector } from "react-redux";
 import { useState, useEffect, useMemo } from "react";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useFetchPrescriptionQuery } from "../../store";
+import { useFetchTestsQuery } from "../../store";
 import DocumentPreview from "../../components/DocumentPreview/DocumentPreview";
+import Loading from "../../components/Loading/Loading";
 
 function Test() {
   const patient = useSelector((state) => {
@@ -18,27 +19,38 @@ function Test() {
     error: rawError,
     isFetching,
     refetch,
-  } = useFetchPrescriptionQuery(patient.id);
+  } = useFetchTestsQuery(patient.id);
 
   const data = useMemo(() => rawData, [rawData]);
   const error = useMemo(() => rawError, [rawError]);
 
-  const [selectedPrescription, setSelectedPrescription] = useState(
-    data?.prescriptions?.[0] ?? null
-  );
+  const [selectedTest, setSelectedTest] = useState(data?.tests?.[0] ?? null);
 
   useEffect(() => {
-    if (data && selectedPrescription === null) {
-      setSelectedPrescription(data.prescriptions[0]);
+    if (data && selectedTest === null) {
+      setSelectedTest(data.tests[0]);
     }
-  }, [data, selectedPrescription]);
+  }, [data, selectedTest]);
 
   useEffect(() => {
     if (!patient.isLoggedIn) {
       navigate("/login");
       toast.error("Please login to continue");
     }
+    refetch();
   }, [navigate, patient.isLoggedIn]);
+
+  if (isFetching) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <>
@@ -46,32 +58,26 @@ function Test() {
       <div className={styles.PreH}>
         <div className={styles.t1}>Reports History</div>
         <div className={styles.docs}>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>20 Jan 2023</div>
-            <div className={styles.c}>
-              <img src="" />
-            </div>
-          </div>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>23july 2023</div>
-          </div>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>18feb 2023</div>
-          </div>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>19Nov 2023</div>
-          </div>
-          <div className={styles.doc1}>
-            <div className={styles.date1}>20Dec 2023</div>
-          </div>
+          {data &&
+            data.tests &&
+            data.tests.map((test, index) => (
+              <div
+                className={
+                  selectedTest !== test ? styles.doc1 : styles.selected
+                }
+                key={index}
+                onClick={() => setSelectedTest(test)}
+              >
+                <div className={styles.date}>{test.date}</div>
+              </div>
+            ))}
         </div>
       </div>
       <div className={styles.button}>
-        <Link to="/addreports">
+        <Link to="/addReports">
           <div className={styles.b}>Create New Record</div>
         </Link>
       </div>
-
       <div className={styles.docvisit}>
         <div className={styles.t1}>Latest test taken</div>
         <div className={styles.docs2}>
@@ -151,8 +157,8 @@ function Test() {
               <div className={styles.documentst}>Uploaded Documents</div>
               <div className={styles.centerimgs}>
                 <div className={styles.imgGrid}>
-                  {selectedPrescription &&
-                    selectedPrescription.files.map((eachFile, index) => (
+                  {selectedTest &&
+                    selectedTest.files.map((eachFile, index) => (
                       <div key={index}>
                         <DocumentPreview fileUrl={eachFile.url} />
                       </div>

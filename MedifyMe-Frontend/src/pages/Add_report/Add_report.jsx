@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Add_report.module.css";
 import { useEffect, useState } from "react";
-import { usePrescriptionFormMutation } from "../../store";
+import { useTestFormMutation } from "../../store";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,10 +9,9 @@ import Loading from "../../components/Loading/Loading";
 import useFileUploader from "../../hooks/useFileUploader";
 
 function Home() {
-
   const navigate = useNavigate();
-  const [medication, setMedication] = useState("");
-  const [prescriptionComments, setPrescriptionComments] = useState("");
+  const [testName, setTestName] = useState("");
+  const [testComments, setTestComments] = useState("");
   const [date, setDate] = useState("");
 
   const patient = useSelector((state) => {
@@ -21,7 +20,7 @@ function Home() {
 
   const [files, handleFileChange] = useFileUploader(4);
 
-  const [form, formResults] = usePrescriptionFormMutation();
+  const [form, formResults] = useTestFormMutation();
   const isLoading = formResults.isLoading;
 
   useEffect(() => {
@@ -44,8 +43,8 @@ function Home() {
 
     const formData = new FormData();
     formData.append("date", date);
-    formData.append("medication", medication);
-    formData.append("prescriptionComments", prescriptionComments);
+    formData.append("testName", testName);
+    formData.append("testComments", testComments);
     formData.append("id", patient.id);
 
     for (let i = 0; i < files.length; i++) {
@@ -54,14 +53,12 @@ function Home() {
 
     try {
       await form(formData);
-      navigate("/prescription");
+      navigate("/test");
     } catch (error) {
       console.error(error);
-      toast.error("Error adding prescription");
+      toast.error("Error adding tests");
     }
   };
-
-
 
   return (
     <>
@@ -84,8 +81,8 @@ function Home() {
             id="doctor-medicines"
             name="doctor-medicines"
             className={styles.comments}
-            value={medication}
-            onChange={(e) => setMedication(e.target.value)}
+            value={testName}
+            onChange={(e) => setTestName(e.target.value)}
           ></textarea>
 
           <label className={styles.text_health} htmlFor="doctor-comments">
@@ -95,8 +92,8 @@ function Home() {
             id="doctor-comments"
             name="doctor-comments"
             className={styles.comments}
-            value={prescriptionComments}
-            onChange={(e) => setPrescriptionComments(e.target.value)}
+            value={testComments}
+            onChange={(e) => setTestComments(e.target.value)}
           ></textarea>
 
           <label className={styles.text_health} htmlFor="date">
@@ -138,5 +135,4 @@ function Home() {
     </>
   );
 }
-
 export default Home;

@@ -4,6 +4,7 @@ const Doctor = require("../models/doctor");
 const Visit = require("../models/visit");
 const Request = require("../models/request");
 const Prescription = require("../models/prescription");
+const Test = require("../models/test");
 const { Storage } = require("@google-cloud/storage");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
@@ -274,6 +275,59 @@ module.exports.prescriptionForm = async (req, res) => {
     // await foundPatient.save();
 
     res.status(200).json(prescription);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Something Went Wrong!");
+  }
+  const fileUrls = [];
+
+  for (const file of req.files) {
+    await uploadFile(file, fileUrls);
+  }
+};
+
+module.exports.test = async (req, res) => {
+  try {
+    if (!req.query.id) {
+      return res.status(400).json("No patient id provided");
+    }
+    const { id } = req.query;
+    const foundPatient = await Patient.findById(id).populate("tests");
+    res.status(200).json(foundPatient);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Something Went Wrong!");
+  }
+};
+
+module.exports.testForm = async (req, res) => {
+  try {
+    if (!req.body.id) {
+      return res.status(400).json("No patient id provided");
+    }
+    const { id } = req.body;
+    const foundPatient = await Patient.findById(id);
+    const fileResults = [];
+
+    for (const file of req.files) {
+      const ocrResult = await uploadFile(file, true);
+      fileResults.push(ocrResult);
+    }
+
+    const test = new Test({
+      date: req.body.date,
+      testName: req.body.testName,
+      testComments: req.body.testComments,
+      patient: id,
+      files: fileResults,
+    });
+
+    await test.save();
+    const testId = test._id.toString();
+    foundPatient.tests.push(testId);
+    await foundPatient.save();
+
+    res.status(200).json(test);
   } catch (err) {
     console.log(err);
     res.status(400).json("Something Went Wrong!");

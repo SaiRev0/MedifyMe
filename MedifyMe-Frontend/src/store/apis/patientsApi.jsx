@@ -5,7 +5,6 @@ const patientApi = createApi({
   reducerPath: "patientAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${SERVER_URL}/patients`,
-    // baseUrl: `/server/patients`,
   }),
   endpoints: (builder) => ({
     login: builder.mutation({
@@ -36,6 +35,13 @@ const patientApi = createApi({
         method: "GET",
       }),
     }),
+    fetchTests: builder.query({
+      query: (id) => ({
+        url: "/tests",
+        params: { id },
+        method: "GET",
+      }),
+    }),
     fetchVisits: builder.query({
       query: (id) => ({
         url: "/visits",
@@ -46,6 +52,13 @@ const patientApi = createApi({
     healthForm: builder.mutation({
       query: (formData) => ({
         url: "/health_history",
+        method: "POST",
+        body: formData,
+      }),
+    }),
+    testForm: builder.mutation({
+      query: (formData) => ({
+        url: "/tests",
         method: "POST",
         body: formData,
       }),
@@ -72,8 +85,10 @@ export const {
   useRegisterMutation,
   useFetchHealthHistoryQuery,
   useFetchPrescriptionQuery,
+  useFetchTestsQuery,
   useHealthFormMutation,
   usePrescriptionFormMutation,
+  useTestFormMutation,
   useFetchVisitsQuery,
   useRequestDoctorMutation,
 } = patientApi;
