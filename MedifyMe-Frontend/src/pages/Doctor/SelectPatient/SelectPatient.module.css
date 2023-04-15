@@ -11,12 +11,14 @@
   background: white;
   align-items: end;
 }
+
 .left_wrapper {
   margin-top: 1rem;
   margin-left: 1.5rem;
   height: 80%;
   width: 75%;
 }
+
 .right_wrapper {
   position: fixed;
   bottom: 0;
@@ -59,29 +61,30 @@
   margin-left: 5rem;
   width: 300px;
   height: 35px;
-  font-size:1rem;
+  font-size: 1rem;
   background: #edf2f9;
   border-radius: 8.48894px;
 }
 
-.add_patient_id{
-  margin-left: 7.2rem;
+.add_patient_id {
+  margin-left: 5.2rem;
   width: 295px;
   height: 33px;
-  font-size:1rem;
+  font-size: 1rem;
   background: #edf2f9;
   border-radius: 8.48894px;
 }
 
-.add_patients_p{
-  color:white;
+.add_patients_p {
+  color: white;
   font-size: 18px;
-  margin-left:30px;
-  margin-top:30px;
-  margin-bottom:10px;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
-.select_btn,.submit_btn {
+.select_btn,
+.submit_btn {
   display: inline;
   margin-left: 5rem;
   margin-top: 10px;
@@ -96,32 +99,35 @@
   color: #000000;
 }
 
-.select_btn:hover,.submit_btn:hover{
+.select_btn:hover,
+.submit_btn:hover {
   background: #b39457;
   cursor: pointer;
 }
 
 
-.patient{
+.patient {
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
-  color:white;
-  margin-left:1rem;
+  color: white;
+  margin-left: 1rem;
 }
 
-.patient p{
-  margin:13px 0px;
+.patient p {
+  margin: 13px 0px;
 }
 
-.ignorebtn{
+.ignorebtn {
   height: 25px;
   background: #fcfbf8;
-  border-radius: 5px;font-family: 'Comfortaa';
+  border-radius: 5px;
+  font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 400;
 }
-.ignorebtn:hover{
-  border:2px rgb(206, 27, 27) solid;
+
+.ignorebtn:hover {
+  border: 2px rgb(206, 27, 27) solid;
   color: rgb(206, 27, 27);
   border-radius: 7px;
   font-family: 'Comfortaa';
@@ -130,55 +136,56 @@
   cursor: pointer;
 }
 
-.acceptbtn{
+.acceptbtn {
   height: 25px;
   background-color: #CDAA64;
   border-radius: 5px;
-  margin-left:5px;
+  margin-left: 5px;
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 400;
 }
 
-.acceptbtn:hover{
-  border : 2px #a38850 solid;
+.acceptbtn:hover {
+  border: 2px #a38850 solid;
   background: #a38850;
   border-radius: 5px;
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 400;
-  height:23px;
+  height: 23px;
   width: 61px;
   cursor: pointer;
 }
 
-.viewbtn{
+.viewbtn {
   height: 30px;
   background: #CDAA64;
   border-radius: 13px;
-  margin-left:23rem;
-  margin-top:1rem;
-  width:100px;
-  font-size:16px;
-  
+  margin-left: 23rem;
+  margin-top: 1rem;
+  width: 100px;
+  font-size: 16px;
+
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 400;
 }
 
-.viewbtn:hover{
-  border : 2px #a38850 solid;
+.viewbtn:hover {
+  border: 2px #a38850 solid;
   background-color: #a38850;
   border-radius: 13px;
-  height:27.3px;
+  height: 27.3px;
   width: 100px;
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 400;
   cursor: pointer;
-  
+
 }
-.no_requests{
+
+.no_requests {
   display: flex;
   color: white;
   height: 20vh;
