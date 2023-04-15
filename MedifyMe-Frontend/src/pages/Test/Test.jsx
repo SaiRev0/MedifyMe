@@ -2,7 +2,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Test.module.css";
 import { useSelector } from "react-redux";
 import { useState, useEffect, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchTestsQuery } from "../../store";
 import DocumentPreview from "../../components/DocumentPreview/DocumentPreview";
