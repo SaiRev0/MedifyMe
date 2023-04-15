@@ -75,7 +75,7 @@ function Home() {
           </p>
         </div>
         <div className={styles.down_right_row}>
-            <img src="/Group 9420.png"/>
+            <img src="/Group 9420.webp"/>
         </div>
       </div>
       

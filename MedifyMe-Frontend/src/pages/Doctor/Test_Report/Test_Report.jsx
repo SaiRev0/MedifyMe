@@ -64,7 +64,7 @@ function Test() {
         <div className={styles.t1}>Latest test taken</div>
         <div className={styles.docs2}>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="../doc.png" />
+            <img className={styles.img_size} src="../doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Phillips</div>
@@ -72,28 +72,28 @@ function Test() {
             <a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><div className={styles.date}>&#128197;20Jan 2023</div></a>
           </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="../doc.png" />
+            <img className={styles.img_size} src="../doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Gylnnei</div>
             </div>
             <a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><div className={styles.date}>&#128197;17Jan 2023</div></a>          </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="../doc.png" />
+            <img className={styles.img_size} src="../doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Brickee</div>
             </div>
             <a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><div className={styles.date}>&#128197;15Jan 2023</div></a>          </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="../doc.png" />
+            <img className={styles.img_size} src="../doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Mangle</div>
             </div>
             <a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><div className={styles.date}>&#128197;14Jan 2023</div></a>          </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="../doc.png" />
+            <img className={styles.img_size} src="../doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. B.Sicke</div>
@@ -110,7 +110,7 @@ function Test() {
         <div className={styles.cont}>
           <div className={styles.left_cont}>
             <div className={styles.leftd_cont}>
-                <h3>Doctor Comments</h3><button onClick={makeEditable} className={!isEditable?styles.edit_btn:styles.edit_btn_clicked} ><img src="/EDIT.png"/></button>
+                <h3>Doctor Comments</h3><button onClick={makeEditable} className={!isEditable?styles.edit_btn:styles.edit_btn_clicked} ><img src="/EDIT.webp"/></button>
                 <div className={styles.edit_dosage}>
                     <textarea rows="5" cols="40" type="text" name="textarea" required readOnly={!isEditable}>
                     1.&nbsp;Lipitor (atorvastatin) - usually taken once daily with or without food, with dosages ranging from 10mg to 80mg depending on the individual's cholesterol levels and medical history.
@@ -122,7 +122,7 @@ function Test() {
                 <button id="Schedule" className={styles.schedule_btn}>Schedule Appointment</button>
             </div>
             <div className={styles.leftu_cont}>
-                <h3>Ask for tests</h3><button onClick={makeEditable} className={!isEditable?styles.edit_btn:styles.edit_btn_clicked} ><img src="/EDIT.png"/></button>
+                <h3>Ask for tests</h3><button onClick={makeEditable} className={!isEditable?styles.edit_btn:styles.edit_btn_clicked} ><img src="/EDIT.webp"/></button>
                 <textarea rows="5" cols="40" type="text" name="textarea" required readOnly={!isEditable}></textarea>
                 <button id="Submit" className={styles.submit_btn}>Submit</button>
             </div>
@@ -130,8 +130,8 @@ function Test() {
           </div>
           <div className={styles.right_cont}>
                 <div className={styles.rightu_cont}>
-                    <div className={styles.pdf_preview}><a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><img src="../PDF.png"/><p>Blood Report</p></a></div>
-                    <div className={styles.pdf_preview}><a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><img src="../PDF.png"/><p>Blood Report</p></a></div>
+                    <div className={styles.pdf_preview}><a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><img src="../PDF.webp"/><p>Blood Report</p></a></div>
+                    <div className={styles.pdf_preview}><a href={"https://drive.google.com/file/d/1qwBZx5GO5dNxsUYhRXjCnp1N_zfO-irk/view?usp=share_link"} target="_blank"><img src="../PDF.webp"/><p>Blood Report</p></a></div>
                     
                 </div>
                 <div className={styles.rightd_cont}>

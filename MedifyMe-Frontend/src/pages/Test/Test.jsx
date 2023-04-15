@@ -82,7 +82,7 @@ function Test() {
         <div className={styles.t1}>Latest test taken</div>
         <div className={styles.docs2}>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Phillips</div>
@@ -90,7 +90,7 @@ function Test() {
             <div className={styles.date}>&#128197;20Jan 2023</div>
           </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Gylnnei</div>
@@ -98,7 +98,7 @@ function Test() {
             <div className={styles.date}>&#128197;23july 2023</div>
           </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Brickee</div>
@@ -106,7 +106,7 @@ function Test() {
             <div className={styles.date}>&#128197;18feb 2023</div>
           </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Mangle</div>
@@ -114,7 +114,7 @@ function Test() {
             <div className={styles.date}>&#128197;19Nov 2023</div>
           </div>
           <div className={styles.doc2}>
-            <img className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="doc.webp" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. B.Sicke</div>

@@ -133,7 +133,7 @@ function Health_history_form() {
           <div className={styles.input_field_upload}>
             <div className={styles.upload_file}>
               <label className={styles.upload} htmlFor="file-upload">
-                <img src="/Cloud_Upload.png"></img>
+                <img src="/Cloud_Upload.webp"></img>
                 <span>Upload Documents</span>
               </label>
             </div>
