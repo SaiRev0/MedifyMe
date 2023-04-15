@@ -13,7 +13,7 @@ function Payments() {
       </div>
       <img
         className={styles.img_payment}
-        src="../../../public/image 4.png"
+        src="../../../public/image 4.webp"
         alt="payment"
         width="500"
         height="600"

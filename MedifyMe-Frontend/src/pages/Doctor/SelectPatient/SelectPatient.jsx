@@ -67,7 +67,7 @@ function SelectPatient() {
       <NavbarD />
       <div className={styles.grid_container}>
         <img
-          src="../public/doctor-illustration.svg"
+          src="../public/doctor-illustration.webp"
           alt="doctor image"
           className={styles.left_wrapper}
         ></img>

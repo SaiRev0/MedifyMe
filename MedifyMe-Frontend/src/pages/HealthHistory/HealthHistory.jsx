@@ -64,7 +64,7 @@ function HealthHistory() {
           className={selectedVisit !== visit ? styles.doc2 : styles.selected}
           onClick={() => setSelectedVisit(visit)}
         >
-          <img src="doc.png" />
+          <img src="doc.webp" />
           <div>
             <div className={styles.t2}>Doctor</div>
             <div className={styles.t3}>{visit.doctorName}</div>

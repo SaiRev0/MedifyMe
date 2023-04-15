@@ -10,7 +10,7 @@ function Home() {
           <div className={styles.t1}>History</div>
           <div className={styles.docs}>
             <div className={styles.doc1}>
-              <img src="../doc.png" />
+              <img src="../doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -18,7 +18,7 @@ function Home() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="../doc.png" />
+              <img src="../doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -26,7 +26,7 @@ function Home() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="../doc.png" />
+              <img src="../doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -34,7 +34,7 @@ function Home() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="../doc.png" />
+              <img src="../doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -42,7 +42,7 @@ function Home() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="../doc.png" />
+              <img src="../doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -58,7 +58,7 @@ function Home() {
           <div className={styles.t1}>Doctors Suggestions</div>
           <div className={styles.docsu}>
             <div className={styles.doc1}>
-              <img src="../doc.png" />
+              <img src="../doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -66,7 +66,7 @@ function Home() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="../doc.png" />
+              <img src="../doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -74,7 +74,7 @@ function Home() {
               <div className={styles.date}>&#128197; 20Jan 2023</div>
             </div>
             <div className={styles.doc2}>
-              <img src="../doc.png" />
+              <img src="../doc.webp" />
               <div>
                 <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -86,7 +86,7 @@ function Home() {
         <div className={styles.right_wrapper}>
           <div className={styles.doctors_identity}>
             <div className={styles.grid_container2}>
-              <img className={styles.img} src="../image 7.png" alt="" />
+              <img className={styles.img} src="../image 7.webp" alt="" />
               <div className={styles.doctors_identity_content}>
                 <p className={styles.doctors_identity_content1}>John Wilson</p>
                 <p className={styles.doctors_identity_content2}>Physician</p>

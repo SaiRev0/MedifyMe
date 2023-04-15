@@ -157,7 +157,7 @@ function Register() {
           ref={inputRef}
         />
         <button onClick={handleButtonClick} className={styles.button}>
-          <img src="image8.svg" />
+          <img src="image8.webp" />
         </button>
       </div>
     </div>

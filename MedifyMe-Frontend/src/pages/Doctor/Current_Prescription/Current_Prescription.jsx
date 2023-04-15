@@ -107,7 +107,7 @@ function Prescription() {
           <div className={styles.left_cont}></div>
           <div className={styles.right_cont}>
             <div className={styles.photo}>
-              <img src="../PrescribtionImage.jpg" />
+              <img src="../PrescribtionImage.webp" />
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@ function Prescription() {
                 !isEditable ? styles.edit_btn : styles.edit_btn_clicked
               }
             >
-              <img src="/EDIT.png" />
+              <img src="/EDIT.webp" />
             </button>
             <div className={styles.edit_dosage}>
               <textarea
