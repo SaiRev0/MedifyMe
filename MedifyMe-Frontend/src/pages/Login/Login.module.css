@@ -205,6 +205,7 @@
         font-family: 'Comfortaa';
         font-style: normal;
         font-weight: 400;
+        padding: 0;
         font-size: 5vw;
         line-height: 60px;
         color: #FFFFFF;
@@ -227,9 +228,9 @@
     
     .input_text1 {
         margin-left: 4vw;
-        height: 40px;
-        width: 30vw;
-        font-size: 2.7vw;
+        height: 60px;
+        width: 40vw;
+        font-size: 4vw;
         background: #EDF2F5;
         border-radius: 8.48894px;
     }

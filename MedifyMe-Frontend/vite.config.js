@@ -16,14 +16,8 @@ dotenv.config();
 
 export default defineConfig({
   plugins: [react()],
-  // server: {
-  //   proxy: {
-  //     "/server": {
-  //       target: process.env.VITE_SERVER_URL,
-  //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/server/, ""),
-  //       createProxy: createMyProxy,
-  //     },
-  //   },
-  // },
+  server: {
+    port: 80,
+    host: "0.0.0.0",
+  },
 });
