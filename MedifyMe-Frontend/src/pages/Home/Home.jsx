@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import NavbarD from "../../components/Doctor/NavbarD/NavbarD";
 import { useRef, useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 function Home() {
   const doctor = useSelector((state) => {
     return state.doctor;
@@ -47,7 +48,7 @@ function Home() {
       {doctor.isLoggedIn && !patient.isLoggedIn ? <NavbarD /> : <Navbar />}
       <div className={styles.herosection}>
         <div className={styles.img1}>
-          <img src="img1.png" />
+          <LazyLoadImage src="img1.png" />
         </div>
         <div className={styles.content}>
           <TypeAnimation
@@ -72,25 +73,25 @@ function Home() {
           </Link>
         </div>
         <div className={styles.group}>
-          <img src="Group.png" />
+          <LazyLoadImage src="Group.png" />
         </div>
         <div className={styles.button}>
           <Link to="/health_history">
             <div className={styles.b1}>
               Check your Health History
-              <img src="history.svg" />
+              <LazyLoadImage src="history.svg" />
             </div>
           </Link>
           <Link to="/">
             <div className={styles.b2}>
               Have queries? Ask Here
-              <img src="query.svg" />
+              <LazyLoadImage src="query.svg" />
             </div>
           </Link>
           <Link to="/appointment">
             <div className={styles.b3}>
               Book an Appointment
-              <img src="appointment.svg" />
+              <LazyLoadImage src="appointment.svg" />
             </div>
           </Link>
         </div>
@@ -157,19 +158,19 @@ function Home() {
         <h2>Featured Services</h2>
         <div className={styles.servicesList}>
           <div className={styles.service}>
-            <img src="service1.jpg" alt="Service 1" />
+            <LazyLoadImage src="service1.jpg" alt="Service 1" />
             <h4>Virtual Consultations</h4>
             <p>Get medical advice from the comfort of your home.</p>
           </div>
           <div className={styles.service}>
-            <img src="service2.png" alt="Service 2" />
+            <LazyLoadImage src="service2.png" alt="Service 2" />
             <h4>Health Monitoring</h4>
             <p>
               Track your health progress and get personalized recommendations.
             </p>
           </div>
           <div className={styles.service}>
-            <img src="service3.png" alt="Service 3" />
+            <LazyLoadImage src="service3.png" alt="Service 3" />
             <h4>Health Records</h4>
             <p>
               Store all your health records in one place and access them
