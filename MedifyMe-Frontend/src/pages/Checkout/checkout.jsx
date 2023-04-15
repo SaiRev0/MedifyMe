@@ -10,7 +10,7 @@ export default function App() {
 
   let url;
   if (import.meta.env.MODE === "development") {
-    url = "http://localhost:6969/payments/create_payment_intent";
+    url = "http://34.87.104.131:8080/payments/create_payment_intent";
   } else {
     url = "https://medifyme-pvpz.onrender.com/payments/create_payment_intent";
   }

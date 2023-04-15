@@ -8,6 +8,14 @@
   padding: 40px;
 }
 
+.paymentDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 89vh;
+}
+
 .payment_message {
   color: rgb(105, 115, 134);
   font-size: 16px;
@@ -37,10 +45,10 @@
   width: 100%;
 }
 
-.button_text{
+.button_text {
   display: inline-block;
   position: relative;
-  top : 1px;
+  top: 1px;
 }
 
 .submit:hover {
@@ -105,7 +113,7 @@
   animation: loading 2s infinite ease;
 }
 
-.submit{
+.submit {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,6 +125,7 @@
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
