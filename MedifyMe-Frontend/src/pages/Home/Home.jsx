@@ -15,7 +15,7 @@ function Home() {
     return state.patient;
   });
 
-  const [inView, setInView] = useState(false);
+  const [imagesInView, setImagesInView] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function Home() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setInView(true);
+            setImagesInView(true);
             observer.unobserve(entry.target);
           }
         });
@@ -40,7 +40,7 @@ function Home() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, [inView]);
+  }, [imagesInView]);
 
   return (
     <>
@@ -51,9 +51,7 @@ function Home() {
         </div>
         <div className={styles.content}>
           <TypeAnimation
-            sequence=
-            {[
-              
+            sequence={[
               "CARING FOR LIFE",
               1000,
               "CARING FOR YOU",
@@ -113,25 +111,25 @@ function Home() {
             <div className={styles.cardGroup}>
               <div
                 className={`${styles.bigCard} ${styles.card} ${
-                  inView ? styles.animateCard1 : ""
+                  imagesInView ? styles.animateCard1 : ""
                 }`}
               ></div>
 
               <div
                 className={`${styles.bigCard} ${styles.card} ${
-                  inView ? styles.animateCard2 : ""
+                  imagesInView ? styles.animateCard2 : ""
                 }`}
               ></div>
 
               <div
                 className={`${styles.bigCard} ${styles.card} ${
-                  inView ? styles.animateCard3 : ""
+                  imagesInView ? styles.animateCard3 : ""
                 }`}
               ></div>
 
               <div
                 className={`${styles.bigCard} ${styles.card} ${
-                  inView ? styles.animateCard4 : ""
+                  imagesInView ? styles.animateCard4 : ""
                 }`}
               ></div>
             </div>
@@ -155,6 +153,32 @@ function Home() {
           </ul>
         </div>
       </div>
+      <div className={styles.featuredServices}>
+        <h2>Featured Services</h2>
+        <div className={styles.servicesList}>
+          <div className={styles.service}>
+            <img src="service1.jpg" alt="Service 1" />
+            <h4>Virtual Consultations</h4>
+            <p>Get medical advice from the comfort of your home.</p>
+          </div>
+          <div className={styles.service}>
+            <img src="service2.png" alt="Service 2" />
+            <h4>Health Monitoring</h4>
+            <p>
+              Track your health progress and get personalized recommendations.
+            </p>
+          </div>
+          <div className={styles.service}>
+            <img src="service3.png" alt="Service 3" />
+            <h4>Health Records</h4>
+            <p>
+              Store all your health records in one place and access them
+              anytime.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <Footer />
     </>
   );
