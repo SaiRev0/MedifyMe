@@ -2,7 +2,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Test.module.css";
 import { useSelector } from "react-redux";
 import { useState, useEffect, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchPrescriptionQuery } from "../../store";
 import DocumentPreview from "../../components/DocumentPreview/DocumentPreview";
@@ -67,9 +67,9 @@ function Test() {
         </div>
       </div>
       <div className={styles.button}>
-        <a href="">
+        <Link to="/addreports">
           <div className={styles.b}>Create New Record</div>
-        </a>
+        </Link>
       </div>
 
       <div className={styles.docvisit}>
