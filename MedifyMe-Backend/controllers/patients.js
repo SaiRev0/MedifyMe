@@ -7,7 +7,14 @@ const Prescription = require("../models/prescription");
 const { Storage } = require("@google-cloud/storage");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
+const { Configuration, OpenAIApi } = require("openai");
+const config = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
+const openai = new OpenAIApi(config);
+
+const FormData = require("form-data");
 const storage = new Storage({
   projectId: "medifyme-fullstack",
   keyFilename: "medifyme.json",
@@ -51,6 +58,15 @@ const uploadFile = (file, OCR) => {
             config
           );
           const ocrText = response.data.ParsedResults[0].ParsedText;
+          const prompt = `find the names of the medicines from ${ocrText} and give the dosage and side effects of the medicines and also the when to take the medicines and the duration of the medicines`;
+
+          const completion = await openai.createCompletion({
+            model: "text-davinci-003",
+            max_tokens: 512,
+            temperature: 0,
+            prompt: prompt,
+          });
+          console.log("Amit" + completion.data.choices[0].text);
           const ocrResult = {
             url: fileUrl,
             ocr: ocrText,
@@ -239,6 +255,7 @@ module.exports.prescriptionForm = async (req, res) => {
     const fileResults = [];
 
     for (const file of req.files) {
+      console.log("ye hua");
       const ocrResult = await uploadFile(file, true);
       fileResults.push(ocrResult);
     }
@@ -251,10 +268,10 @@ module.exports.prescriptionForm = async (req, res) => {
       files: fileResults,
     });
 
-    await prescription.save();
-    const prescriptionId = prescription._id.toString();
-    foundPatient.prescriptions.push(prescriptionId);
-    await foundPatient.save();
+    // await prescription.save();
+    // const prescriptionId = prescription._id.toString();
+    // foundPatient.prescriptions.push(prescriptionId);
+    // await foundPatient.save();
 
     res.status(200).json(prescription);
   } catch (err) {
