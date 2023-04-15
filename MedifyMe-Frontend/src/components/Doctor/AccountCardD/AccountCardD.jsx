@@ -9,9 +9,11 @@ function AccountCardD() {
   });
 
   const customId = () => {
-    const smallRandomId = doctor.id.substring(0, 8);
-    const Id = `DR #${smallRandomId.toUpperCase()}`;
-    return Id;
+    if (doctor.id) {
+      const smallRandomId = doctor.id.substring(0, 8);
+      const Id = `DR #${smallRandomId.toUpperCase()}`;
+      return Id;
+    }
   };
 
   return (

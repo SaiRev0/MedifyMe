@@ -187,7 +187,9 @@ module.exports.healthHistory = async (req, res) => {
       return res.status(400).json("No patient id provided");
     }
     const { id } = req.query;
-    const foundPatient = await Patient.findById(id).populate("visits");
+    const foundPatient = await Patient.findById(id)
+      .populate("visits")
+      .populate("doctors");
     res.status(200).json(foundPatient);
   } catch (err) {
     console.log(err);
