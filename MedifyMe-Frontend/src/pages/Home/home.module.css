@@ -202,7 +202,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
 }
 
 .landImage {
@@ -469,4 +468,50 @@
 .animateCard4 {
   box-shadow: -1vw 1vw 1.5vw rgba(0, 0, 0, 0.4);
   transform: translate(95%, 25%) rotate(24deg) !important;
+}
+
+.featuredServices {
+  background-color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.featuredServices h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.servicesList {
+  display: flex;
+  justify-content: center;
+}
+
+.service {
+  max-width: 350px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+}
+
+.service img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.service h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.service p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.service:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
