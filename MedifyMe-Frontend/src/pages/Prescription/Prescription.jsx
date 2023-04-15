@@ -139,6 +139,30 @@ function Prescription() {
           <div className={styles.ct2}>20 Jan 2023</div>
         </div>
         <div className={styles.cont}>
+          <div className={styles.leftcont}>
+          <ol>
+            <li>
+              Lipitor (atorvastatin) - usually taken once daily with or without
+              food, with dosages ranging from 10mg to 80mg depending on the
+              individual's cholesterol levels and medical history.
+            </li>
+            <li>
+              Zoloft (sertraline) - usually taken once daily with or without
+              food, with dosages ranging from 25mg to 200mg depending on the
+              individual's condition and response to the medication.
+            </li>
+            <li>
+              Zoloft (sertraline) - usually taken once daily with or without
+              food, with dosages ranging from 25mg to 200mg depending on the
+              individual's condition and response to the medication.
+            </li>
+            <li>
+              Lipitor (atorvastatin) - usually taken once daily with or without
+              food, with dosages ranging from 10mg to 80mg depending on the
+              individual's cholesterol levels and medical history.
+            </li>
+          </ol>
+          </div>
           <div className={styles.photo}>
             <div className={styles.uploadedImg}>
               <div className={styles.documentst}>Uploaded Documents</div>
