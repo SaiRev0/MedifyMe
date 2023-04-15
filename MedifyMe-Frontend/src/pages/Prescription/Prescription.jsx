@@ -94,7 +94,8 @@ function Prescription() {
           <div className={styles.con}>
             <ol>
               <li>
-                <p >Amoxicillin: </p><p className={styles.d}>x1/day</p>
+                <p>Amoxicillin: </p>
+                <p className={styles.d}>x1/day</p>
               </li>
               <li>
                 <p>Benzocaine:</p> <p className={styles.d}>x1/day</p>
@@ -103,33 +104,21 @@ function Prescription() {
                 <p>Ibuprofen:</p> <p className={styles.d}>x1/day</p>
               </li>
               <li>
-                <p>Chlorhexidine mouthwash:</p> <p className={styles.d}>x1/day</p>
+                <p>Chlorhexidine mouthwash:</p>{" "}
+                <p className={styles.d}>x1/day</p>
               </li>
             </ol>
           </div>
         </div>
         <div className={styles.inst}>
-          <a href="">
-            <div className={styles.b}>Instructions</div>
-          </a>
+          <div className={styles.b}>Instructions</div>
         </div>
         <div className={styles.dinfo}>
           <ol>
-            <li>
-              Lipitor (atorvastatin) - usually taken once daily with or without
-              food, with dosages ranging from 10mg to 80mg depending on the
-              individual's cholesterol levels and medical history.
-            </li>
-            <li>
-              Zoloft (sertraline) - usually taken once daily with or without
-              food, with dosages ranging from 25mg to 200mg depending on the
-              individual's condition and response to the medication.
-            </li>
-            <li>
-              Zoloft (sertraline) - usually taken once daily with or without
-              food, with dosages ranging from 25mg to 200mg depending on the
-              individual's condition and response to the medication.
-            </li>
+            {selectedPrescription &&
+              selectedPrescription.files.map((eachFile, index) => (
+                <li key={index}>{eachFile.ocr}</li>
+              ))}
           </ol>
         </div>
       </div>
@@ -140,28 +129,12 @@ function Prescription() {
         </div>
         <div className={styles.cont}>
           <div className={styles.leftcont}>
-          <ol>
-            <li>
-              Lipitor (atorvastatin) - usually taken once daily with or without
-              food, with dosages ranging from 10mg to 80mg depending on the
-              individual's cholesterol levels and medical history.
-            </li>
-            <li>
-              Zoloft (sertraline) - usually taken once daily with or without
-              food, with dosages ranging from 25mg to 200mg depending on the
-              individual's condition and response to the medication.
-            </li>
-            <li>
-              Zoloft (sertraline) - usually taken once daily with or without
-              food, with dosages ranging from 25mg to 200mg depending on the
-              individual's condition and response to the medication.
-            </li>
-            <li>
-              Lipitor (atorvastatin) - usually taken once daily with or without
-              food, with dosages ranging from 10mg to 80mg depending on the
-              individual's cholesterol levels and medical history.
-            </li>
-          </ol>
+            <ol>
+              {selectedPrescription &&
+                selectedPrescription.files.map((eachFile, index) => (
+                  <li key={index}>{eachFile.ocr}</li>
+                ))}
+            </ol>
           </div>
           <div className={styles.photo}>
             <div className={styles.uploadedImg}>
