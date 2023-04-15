@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { ReactComponent as Hamburger } from './hamburger.svg'
-// import { ReactComponent as Brand } from './logo.svg'
 import styles from "./Footer.module.css";
 
 const Footer = () => {
@@ -14,9 +12,9 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footer_1}>
-        <p className={styles.text_1}>
+        <Link className={styles.text_1} to="/">
           MEDIFY<span className={styles.text_2}>ME</span>
-        </p>
+        </Link>
         <p className={styles.text_3}>Paving the Way for Medical Excellence</p>
       </div>
       <div className={styles.footer_2}>

@@ -1,9 +1,9 @@
-const API_BASE_URL = "https://api.videosdk.live";
-const API_AUTH_URL = import.meta.env.VITE_SERVER_URL;
+const VITE_SERVER_URL = import.meta.env.VITE_SERVER_URL;
+const API_BASE_URL = import.meta.env.VITE_MEET_URL;
 
 export const getToken = async () => {
-  if (API_AUTH_URL) {
-    const res = await fetch(`${API_AUTH_URL}/get-token`, {
+  if (VITE_SERVER_URL) {
+    const res = await fetch(`${VITE_SERVER_URL}/meet/get_token`, {
       method: "GET",
     });
     const { token } = await res.json();
@@ -25,19 +25,4 @@ export const createMeeting = async ({ token }) => {
     .catch((error) => console.error("error", error));
 
   return roomId;
-};
-
-export const validateMeeting = async ({ roomId, token }) => {
-  const url = `${API_BASE_URL}/v2/rooms/validate/${roomId}`;
-
-  const options = {
-    method: "GET",
-    headers: { Authorization: token, "Content-Type": "application/json" },
-  };
-
-  const result = await fetch(url, options)
-    .then((response) => response.json()) //result will have meeting id
-    .catch((error) => console.error("error", error));
-
-  return result ? result.roomId === roomId : false;
 };

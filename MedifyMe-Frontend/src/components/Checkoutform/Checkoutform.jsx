@@ -51,7 +51,7 @@ export default function CheckoutForm() {
 
   let return_url;
   if (import.meta.env.MODE === "development") {
-    return_url = "http://localhost:5173/video_room";
+    return_url = "http://localhost:80/video_room";
   } else {
     return_url = "https://medifyme.netlify.app/video_room";
   }
@@ -89,26 +89,28 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form className={styles.payment_form} onSubmit={handleSubmit}>
-      <LinkAuthenticationElement
-        id="link-authentication-element"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <PaymentElement id="payment-element" options={paymentElementOptions} />
-      <button
-        disabled={isLoading || !stripe || !elements}
-        className={styles.submit}
-      >
-        <span className={styles.button_text}>
-          {isLoading ? (
-            <div className={styles.spinner} id="spinner"></div>
-          ) : (
-            "Pay now"
-          )}
-        </span>
-      </button>
-      {message && <div className={styles.payment_message}>{message}</div>}
-    </form>
+    <div className={styles.paymentDiv}>
+      <form className={styles.payment_form} onSubmit={handleSubmit}>
+        <LinkAuthenticationElement
+          id="link-authentication-element"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <PaymentElement id="payment-element" options={paymentElementOptions} />
+        <button
+          disabled={isLoading || !stripe || !elements}
+          className={styles.submit}
+        >
+          <span className={styles.button_text}>
+            {isLoading ? (
+              <div className={styles.spinner} id="spinner"></div>
+            ) : (
+              "Pay now"
+            )}
+          </span>
+        </button>
+        {message && <div className={styles.payment_message}>{message}</div>}
+      </form>
+    </div>
   );
 }

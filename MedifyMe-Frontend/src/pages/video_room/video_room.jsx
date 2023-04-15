@@ -66,7 +66,7 @@ function ParticipantView(props) {
   return (
     <div key={props.participantId}>
       <p>
-        Participant: {displayName} | Webcam: {webcamOn ? "ON" : "OFF"} | Mic:{" "}
+        Participant: {displayName} | Webcam: {webcamOn ? "ON" : "OFF"} | Mic:
         {micOn ? "ON" : "OFF"}
       </p>
       <audio ref={micRef} autoPlay muted={isLocal} />
@@ -78,7 +78,6 @@ function ParticipantView(props) {
           controls={false}
           muted={true}
           playing={true}
-          //
           url={videoStream}
           //
           height={"200px"}
@@ -159,13 +158,13 @@ function MeetingView(props) {
       <h3>Meeting Id: {props.meetingId}</h3>
       {joined && joined == "JOINED" ? (
         <div>
+          <Controls />
           {[...participants.keys()].map((participantId) => (
             <ParticipantView
               participantId={participantId}
               key={participantId}
             />
           ))}
-          <Controls />
         </div>
       ) : joined && joined == "JOINING" ? (
         <p>Joining the meeting...</p>
@@ -295,7 +294,6 @@ function video_room() {
           </div>
         </div>
         <div className={styles.right_wrapper}>
-          <h1>Meeting Id : </h1>
           <App />
         </div>
       </div>
