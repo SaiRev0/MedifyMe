@@ -22,9 +22,6 @@ import SelectPatient from "./pages/Doctor/SelectPatient/SelectPatient";
 import VideoRoom from "./pages/video_room/video_room";
 import SettingsDoctor from "./pages/Doctor/SettingsDoctor/SettingsDoctor";
 import Checkout from "./pages/Checkout/checkout";
-// import RoomPage from "./pages/Rooms/Rooms";
-// import Video_chat from "./pages/Video_chat/video_chat";
-
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";

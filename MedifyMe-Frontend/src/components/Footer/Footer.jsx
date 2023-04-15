@@ -1,14 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
-  const [showFooter, setShowFooter] = useState(false);
-
-  const handleShowFooter = () => {
-    setShowFooter(!showFooter);
-  };
-
   return (
     <div className={styles.footer}>
       <div className={styles.footer_1}>
