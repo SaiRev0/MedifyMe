@@ -16,7 +16,7 @@
 }
 
 .logout {
-  margin-left:650px;
+  margin-left: 650px;
 }
 
 .logout_link {
@@ -29,18 +29,13 @@
   line-height: 32px;
   color: #000000;
   background: #CDAA64;
-  border-radius:30px;
-  width:90px;
-  margin-left:100px;
+  border-radius: 30px;
+  width: 90px;
+  margin-left: 100px;
 }
 
-.logout_link:hover{
+.logout_link:hover {
   background: #a38850;
-}
-
-.doctor_history {
-  margin-left: 2rem;
-
 }
 
 .doctor_history_content {
@@ -52,10 +47,12 @@
   line-height: 1.2rem;
   color: #FFFFFF;
 }
-.firstdoc{
+
+.firstdoc {
   margin-top: -2rem;
   padding-top: 0;
 }
+
 .doctor {
   margin-left: 1rem;
   padding-top: 1.5rem;
@@ -71,20 +68,6 @@
   line-height: 140%;
   color: #FFFFFF;
 }
-
-.doctor_contact {
-  margin-left: 12rem;
-  display: inline;
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 140%;
-  /* or 40px */
-  color: #FFFFFF;
-}
-
-
 
 .add_doctor_info {
   display: inline;

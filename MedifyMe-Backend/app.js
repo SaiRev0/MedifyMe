@@ -28,9 +28,11 @@ const app = express();
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-app.use(cors({
-  origin: 'https://medifymeiitbhu.me'
-}));
+app.use(
+  cors({
+    origin: "https://medifymeiitbhu.me",
+  })
+);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

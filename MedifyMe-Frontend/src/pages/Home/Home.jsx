@@ -158,19 +158,19 @@ function Home() {
         <h2>Featured Services</h2>
         <div className={styles.servicesList}>
           <div className={styles.service}>
-            <LazyLoadImage src="service1.webp" alt="Service 1" />
+            <LazyLoadImage opacity src="service1.webp" alt="Service 1" />
             <h4>Virtual Consultations</h4>
             <p>Get medical advice from the comfort of your home.</p>
           </div>
           <div className={styles.service}>
-            <LazyLoadImage src="service2.webp" alt="Service 2" />
+            <LazyLoadImage opacity src="service2.webp" alt="Service 2" />
             <h4>Health Monitoring</h4>
             <p>
               Track your health progress and get personalized recommendations.
             </p>
           </div>
           <div className={styles.service}>
-            <LazyLoadImage src="service3.webp" alt="Service 3" />
+            <LazyLoadImage opacity src="service3.webp" alt="Service 3" />
             <h4>Health Records</h4>
             <p>
               Store all your health records in one place and access them
