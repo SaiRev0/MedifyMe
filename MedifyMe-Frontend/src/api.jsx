@@ -1,9 +1,9 @@
-const API_AUTH_URL = import.meta.env.VITE_SERVER_URL;
+const VITE_SERVER_URL = import.meta.env.VITE_SERVER_URL;
 const API_BASE_URL = import.meta.env.VITE_MEET_URL;
 
 export const getToken = async () => {
-  if (API_AUTH_URL) {
-    const res = await fetch(`${API_AUTH_URL}/meet/get-token`, {
+  if (VITE_SERVER_URL) {
+    const res = await fetch(`${VITE_SERVER_URL}/meet/get_token`, {
       method: "GET",
     });
     const { token } = await res.json();
