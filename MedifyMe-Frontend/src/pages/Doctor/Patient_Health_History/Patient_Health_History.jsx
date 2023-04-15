@@ -8,9 +8,14 @@ import { Link } from "react-router-dom";
 import Loading from "../../../components/Loading/Loading";
 import { useCookies } from "react-cookie";
 import DocumentPreview from "../../../components/DocumentPreview/DocumentPreview";
+import { Navigate } from "react-router-dom";
 
 function HealthHistory() {
   const navigate = useNavigate();
+
+  const navigateToSelect = () => {
+    navigate('/doctor/select_patient');
+  };
   const [cookies, setCookie] = useCookies(["doctor"]);
   useEffect(() => {
     if (
@@ -92,7 +97,7 @@ function HealthHistory() {
               <li>Medications : &nbsp;&nbsp;{data.medications}</li>
               <li>Height : &nbsp;&nbsp;{data.height} cm</li>
             </ul>
-            <button id="change_patient" className={styles.change_patient_btn}>
+            <button id="change_patient"  onClick={navigateToSelect} className={styles.change_patient_btn}>
             Change Patient
           </button>
           </div>
