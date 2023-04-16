@@ -22,6 +22,7 @@ import SelectPatient from "./pages/Doctor/SelectPatient/SelectPatient";
 import VideoRoom from "./pages/video_room/video_room";
 import SettingsDoctor from "./pages/Doctor/SettingsDoctor/SettingsDoctor";
 import Checkout from "./pages/Checkout/checkout";
+import Error404 from "./components/Error404/Error404";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
@@ -118,7 +119,7 @@ const router = createBrowserRouter(
           />
         </Route>
       </Route>
-      {/* <Route path="*" element={<Error404 />} /> */}
+      <Route path="*" element={<Error404 />} />
     </Route>
   )
 );
