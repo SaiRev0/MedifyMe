@@ -81,7 +81,6 @@ function Home() {
             <div className={styles.b1}>
               Check your Health History
               <LazyLoadImage src="history.webp" />
-              <LazyLoadImage src="history.webp" />
             </div>
           </Link>
           <Link to="/">
