@@ -8,12 +8,14 @@ export default function App() {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
-  let url;
-  if (import.meta.env.MODE === "development") {
-    url = "http://34.87.104.131:8080/payments/create_payment_intent";
-  } else {
-    url = "https://medifyme-pvpz.onrender.com/payments/create_payment_intent";
-  }
+  const url = `${import.meta.env.VITE_SERVER_URL}/payments/create_payment_intent}`
+  
+  // let url;
+  // if (import.meta.env.MODE === "development") {
+  //   url = "http://34.87.104.131:8080/payments/create_payment_intent";
+  // } else {
+  //   url = "https://medifyme-pvpz.onrender.com/payments/create_payment_intent";
+  // }
 
   useEffect(() => {
     fetch(url, {
