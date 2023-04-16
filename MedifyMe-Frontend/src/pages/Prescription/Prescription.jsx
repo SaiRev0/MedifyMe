@@ -151,6 +151,7 @@ function Prescription() {
               </div>
             </div>
           </div>
+          <div className={styles.lowerSection}>Upload Your Prescriptions Here to see useful insights!</div>
         </div>
       </div>
     </>

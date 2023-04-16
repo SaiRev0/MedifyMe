@@ -9,6 +9,7 @@ function DocumentPreview({ fileUrl }) {
   const [pageNumber, setPageNumber] = useState(1);
   const isPdf = fileUrl.toLowerCase().endsWith(".pdf");
   const canvasRef = useRef(null);
+  const pdfPageRefs = useRef([]);
 
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -16,6 +17,10 @@ function DocumentPreview({ fileUrl }) {
 
   const handleCloseModal = () => {
     setModalOpen(false);
+  };
+
+  const handlePageNumberChange = (event) => {
+    setPageNumber(parseInt(event.target.value, 10));
   };
 
   const onDocumentLoadSuccess = ({ numPages }) => {
@@ -30,16 +35,28 @@ function DocumentPreview({ fileUrl }) {
         setNumPages(pdf.numPages);
         const page = await pdf.getPage(pageNumber);
         const canvas = canvasRef.current;
-        const canvasContext = canvas.getContext("2d");
 
-        const viewport = page.getViewport({ scale: 1 });
-        canvas.width = 100; // Set canvas width to 100 pixels
-        canvas.height = "auto";
-        const renderContext = {
-          canvasContext,
-          viewport,
-        };
-        await page.render(renderContext).promise;
+        if (canvas) {
+          const canvasContext = canvas.getContext("2d");
+          const viewport = page.getViewport({ scale: 1 });
+
+          const scaleFactor = Math.min(
+            canvas.width / viewport.width,
+            canvas.height / viewport.height
+          );
+
+          const scaledViewport = page.getViewport({ scale: scaleFactor });
+          
+          canvas.width = 1000;
+          canvas.height =
+            scaledViewport.height * (canvas.width / scaledViewport.width);
+
+          const renderContext = {
+            canvasContext,
+            viewport: scaledViewport,
+          };
+          await page.render(renderContext).promise;
+        }
       } catch (error) {
         console.error("Failed to load PDF:", error);
       }
@@ -69,14 +86,29 @@ function DocumentPreview({ fileUrl }) {
             </button>
             <div className={styles.modalContent}>
               {isPdf ? (
-                <canvas ref={canvasRef} />
+                <div className={styles.pdfModalContent}>
+                  <div className={styles.pdfModalPages}>
+                    <canvas ref={canvasRef} width={100} className={styles.pdfModalPage} />
+                  </div>
+                  <div className={styles.pdfModalControls}>
+                    <input
+                      type="number"
+                      min={1}
+                      max={numPages}
+                      value={pageNumber}
+                      onChange={handlePageNumberChange}
+                      className={styles.pageNumberInput}
+                    />
+                    <span className={styles.pageNumberSeparator}>/</span>
+                    <span className={styles.pageNumberTotal}>{numPages}</span>
+                  </div>
+                </div>
               ) : (
-                <img src={fileUrl} alt={fileUrl} />
-              )}
-              {isPdf && (
-                <p className={styles.pageNumber}>
-                  Page {pageNumber} of {numPages}
-                </p>
+                <img
+                  src={fileUrl}
+                  alt={fileUrl}
+                  className={styles.imgModalContent}
+                />
               )}
             </div>
           </div>

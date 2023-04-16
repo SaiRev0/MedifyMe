@@ -57,12 +57,58 @@ const uploadFile = (file, OCR) => {
             config
           );
           const ocrText = response.data.ParsedResults[0].ParsedText;
-          const prompt = `find the names of the medicines from ${ocrText} and give the dosage and side effects of the medicines and also the when to take the medicines and the duration of the medicines`;
+          const prompt = `
+
+          Hi there! I'm here to help you with the medicines and medical terms you found in the OCR image text. Let's dive in!
+          text:${ocrText}
+          
+          Medicines and Medical Terms:
+          
+          - {Medicine/Medical Term 1}
+          - {Medicine/Medical Term 2}
+          - {Medicine/Medical Term 3}
+          - ...
+          
+          Use Cases:
+          {Use Case 1}: {Description 1}
+          {Use Case 2}: {Description 2}
+          {Use Case 3}: {Description 3}
+          ...
+          
+          Dosage:
+          {Medicine/Medical Term 1} - {Dosage 1}
+          {Medicine/Medical Term 2} - {Dosage 2}
+          {Medicine/Medical Term 3} - {Dosage 3}
+          ...
+          
+          Precautions:
+          - {Precaution 1}
+          - {Precaution 2}
+          - {Precaution 3}
+          - ...
+          
+          Other Information:
+          - {Other Information 1}
+          - {Other Information 2}
+          - {Other Information 3}
+          - ...
+          
+          Fun Fact about Being Healthy:
+          Did you know that {Fun Fact}? Stay healthy!
+          
+          Pointers for Common Conditions:
+          If you're using {Medicine/Medical Term 1}, remember to {Pointer 1}
+          For {Medicine/Medical Term 2}, it's important to {Pointer 2}
+          In case of {Medicine/Medical Term 3}, don't forget to {Pointer 3}
+          And for {Medicine/Medical Term 4}, make sure to {Pointer 4}
+          
+          I hope you find this information helpful! Let me know if you have any questions.`;
 
           const completion = await openai.createCompletion({
             model: "text-davinci-003",
-            max_tokens: 512,
-            temperature: 0,
+            max_tokens: 1300,
+            temperature: 0.5,
+            Top_p: 1,
             prompt: prompt,
           });
           const gptResults = completion.data.choices[0].text;
@@ -187,7 +233,9 @@ module.exports.healthHistory = async (req, res) => {
       return res.status(400).json("No patient id provided");
     }
     const { id } = req.query;
-    const foundPatient = await Patient.findById(id).populate("visits");
+    const foundPatient = await Patient.findById(id)
+      .populate("visits")
+      .populate("doctors");
     res.status(200).json(foundPatient);
   } catch (err) {
     console.log(err);

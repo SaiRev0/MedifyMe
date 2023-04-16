@@ -49,6 +49,7 @@ function Home() {
       <div className={styles.herosection}>
         <div className={styles.img1}>
           <LazyLoadImage src="img1.webp" />
+          <LazyLoadImage src="img1.webp" />
         </div>
         <div className={styles.content}>
           <TypeAnimation
@@ -79,6 +80,7 @@ function Home() {
           <Link to="/health_history">
             <div className={styles.b1}>
               Check your Health History
+              <LazyLoadImage src="history.webp" />
               <LazyLoadImage src="history.webp" />
             </div>
           </Link>
