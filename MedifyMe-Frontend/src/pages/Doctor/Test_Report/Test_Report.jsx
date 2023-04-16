@@ -36,9 +36,6 @@ function Test() {
         <div className={styles.docs}>
           <div className={styles.doc1}>
             <div className={styles.date1}>20 Jan 2023</div>
-            <div className={styles.c}>
-              <img src="" />
-            </div>
           </div>
           <div className={styles.doc1}>
             <div className={styles.date1}>23july 2023</div>
@@ -54,12 +51,6 @@ function Test() {
           </div>
         </div>
       </div>
-      <div className={styles.button}>
-        <a href="">
-          <div className={styles.b}>Create New Record</div>
-        </a>
-      </div>
-
       <div className={styles.docvisit}>
         <div className={styles.t1}>Latest test taken</div>
         <div className={styles.docs2}>
