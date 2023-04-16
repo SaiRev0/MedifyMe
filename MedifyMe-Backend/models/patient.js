@@ -25,8 +25,8 @@ const PatientSchema = new Schema({
     type: String,
     default: null,
   },
-  height: { type: Number, default: null },
-  weight: { type: Number, default: null },
+  height: { type: String, default: null },
+  weight: { type: String, default: null },
   allergies: {
     type: String,
     default: null,
