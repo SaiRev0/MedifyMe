@@ -117,11 +117,15 @@ function Prescription() {
           <ol>
             {selectedPrescription &&
               selectedPrescription.files.map((eachFile, index) => (
-                <li key={index}>{eachFile.ocr}</li>
+                <li
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: eachFile.ocr }}
+                ></li>
               ))}
           </ol>
         </div>
       </div>
+
       <div className={styles.currentPres}>
         <div className={styles.ct}>
           <div className={styles.ct1}>Current Prescription</div>
