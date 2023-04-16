@@ -1,8 +1,8 @@
 .PreH {
     width: 340px;
-    height: 180px;
+    height: 220px;
     background: #2B3E4C;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 20px;
     margin-top: 15px;
     margin-left: 22px;
     padding-bottom: 5px;
@@ -25,14 +25,19 @@
     display: grid;
     grid-template-rows: repeat(5, 40px);
     row-gap: 15px;
-    height: 130px;
+    height: 150px;
     margin-left: 15px;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
+.docs :nth-child(1){
+    background-color: #F5DBA7;
+}
+
 .doc1 {
-    background: #F5DBA7;
+    /* background: #F5DBA7; */
+    background: #f4f4f4;
     border-radius: 15px;
     width: 310px;
     font-family: 'Comfortaa';
@@ -110,11 +115,11 @@
     color: #FFFFFF;
 }
 
-.d {
-    position: absolute;
-    left: 16.5%;
-    bottom:38%;
+.con ol li{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 }
+
 
 .currMed a {
     text-decoration: none;
@@ -133,7 +138,7 @@
     color: #FFFFFF;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 150px;
+    height: 140px;
 }
 
 .currentPres {
@@ -225,8 +230,7 @@
     border-radius:13px;
     font-family: 'Work Sans';
     color:white;
-    overflow-y: auto;
-    overflow-x: hidden;
+    
     height: 160px;
     padding:5px;
     /* display: flex;
@@ -294,6 +298,9 @@
     font-size:13px;
     line-height: 20px;
     margin:0px 2vw;
+    height:80px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .edit_dosage textarea {
@@ -379,4 +386,5 @@ textarea::content{
 
 .date {
     margin-left: 10px;
+    background-color: transparent !important;
 }
