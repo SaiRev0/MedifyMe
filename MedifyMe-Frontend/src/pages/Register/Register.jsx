@@ -25,8 +25,8 @@ function Register() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    messageListRef.current.lastChild.scrollIntoView();
-    inputRef.current.focus();
+    const lastMessage = messageListRef.current.lastChild;
+    lastMessage.scrollIntoView({ behavior: "smooth", block: "end" });
 
     if (lastElement.message.includes("{")) {
       const reqMsg = lastElement.message;
@@ -120,7 +120,7 @@ function Register() {
       navigate("/login");
       toast.warn("Something Went Wrong");
     }
-  }, [navigate, registerResults.data, cookies.patient.token]);
+  }, [navigate, registerResults.data, cookies.patient.token , messages]);
 
   const handleButtonClick = () => {
     const inputValue = inputRef.current.value;

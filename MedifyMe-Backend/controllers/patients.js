@@ -216,7 +216,7 @@ module.exports.register = async (req, res) => {
         medications,
         overview,
       });
-      await patient.save();
+      // await patient.save();
       res
         .status(200)
         .json({ message: "Registered Successfully", patient, status: 200 });
