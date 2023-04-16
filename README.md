@@ -51,7 +51,7 @@ To get started with MedifyMe, follow the steps below:
 - OPENAI's API with prompt engineering
 
 ## UI Design
-The entire UI of MedifyMe has been built in Figma, and the design is available [here](https://www.figma.com/file/p850Ggh3o7Wx06xZKHPmRP/Epsilon-Delta-HackItOut?node-id=0%3A1&t=irTJFFggJAagLQ1M-1)
+The entire UI of MedifyMe has been built in Figma, and the design is available [here](https://www.figma.com/file/p850Ggh3o7Wx06xZKHPmRP/Aaspaas-MedifyMe-GFG?node-id=0%3A1&t=MQ3j3cVIlFJdoxmI-1)
 
 ## Deployment
 MedifyMe is deployed on Google Cloud AMD VM instances. Google Cloud AMD VM instances are virtual machines that provide high performance and scalability. The web application is hosted on the cloud, which offers high availability and accessibility to users.
