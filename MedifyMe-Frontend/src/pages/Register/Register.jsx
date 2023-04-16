@@ -73,7 +73,7 @@ function Register() {
             })
           );
           setCookie(
-            role,
+            "patient",
             {
               token: data.patient.token,
               id: data.patient._id,
@@ -120,7 +120,7 @@ function Register() {
       navigate("/login");
       toast.warn("Something Went Wrong");
     }
-  }, [navigate, registerResults.data, cookies.patient.token , messages]);
+  }, [navigate, registerResults.data, cookies.patient.token, messages]);
 
   const handleButtonClick = () => {
     const inputValue = inputRef.current.value;
