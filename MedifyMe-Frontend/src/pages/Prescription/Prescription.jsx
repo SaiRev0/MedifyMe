@@ -104,7 +104,7 @@ function Prescription() {
                 <p>Ibuprofen:</p> <p className={styles.d}>x1/day</p>
               </li>
               <li>
-                <p>Chlorhexidine mouthwash:</p>{" "}
+                <p>Chlorhexidine mouthwash:</p>
                 <p className={styles.d}>x1/day</p>
               </li>
             </ol>
@@ -129,12 +129,13 @@ function Prescription() {
         </div>
         <div className={styles.cont}>
           <div className={styles.leftcont}>
-            <ol>
-              {selectedPrescription &&
-                selectedPrescription.files.map((eachFile, index) => (
-                  <li key={index}>{eachFile.ocr}</li>
-                ))}
-            </ol>
+            {selectedPrescription &&
+              selectedPrescription.files.map((eachFile, index) => (
+                <div
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: eachFile.ocr }}
+                ></div>
+              ))}
           </div>
           <div className={styles.photo}>
             <div className={styles.uploadedImg}>
@@ -151,7 +152,11 @@ function Prescription() {
               </div>
             </div>
           </div>
-          <div className={styles.lowerSection}>Upload Your Prescriptions Here to see useful insights!</div>
+          {data.prescriptions.length === 0 && (
+            <div className={styles.lowerSection}>
+              Upload Your Prescriptions Here to see useful insights!
+            </div>
+          )}
         </div>
       </div>
     </>
