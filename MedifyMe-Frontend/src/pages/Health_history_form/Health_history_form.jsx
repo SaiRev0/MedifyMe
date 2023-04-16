@@ -73,6 +73,9 @@ function Health_history_form() {
           encType="multipart/form-data"
         >
           <h1 className={styles.header}>Health History Record</h1>
+
+
+
           <div className={styles.input_field}>
             <div>
               <label className={styles.docter_name} htmlFor="doctor-name">
@@ -92,7 +95,7 @@ function Health_history_form() {
               <label className={styles.datediv} htmlFor="date">
                 Date:
               </label>
-              <input
+              <input  
                 className={styles.health_input_date}
                 type="date"
                 id="date"
@@ -102,8 +105,6 @@ function Health_history_form() {
                 required
               />
             </div>
-          </div>
-          <div className={styles.input_field}>
             <div>
               <label className={styles.text_health} htmlFor="doctor-comments">
                 Doctor Comments:
@@ -116,7 +117,6 @@ function Health_history_form() {
                 className={styles.comments}
               ></textarea>
             </div>
-
             <div className={styles.text_patient_comments}>
               <label className={styles.text_health} htmlFor="patient-comments">
                 Patient Comments:
@@ -137,6 +137,7 @@ function Health_history_form() {
                 <span>Upload Documents</span>
               </label>
             </div>
+            <div className={styles.numfiles}>{files.length} files selected</div>
             <input
               className={styles.health_file}
               type="file"
@@ -145,7 +146,7 @@ function Health_history_form() {
               onChange={handleFileChange}
               accept=".jpg, .jpeg, .png, .pdf"
               multiple
-            /><div className={styles.numfiles}>{files.length} files selected</div>
+            />
           </div>
           <div className={styles.submit_btn}>
             <button className={styles.submit_button} type="submit">
