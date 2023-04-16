@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
@@ -28,12 +28,7 @@ const app = express();
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-// app.use(
-//   cors({
-//     // origin: 'https://medifymeiitbhu.me',
-//     origin: "http://localhost:5173",
-//   })
-// );
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
