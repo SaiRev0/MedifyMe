@@ -1,0 +1,36 @@
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background:linear-gradient(90deg,#2B3E4C 40%,#3a566b 80%)
+}
+
+.left{
+    height: 84vh;
+    padding:20px 100px;
+
+}
+
+
+.left h1{
+    font-size: 12vw;
+    color:#CDAA64;
+    margin-bottom: 0px;
+    border-bottom: 10px solid #CDAA64;
+    width:fit-content;
+}
+
+.left h2{
+    color: white;
+    line-height: 40px;
+}
+
+.right{
+    height: 84vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right img{
+    width:66%;
+}
