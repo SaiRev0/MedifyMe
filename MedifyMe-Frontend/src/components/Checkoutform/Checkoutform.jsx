@@ -53,7 +53,7 @@ export default function CheckoutForm() {
   if (import.meta.env.MODE === "development") {
     return_url = "http://localhost:80/video_room";
   } else {
-    return_url = "https://medifyme.netlify.app/video_room";
+    return_url = "https://medifymeiitbhu.me/video_room";
   }
 
   const handleSubmit = async (e) => {
