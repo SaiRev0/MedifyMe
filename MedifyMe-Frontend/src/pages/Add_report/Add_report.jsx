@@ -109,20 +109,22 @@ function Home() {
             required
           />
 
-          <div className={styles.upload_file}>
-            <label className={styles.upload} htmlFor="file-upload">
-              <img src="/Cloud_Upload.webp"></img>
-              <span>Upload Documents</span>
-            </label>
-            <input
-              className={styles.health_file}
-              type="file"
-              id="file-upload"
-              name="file-upload"
-              onChange={handleFileChange}
-              accept=".jpg, .jpeg, .png, .pdf"
-              multiple
-            />
+          <div className={styles.upload_box}>
+            <div className={styles.upload_file}>
+              <label className={styles.upload} htmlFor="file-upload">
+                <img src="/Cloud_Upload.webp"></img>
+                <span>Upload Documents</span>
+              </label>
+              <input
+                className={styles.health_file}
+                type="file"
+                id="file-upload"
+                name="file-upload"
+                onChange={handleFileChange}
+                accept=".jpg, .jpeg, .png, .pdf"
+                multiple
+              />
+            </div>
             <div className={styles.numfiles}>{files.length} files selected</div>
           </div>
           <div className={styles.submit_btn}>
