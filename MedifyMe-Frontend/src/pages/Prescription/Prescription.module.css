@@ -309,7 +309,6 @@
     margin-bottom: 20px;
     margin-top: 10px;
     display: flex;
-    justify-content: center;
 }
 
 .imgGrid {
@@ -319,8 +318,6 @@
     grid-template-columns: repeat(2,1fr);
     grid-gap: 2rem;
     justify-items: center;
-    align-items: center;
-    justify-content: center;
 }
 
 .leftcont{
@@ -329,3 +326,19 @@
     line-height: 28px;
     /* background-color: white; */
 }
+.lowerSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1050px;
+    height: 150%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    margin-top: 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-family: 'Work Sans';
+    font-size: 30px;
+    color: #2B3F4E;
+  }

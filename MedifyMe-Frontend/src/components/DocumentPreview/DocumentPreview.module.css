@@ -1,5 +1,6 @@
 .pdfPreview {
   width: 100px;
+  height: 130px;
   background-color: #eee;
   overflow: hidden;
 }
@@ -8,9 +9,7 @@
   height: 100%;
   object-fit: cover;
 }
-.previewPage:nth-child(3){
-  display: none !important;
-}
+
 .imgPreview {
   border-radius: 0.5rem;
   width: 7rem !important;
@@ -40,7 +39,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: transparent;
+  background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   animation: fadeIn 0.4s ease forwards;
 }
@@ -90,4 +89,52 @@
   margin-top: 10px;
   font-size: 14px;
   text-align: center;
+}
+.pdfModalControls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.pageNumberInput{
+  display: flex;
+  width: 30px;
+}
+.pageNumberSeparator{
+  display: inline;
+  position: relative;
+  bottom: 0;
+  margin-left: 10px;
+}
+.pageNumberTotal{
+  display: inline;
+  position: relative;
+  bottom: 0;
+  margin-left: 10px;
+}
+.pdfModalContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pdfModalPages {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.pdfModalPage {
+  width: 500px;
+  background-color: #eee;
+  overflow: hidden;
+}
+
+.pdfModalScroll {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.pdfModalSlider {
+  width: 100%;
 }
