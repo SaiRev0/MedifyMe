@@ -23,7 +23,6 @@ const PrescriptionSchema = new Schema({
       },
       ocr: {
         type: String,
-        required: true,
       },
     },
   ],
