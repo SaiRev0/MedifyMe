@@ -30,7 +30,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(
   cors({
-    origin: 'https://medifymeiitbhu.me',
+    // origin: 'https://medifymeiitbhu.me',
+    origin: 'http://localhost:5173',
   })
 );
 
