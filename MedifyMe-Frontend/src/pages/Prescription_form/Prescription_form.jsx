@@ -108,7 +108,7 @@ function Home() {
             onChange={(e) => setDate(e.target.value)}
             required
           />
-
+          <div className={styles.upload_box}>
           <div className={styles.upload_file}>
             <label className={styles.upload} htmlFor="file-upload">
               <img src="/Cloud_Upload.webp"></img>
@@ -123,8 +123,11 @@ function Home() {
               accept=".jpg, .jpeg, .png, .pdf"
               multiple
             />
-            <div className={styles.numfiles}>{files.length} files selected</div>
           </div>
+          <div className={styles.numfiles}>{files.length} files selected</div>
+          </div>
+          
+                   
           <div className={styles.submit_btn}>
             <button className={styles.submit_button} type="submit">
               Add

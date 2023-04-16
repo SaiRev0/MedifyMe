@@ -8,7 +8,7 @@ export default function App() {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
-  const url = `${import.meta.env.VITE_SERVER_URL}/payments/create_payment_intent}`
+  const url = 
   
   // let url;
   // if (import.meta.env.MODE === "development") {
@@ -18,7 +18,7 @@ export default function App() {
   // }
 
   useEffect(() => {
-    fetch(url, {
+    fetch(`${import.meta.env.VITE_SERVER_URL}/payments/create_payment_intent`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
