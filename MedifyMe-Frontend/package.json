@@ -10,11 +10,11 @@
     "start": "start http://localhost:5173/& npm run dev"
   },
   "dependencies": {
-    "@react-oauth/google": "^0.8.0",
+    "@react-oauth/google": "^0.11.0",
     "@reduxjs/toolkit": "^1.9.3",
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.52.1",
-    "@videosdk.live/react-sdk": "^0.1.68",
+    "@videosdk.live/react-sdk": "^0.1.74",
     "axios": "^1.4.0",
     "http-proxy": "^1.18.1",
     "pdfjs-dist": "^3.5.141",
@@ -24,7 +24,7 @@
     "react-lazy-load-image-component": "^1.5.6",
     "react-player": "^2.12.0",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.10.0",
+    "react-router-dom": "^6.11.2",
     "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^9.1.1",
     "react-type-animation": "^3.0.1",
