@@ -80,7 +80,11 @@ function HealthHistory() {
       <Navbar />
       <div className={styles.history}>
         <div className={styles.d1}>
-          <img src={data.photo} />
+          <img
+            src={data.photo}
+            alt="Patient Photo"
+            referrerPolicy="no-referrer"
+          />
           <ul>
             <li>Name : &nbsp;&nbsp;{data.name}</li>
             <li>Gender : &nbsp;&nbsp;{data.gender}</li>
