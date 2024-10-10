@@ -5,7 +5,7 @@ const Visit = require("../models/visit");
 const Request = require("../models/request");
 const Prescription = require("../models/prescription");
 const Test = require("../models/test");
-const { Storage } = require("@google-cloud/storage");
+
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const { Configuration, OpenAIApi } = require("openai");
@@ -16,74 +16,79 @@ const config = new Configuration({
 const openai = new OpenAIApi(config);
 
 const FormData = require("form-data");
-const storage = new Storage({
-  projectId: "medifyme-fullstack",
-  keyFilename: "medifyme.json",
+
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
+
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-const bucket = storage.bucket("medifyme-upload");
+
+
 
 const uploadFile = (file, OCR) => {
   return new Promise((resolve, reject) => {
-    const extension = path.extname(file.originalname);
-    const newName = `${path.basename(
-      file.originalname,
-      extension
-    )}-${uuidv4()}${extension}`;
-    file.originalname = newName;
+    const fileExtension = path.extname(file.originalname).toLowerCase();
+    const resourceType = fileExtension === ".pdf" ? "raw" : "image";
 
-    const blob = bucket.file(newName);
-    const blobStream = blob.createWriteStream();
-
-    blobStream.on("finish", async () => {
-      const fileUrl = `https://storage.googleapis.com/${bucket.name}/${newName}`;
-
-      if (OCR) {
-        const ocrApiKey = process.env.OCR_API_KEY;
-        const formData = new FormData();
-        formData.append("url", fileUrl);
-        formData.append("OCREngine", 5);
-        formData.append("filetype", "PNG");
-
-        const config = {
-          headers: {
-            apikey: ocrApiKey,
-            "Content-Type": "image/png",
-          },
-        };
-        try {
-          const response = await axios.post(
-            "https://api.ocr.space/parse/image",
-            formData,
-            config
-          );
-          const ocrText = response.data.ParsedResults[0].ParsedText;
-          const content = `Please analyze the plain text obtained via OCR from an image of a prescription. The text is : ${ocrText} Provide the dosage, precautions, and pointers for each medicine listed. Additionally, include a section on Medicine General Information that highlights the potential condition the combination of medicines may indicate. Finally, offer 2-3 general health suggestions and facts related to the conditions that these medicines may cure. Send the output in HTML format, only using the tags <p>, <h3> <ul> and <li> . Do not use any inverted commas or /n`;
-          const { data } = await openai.createChatCompletion({
-            model: "gpt-3.5-turbo",
-            temperature: 0.5,
-            messages: [{ role: "user", content }],
-          });
-          const gptResults = data.choices[0].message.content;
-          const result = {
-            url: fileUrl,
-            ocr: gptResults,
-          };
-          resolve(result);
-        } catch (err) {
-          console.error(err);
-          reject(err);
+    cloudinary.uploader.upload_stream(
+      { resource_type: resourceType, folder: "MedifyMe" },
+      async (error, result) => {
+        if (error) {
+          console.error(`Cloudinary upload failed: ${error.message}`, error);
+          return reject(new Error("Cloudinary upload failed"));
         }
-      } else {
-        resolve(fileUrl);
+        const fileUrl = result.secure_url;
+
+        if (OCR && resourceType === "image") {
+          const ocrApiKey = process.env.OCR_API_KEY;
+          const formData = new FormData();
+          formData.append("url", fileUrl);
+          formData.append("OCREngine", 5);
+          formData.append("filetype", "PNG");
+
+          const config = {
+            headers: {
+              apikey: ocrApiKey,
+              "Content-Type": "image/png",
+            },
+          };
+          try {
+            const response = await axios.post(
+              "https://api.ocr.space/parse/image",
+              formData,
+              config
+            );
+            const ocrText = response.data.ParsedResults[0].ParsedText;
+            const content = `Please analyze the plain text obtained via OCR from an image of a prescription. The text is: ${ocrText} Provide the dosage, precautions, and pointers for each medicine listed. Additionally, include a section on Medicine General Information that highlights the potential condition the combination of medicines may indicate. Finally, offer 2-3 general health suggestions and facts related to the conditions that these medicines may cure. Send the output in HTML format, only using the tags <p>, <h3> <ul> and <li>. Do not use any inverted commas or /n`;
+            const { data } = await openai.createChatCompletion({
+              model: "gpt-3.5-turbo",
+              temperature: 0.5,
+              messages: [{ role: "user", content }],
+            });
+            const gptResults = data.choices[0].message.content;
+            const result = {
+              url: fileUrl,
+              ocr: gptResults,
+            };
+            resolve(result);
+          } catch (err) {
+            console.error(`OCR request failed: ${err.message}`, err);
+            reject(new Error("OCR request failed"));
+          }
+        } else {
+          resolve(fileUrl);
+        }
       }
-    });
-    blobStream.on("error", (err) => {
-      console.log(`File ${newName} upload failed: ${err}`);
-      reject(err);
-    });
-    blobStream.end(file.buffer);
+    ).end(file.buffer); // Ensure the file buffer is sent here
   });
 };
+
+
+
 
 // React Login
 module.exports.login = async (req, res) => {
@@ -244,43 +249,56 @@ module.exports.prescription = async (req, res) => {
 };
 
 module.exports.prescriptionForm = async (req, res) => {
+  
+
   try {
     if (!req.body.id) {
+      console.error("No patient id provided in request");
       return res.status(400).json("No patient id provided");
     }
-    const { id } = req.body;
-    const foundPatient = await Patient.findById(id);
-    const fileResults = [];
 
-    for (const file of req.files) {
-      const result = await uploadFile(file, true);
-      fileResults.push(result);
+    if (!req.files || req.files.length === 0) {
+      console.error("No files provided in request");
+      return res.status(400).json("No files provided");
     }
 
+    const { id } = req.body;
+    const foundPatient = await Patient.findById(id);
+    if (!foundPatient) {
+      return res.status(404).json("Patient not found");
+    }
+
+    // Upload files, preserving `url` and `ocr` if present
+    const fileResults = await Promise.all(req.files.map(async (file) => {
+      const fileData = await uploadFile(file, true); // Set OCR to true if you want OCR data
+      return { url: fileData.url, ocr: fileData.ocr || null }; // Ensure each entry is { url, ocr }
+    }));
+
+    // Create and save prescription
     const prescription = new Prescription({
       date: req.body.date,
       medications: req.body.medications,
       prescriptionComments: req.body.prescriptionComments,
       patient: id,
-      files: fileResults,
+      files: fileResults, // Structured as expected by the model
     });
 
     await prescription.save();
-    const prescriptionId = prescription._id.toString();
-    foundPatient.prescriptions.push(prescriptionId);
+
+    // Add the new prescription ID to the patient's record
+    foundPatient.prescriptions.push(prescription._id.toString());
     await foundPatient.save();
 
     res.status(200).json(prescription);
+
   } catch (err) {
-    console.log(err);
+    console.error("Error in prescriptionForm:", err);
     res.status(400).json("Something Went Wrong!");
   }
-  const fileUrls = [];
-
-  for (const file of req.files) {
-    await uploadFile(file, fileUrls);
-  }
 };
+
+
+
 
 module.exports.test = async (req, res) => {
   try {
