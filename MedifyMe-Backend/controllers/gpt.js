@@ -1,24 +1,28 @@
-const { Configuration, OpenAIApi } = require("openai");
+const axios = require("axios");
 
-const config = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+module.exports.chatGPT = async (req, res) => {
+  const { messages } = req.body;
 
-const openai = new OpenAIApi(config);
+  const apiKey = process.env.OPENAI_API_KEY;
 
-module.exports.renderYo = (req, res) => {
-  res.render("prompt");
-};
+  try {
+    const response = await axios.post(
+      "https://api.openai.com/v1/chat/completions",
+      {
+        model: "gpt-3.5-turbo",
+        messages,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-module.exports.prompt = async (req, res) => {
-  const { prompt } = req.body;
-
-  const completion = await openai.createCompletion({
-    model: "text-davinci-003",
-    max_tokens: 512,
-    temperature: 0,
-    prompt: prompt,
-  });
-
-  res.send(completion.data.choices[0].text);
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error fetching chat completions:", error);
+    res.status(500).json({ error: "Failed to fetch chat completions" });
+  }
 };

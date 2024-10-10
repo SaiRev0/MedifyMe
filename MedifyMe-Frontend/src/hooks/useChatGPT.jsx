@@ -1,7 +1,7 @@
 import { useState } from "react";
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 function useChatGPT({ content, InitialMessage }) {
-  const API_KEY = import.meta.env.VITE_API_KEY;
   const systemMessage = {
     role: "system",
     content: content,
@@ -45,26 +45,24 @@ function useChatGPT({ content, InitialMessage }) {
       messages: [systemMessage, ...apiMessages],
     };
 
-    await fetch("https://api.openai.com/v1/chat/completions", {
+    // Call backend API instead of OpenAI API
+    const backendResponse = await fetch(`${SERVER_URL}/gpt`, {
       method: "POST",
       headers: {
-        Authorization: "Bearer " + API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(apiRequestBody),
-    })
-      .then((data) => {
-        return data.json();
-      })
-      .then((data) => {
-        setMessages([
-          ...chatMessages,
-          {
-            message: data.choices[0].message.content,
-            sender: "ChatGPT",
-          },
-        ]);
-      });
+    });
+
+    const data = await backendResponse.json();
+
+    setMessages([
+      ...chatMessages,
+      {
+        message: data.choices[0].message.content,
+        sender: "ChatGPT",
+      },
+    ]);
   }
 
   return { messages, handleSend };
