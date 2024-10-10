@@ -6,7 +6,6 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
-const ejsMate = require("ejs-mate");
 const morgan = require("morgan");
 const dbUrl = process.env.DB_URL;
 const patientRoutes = require("./routes/patients");
@@ -25,8 +24,6 @@ mongoose
   });
 
 const app = express();
-app.engine("ejs", ejsMate);
-app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(cors());
 
