@@ -12,6 +12,7 @@ import {
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { patientApi } from "./apis/patientsApi";
 import { doctorApi } from "./apis/doctorsApi";
+import { gptApi } from "./apis/gptApi";
 
 const store = configureStore({
   reducer: {
@@ -19,11 +20,13 @@ const store = configureStore({
     [patientApi.reducerPath]: patientApi.reducer,
     doctor: doctorReducer,
     [doctorApi.reducerPath]: doctorApi.reducer,
+    [gptApi.reducerPath]: gptApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
       .concat(patientApi.middleware)
-      .concat(doctorApi.middleware);
+      .concat(doctorApi.middleware)
+      .concat(gptApi.middleware);
   },
 });
 
@@ -55,3 +58,5 @@ export {
   useFetchPatientsQuery,
   useAcceptPatientsMutation,
 } from "./apis/doctorsApi";
+
+export { useChatMutation } from "./apis/gptApi";
