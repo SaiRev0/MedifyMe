@@ -43,13 +43,14 @@ function Home() {
 
     const formData = new FormData();
     formData.append("date", date);
-    formData.append("medication", medication);
+    formData.append("medications", medication);
     formData.append("prescriptionComments", prescriptionComments);
     formData.append("id", patient.id);
 
     for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i]);
-    }
+      formData.append("files", files[i]); // Ensure 'files' aligns with multer config
+  }
+  
 
     try {
       await form(formData);
